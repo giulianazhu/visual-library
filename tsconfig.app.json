@@ -8,6 +8,8 @@
     "skipLibCheck": true,
     // enable integration of js file inside ts project, e.g. auto import modules from .js files
     "allowJs": true,
+    // allow using of vitest globals in test files without importing
+    "types": ["vitest/globals", "@testing-library/jest-dom"],
 
     /* Bundler mode */
     "moduleResolution": "bundler",
