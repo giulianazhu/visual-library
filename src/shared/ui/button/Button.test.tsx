@@ -8,7 +8,8 @@ describe('Button Component', () => {
   it('renders the button with the correct label', () => {
     render(<Button label="Click Me" onClick={() => {}} />)
     // screen ==> queries the rendered DOM
-    expect(screen.getByText('Click Me')).toBeInTheDocument()
+    const el = screen.getByText('Click Me')
+    expect(el).toBeInTheDocument()
   })
 
   it('calls the onClick handler when clicked', async () => {

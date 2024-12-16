@@ -1,6 +1,8 @@
-const {{pascalCase name}} = () => {
+import style from './styles.module.scss';
+
+function {{pascalCase name}}(){
   return (
-    <div>{{pascalCase name}}</div>
+    <div className={style['{{kebabCase name}}']}>{{pascalCase name}}</div>
   )
 }
 

@@ -1,35 +1,37 @@
-import actions from '../actions/controller.js'
+const templatePath = 'plop/templates/component'
 
-const validateInput = (input) => {
-  return input ? true : 'Input Required'
+const actions = ({ isShared }) => {
+  let outputPath = 'src/##folder##{{kebabCase name}}'
+
+  if (isShared) {
+    outputPath = outputPath.replace('##folder##', 'shared/ui/')
+  } else {
+    outputPath = outputPath.replace('##folder##', `/features/{{kebabCase featureName}}/ui/`)
+  }
+
+  const actions = [
+    {
+      type: 'add',
+      templateFile: `${templatePath}/component.scss.hbs`,
+      path: `${outputPath}/styles.module.scss`,
+    },
+    {
+      type: 'add',
+      templateFile: `${templatePath}/index.ts.hbs`,
+      path: `${outputPath}/index.ts`,
+    },
+    {
+      type: 'add',
+      templateFile: `${templatePath}/component.tsx.hbs`,
+      path: `${outputPath}/{{pascalCase name}}.tsx`,
+    },
+    {
+      type: 'add',
+      templateFile: `${templatePath}/component.test.tsx.hbs`,
+      path: `${outputPath}/{{pascalCase name}}.test.tsx`,
+    },
+  ].filter(Boolean)
+  return actions
 }
-const generator = {
-  description: 'Create Controller Component',
-  prompts: [
-    {
-      type: 'input',
-      name: 'name',
-      message: 'Controller Name:',
-      validate: validateInput,
-    },
 
-    {
-      type: 'confirm',
-      name: 'isShared',
-      message: 'Is it a shared controller?',
-    },
-
-    {
-      type: 'input',
-      name: 'pageName',
-      message: 'Name of the page it belongs to',
-      validate: validateInput,
-      when(answers) {
-        return !answers.isShared
-      },
-    },
-  ],
-  actions: actions,
-}
-
-export default generator
+export default actions

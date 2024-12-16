@@ -1,0 +1,149 @@
+// SPACING
+//////////////////////////////////////////////////////////////////////////
+
+$widths: 10, 20, 30, 40, 50, 60, 70, 80, 90, 100;
+@each $width in $widths {
+  .w-#{$width} {
+    width: #{$width + '%'};
+  }
+}
+
+$heights: 10, 20, 30, 40, 50, 60, 70, 80, 90, 100;
+@each $height in $heights {
+  .h-#{$height} {
+    height: #{$height + '%'};
+  }
+}
+
+$absolutewidths: 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000;
+@each $width in $absolutewidths {
+  .w-ab-#{$width} {
+    width: $width + px;
+  }
+}
+
+$absoluteheights: 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000;
+@each $height in $absoluteheights {
+  .h-ab-#{$height} {
+    height: $height + px;
+  }
+}
+
+$sizes: 0, 5, 10, 15, 16, 20, 24, 25, 30, 40, 50, 60, 70, 80, 90, 100;
+
+@each $size in $sizes {
+  // MARGINS
+  .m-#{$size} {
+    margin: $size + px !important;
+  }
+
+  .mt-#{$size} {
+    margin-top: $size + px !important;
+  }
+
+  .mr-#{$size} {
+    margin-right: $size + px !important;
+  }
+
+  .mb-#{$size} {
+    margin-bottom: $size + px !important;
+  }
+
+  .ml-#{$size} {
+    margin-left: $size + px !important;
+  }
+
+  .mx-#{$size} {
+    margin-left: $size + px !important;
+    margin-right: $size + px !important;
+  }
+
+  .my-#{$size} {
+    margin-top: $size + px !important;
+    margin-bottom: $size + px !important;
+  }
+
+  // PADDINGS
+  .p-#{$size} {
+    padding: $size + px !important;
+  }
+
+  .pt-#{$size} {
+    padding-top: $size + px !important;
+  }
+
+  .pr-#{$size} {
+    padding-right: $size + px !important;
+  }
+
+  .pb-#{$size} {
+    padding-bottom: $size + px !important;
+  }
+
+  .pl-#{$size} {
+    padding-left: $size + px !important;
+  }
+
+  .px-#{$size} {
+    padding-left: $size + px !important;
+    padding-right: $size + px !important;
+  }
+
+  .py-#{$size} {
+    padding-top: $size + px !important;
+    padding-bottom: $size + px !important;
+  }
+}
+
+// ALIGNMENT
+//////////////////////////////////////////////////////////////////////////
+$values: left, center, right;
+
+@each $value in $values {
+  .align-#{$value} {
+    text-align: $value;
+  }
+}
+
+// VISIBILITY
+//////////////////////////////////////////////////////////////////////////
+$viewports: (
+  'xs': '479px',
+  'sm': '575px',
+  'md': '767px',
+  'lg': '991px',
+  'xl': '1199px',
+  'xxl': '1599px',
+);
+@each $viewport, $pixel in $viewports {
+  .hidden-#{$viewport}-down {
+    @media (max-width: $pixel) {
+      display: none;
+    }
+  }
+}
+
+$viewports: (
+  'xs': '480px',
+  'sm': '576px',
+  'md': '768px',
+  'lg': '992px',
+  'xl': '1200px',
+  'xxl': '1600px',
+);
+@each $viewport, $pixel in $viewports {
+  .hidden-#{$viewport}-up {
+    @media (min-width: $pixel) {
+      display: none;
+    }
+  }
+}
+
+// TYPOGRAPHY
+$weights: 100, 200, 300, 400, 500, 600, 700, 800, 900, lighter, light, normal, bold, bolder;
+
+@each $weight in $weights {
+  .font-#{$weight} {
+    font-weight: $weight !important; //needed to override ant builtin font-weight
+  }
+}

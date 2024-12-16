@@ -1,0 +1,146 @@
+@use 'variables';
+@use 'mixins';
+@use 'functions';
+@use 'reset';
+@use 'base';
+@use 'typography';
+
+:root {
+  letter-spacing: 0.3px;
+}
+
+// LAYOUT AND SPACING
+
+.ant-menu,
+.ant-space,
+.ant-row,
+.ant-tabs,
+.ant-form,
+.ant-select,
+.ant-table-wrapper,
+.ant-picker.ant-picker-outlined,
+.ant-input-number {
+  width: 100%;
+}
+
+.ant-table-cell .ant-form-item {
+  margin-block-end: 0;
+}
+
+.ant-layout-header,
+.ant-layout-footer {
+  padding-inline: 1.5rem;
+}
+
+// FORM RELATED
+
+form {
+  input,
+  .input,
+  .ant-input,
+  .ant-select,
+  .ant-select .ant-select-selector,
+  .ant-select .ant-select-selector span.ant-select-selection-item,
+  .ant.textarea,
+  .ant-date-picker,
+  .ant-switch {
+    font-weight: 600;
+    &::placeholder {
+      font-weight: 500;
+    }
+  }
+  .ant-select .ant-select-selector,
+  .ant-select-selection-search-input {
+    font-weight: 500;
+  }
+  .ant-form-item {
+    margin-block-end: 0;
+  }
+}
+
+// TYPOGRAPHY
+
+.ant-typography.font-primary,
+.font-primary {
+  color: variables.$primary-color;
+}
+
+.subtitle {
+  color: variables.$grey-color;
+}
+
+.subtitle-sm {
+  font-size: 13px;
+}
+
+.subtitle-md {
+  font-size: 16px;
+}
+
+.react-icon {
+  color: inherit;
+}
+
+// BUTTONS
+
+.ant-btn {
+  display: flex;
+  align-items: center;
+}
+
+body .ant-btn .react-icon,
+body button .react-icon,
+#root .ant-btn .react-icon,
+#root button .react-icon {
+  font-size: 15px;
+}
+
+button.ant-btn.ant-btn-text {
+  padding-block: 0;
+  align-items: end;
+  text-decoration: underline;
+  color: variables.$grey-color;
+}
+
+// OTHER
+// .ant-table.ant-table-scroll-horizontal .ant-table-container .ant-table-content {
+//   &::-webkit-scrollbar {
+//     width: 6px !important;
+//     height: 6px !important;
+//     background-color: #0c0a0b !important;
+//   }
+
+//   &::-webkit-scrollbar-thumb {
+//     // background: linear-gradient(14.93deg, #868686 -42.27%, #eb832e 95.89%);
+//     height: 500px !important;
+//     border-radius: 4px !important;
+//   }
+// }
+
+// :where(.css-dev-only-do-not-override-1qn07u7)div.ant-table-wrapper .ant-table.ant-table-scroll-horizontal {
+//   scrollbar-color: orange !important;
+//   &::-webkit-scrollbar {
+//     width: 6px !important;
+//     height: 6px !important;
+//     background-color: #0c0a0b !important;
+//   }
+
+//   &::-webkit-scrollbar-thumb {
+//     background: linear-gradient(14.93deg, #868686 -42.27%, #eb832e 95.89%);
+//     height: 500px !important;
+//     border-radius: 4px !important;
+//   }
+// }
+
+// div {
+//   &::-webkit-scrollbar {
+//     width: 6px;
+//     height: 6px;
+//     background-color: #0c0a0b;
+//   }
+//   &::-webkit-scrollbar-thumb {
+//     background: linear-gradient(14.93deg, #868686 -42.27%, #eb832e 95.89%);
+//     height: 500px;
+//     border-radius: 4px;
+//   }
+// }

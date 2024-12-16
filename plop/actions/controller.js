@@ -1,12 +1,12 @@
 const templatePath = 'plop/templates/controller'
 
-const actions = ({ isShared, pageName }) => {
+const actions = ({ isShared }) => {
   let outputPath = `src/##folder##{{kebabCase name}}{{suffix}}`
 
   if (isShared) {
     outputPath = outputPath.replace('##folder##', 'shared/controllers/')
   } else {
-    outputPath = outputPath.replace('##folder##', `/pages/{{kebabCase pageName}}/controllers/`)
+    outputPath = outputPath.replace('##folder##', `/features/{{kebabCase featureName}}/controllers/`)
   }
   const actions = [
     {
@@ -18,6 +18,11 @@ const actions = ({ isShared, pageName }) => {
       type: 'add',
       templateFile: `${templatePath}/controller.tsx.hbs`,
       path: `${outputPath}/{{pascalCase name}}.tsx`,
+    },
+    {
+      type: 'add',
+      templateFile: `${templatePath}/controller.test.tsx.hbs`,
+      path: `${outputPath}/{{pascalCase name}}.test.tsx.hbs`,
     },
   ].filter(Boolean)
   return actions

@@ -1,0 +1,61 @@
+// BREAKPOINT
+$breakpoints: (
+  'size-xs': '480',
+  'size-sm': '576',
+  'size-md': '768',
+  'size-lg': '992',
+  'size-xl': '1233',
+  'size-xxl': '1600',
+);
+
+@mixin breakpoint($point) {
+  @if $point== 'size-xs-up' {
+    @media only screen and (min-width: 480px) {
+      @content;
+    }
+  } @else if $point== 'size-sm-up' {
+    @media only screen and (min-width: 576px) {
+      @content;
+    }
+  } @else if $point== 'size-md-up' {
+    @media only screen and (min-width: 768px) {
+      @content;
+    }
+  } @else if $point== 'size-lg-up' {
+    @media only screen and (min-width: 992px) {
+      @content;
+    }
+  } @else if $point== 'size-xl-up' {
+    @media only screen and (min-width: 1233px) {
+      @content;
+    }
+  } @else if $point== 'size-xxl-up' {
+    @media only screen and (min-width: 1600px) {
+      @content;
+    }
+  } @else if $point== 'size-xs-down' {
+    @media only screen and (max-width: 479px) {
+      @content;
+    }
+  } @else if $point== 'size-sm-down' {
+    @media only screen and (max-width: 575px) {
+      @content;
+    }
+  } @else if $point== 'size-md-down' {
+    @media only screen and (max-width: 767px) {
+      @content;
+    }
+  } @else if $point== 'size-lg-down' {
+    @media only screen and (max-width: 991px) {
+      @content;
+    }
+  } @else if $point== 'size-xl-down' {
+    @media only screen and (max-width: 1232px) {
+      @content;
+    }
+  } @else if $point== 'size-xxl-down' {
+    @media only screen and (max-width: 1599px) {
+      @content;
+    }
+  }
+}

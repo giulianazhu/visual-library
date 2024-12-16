@@ -1,7 +1,7 @@
 // import type { Resources, Attributes, ErrorCode } from './enums'
 
-export type Locale = 'en' | 'cn' | 'jp';
-export type Label = 'local' | 'server';
+export type Locale = 'en' | 'cn' | 'jp'
+export type LabelSource = 'local' | 'server'
 
 // export interface ApplicationError {
 //   id: number
@@ -26,9 +26,13 @@ export type Label = 'local' | 'server';
 //   detail: object | null
 // }
 
-// export type JsonObject = { [key: string]: any }
+export interface JsonObject {
+  [key: string]: any
+}
 
-// export type KeyValue = { [key: string]: string | number | boolean }
+export interface KeyValue {
+  [key: string]: string | number | boolean
+}
 
 // export type AuthenticationTokens = {
 //   refreshToken: string

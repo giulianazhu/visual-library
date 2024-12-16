@@ -5,13 +5,13 @@ const validateInput = (input) => {
 }
 
 const generator = {
-  description: 'Create Controller Component',
+  description: 'React Controller',
   prompts: [
     {
       type: 'input',
       name: 'name',
       message: 'Controller Name:',
-      validate: validateInputNotNull,
+      validate: validateInput,
     },
 
     {
@@ -22,9 +22,9 @@ const generator = {
 
     {
       type: 'input',
-      name: 'pageName',
-      message: 'Name of the page it belongs to',
-      validate: validateInputNotNull,
+      name: 'featureName',
+      message: 'Name of the feature it belongs to',
+      validate: validateInput,
       when(answers) {
         return !answers.isShared
       },

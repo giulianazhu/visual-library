@@ -2,16 +2,18 @@ import { useTranslation } from 'react-i18next'
 import style from './styles.module.scss';
 
 interface {{pascalCase name}}Props {
-  prop1: string
+  prop: string
 }
 
-const {{pascalCase name}} = ({prop1}: {{pascalCase name}}Props) => {
+function {{pascalCase name}}({prop}: {{pascalCase name}}Props){
 
   const { t } = useTranslation()
 
-  return (<>{t('{{pascalCase name}}')}</>)
+  return (
+    <div className={style['{{kebabCase name}}']}>
+      {t('{{pascalCase name}}')}
+    </div>
+  )
 }
-
-{{pascalCase name}}.displayName = '{{pascalCase name}}'
 
 export default {{pascalCase name}}
