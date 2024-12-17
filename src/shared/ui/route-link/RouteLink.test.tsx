@@ -1,12 +1,12 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import {{pascalCase name}} from './{{pascalCase name}}'
+import Button from './Button'
 
 
-describe('{{pascalCase name}} Component', () => {
+describe('RouteLink Component', () => {
 
   it('renders correctly', () => {
-    render(<{{pascalCase name}} />)
+    render(<RouteLink />)
     const el = screen.getByText('')
     expect(el).toBeInTheDocument()
   })
@@ -14,7 +14,7 @@ describe('{{pascalCase name}} Component', () => {
   // it('handles user interaction', async () => {
 
   // const handleEvent = vi.fn()
-  // render(<{{pascalCase name}} />)
+  // render(<RouteLink />)
 
    // await userEvent.click(screen.getByText('Click Me'))
    // expect(handleEvent).toHaveBeenCalledTimes(1)

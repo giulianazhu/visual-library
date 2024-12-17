@@ -1,6 +1,6 @@
 import type { ThemeConfig } from 'antd/es/config-provider'
 
-const color = {
+export const color = {
   primary: '#9290C3',
 }
 
@@ -11,7 +11,7 @@ export const commonTheme: ThemeConfig = {
     colorLinkHover: color.primary,
     colorLinkActive: color.primary,
     colorError: color.primary,
-    fontSize: 13,
+    fontSize: 16,
     fontSizeHeading1: 40,
     lineHeightHeading1: 1.5,
     fontSizeHeading2: 32,
@@ -19,10 +19,10 @@ export const commonTheme: ThemeConfig = {
     fontSizeHeading5: 16,
 
     fontWeightStrong: 500,
-    borderRadius: 4,
-    borderRadiusLG: 4,
-    borderRadiusSM: 4,
-    borderRadiusXS: 4,
+    borderRadius: 8,
+    borderRadiusLG: 8,
+    borderRadiusSM: 8,
+    borderRadiusXS: 8,
 
     controlHeight: 40,
     controlHeightLG: 48,
@@ -76,7 +76,6 @@ export const commonTheme: ThemeConfig = {
       lineWidth: 1.5,
       errorActiveShadow: `0 0 0 2px ${color.primary}`,
       colorTextDisabled: 'grey',
-      fontWeightStrong: 600,
     },
     Select: {
       colorPrimary: color.primary,

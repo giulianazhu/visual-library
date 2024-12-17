@@ -10,7 +10,6 @@
 }
 
 // LAYOUT AND SPACING
-
 .ant-menu,
 .ant-space,
 .ant-row,
@@ -21,6 +20,11 @@
 .ant-picker.ant-picker-outlined,
 .ant-input-number {
   width: 100%;
+}
+
+.ant-flex {
+  max-width: 100%;
+  height: 100%;
 }
 
 .ant-table-cell .ant-form-item {
@@ -43,16 +47,6 @@ form {
   .ant-select .ant-select-selector span.ant-select-selection-item,
   .ant.textarea,
   .ant-date-picker,
-  .ant-switch {
-    font-weight: 600;
-    &::placeholder {
-      font-weight: 500;
-    }
-  }
-  .ant-select .ant-select-selector,
-  .ant-select-selection-search-input {
-    font-weight: 500;
-  }
   .ant-form-item {
     margin-block-end: 0;
   }

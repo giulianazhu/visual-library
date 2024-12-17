@@ -1,5 +1,7 @@
 import { theme } from 'antd'
 import type { ThemeConfig } from 'antd/es/config-provider'
+import { darkThemeColors } from './dark'
+import { color } from './common'
 
 // 9AA6B2,BCCCDC
 const borderColor = '#ced4da'
@@ -38,6 +40,8 @@ export const lightTheme: ThemeConfig = {
       colorBgContainer: '#ffffff',
       colorTextLightSolid: '#ffffff',
       defaultBorderColor: borderColor,
+      colorLinkHover: '#4a80f5',
+      colorBgSolidHover: 'red',
     },
     Radio: {
       colorBgContainer: 'rgba(0, 0, 0, 0.08)',
@@ -86,7 +90,7 @@ export const lightTheme: ThemeConfig = {
       colorBorder: bgColor.primary,
     },
     Switch: {
-      colorPrimary: 'grey',
+      colorPrimary: color.primary,
     },
   },
 }

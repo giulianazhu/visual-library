@@ -7,8 +7,8 @@ import { Theme } from '@app-types/enums'
 import { ErrorBoundary } from 'react-error-boundary'
 import ThemeProvider from 'core/providers/theme'
 import SeoProvider from 'core/providers/seo'
-import { Layout } from 'antd'
 import routes from '@configs/routes'
+import AppLayout from 'shared/layouts/app-layout/AppLayout'
 
 const Login = lazy(() => import('@pages/login'))
 const Signup = lazy(() => import('@pages/signup'))
@@ -26,29 +26,31 @@ function App() {
       <SeoProvider defaultTitle="Vision">
         <IconContext.Provider value={{ className: 'react-icon' }}>
           <ThemeProvider initialTheme={Theme.Light}>
-            <Layout>
-              <ErrorBoundary fallback={<div>Error</div>}>
-                {/* <AuthProvider> */}
-                {/* <UserProvider> */}
-                <Routes>
-                  <Route path={routes.login.url} element={<Login />} />
-                  <Route path={routes.signup.url} element={<Signup />} />
-                  {/* <ProtectedRoutes> */}
-                  <Route index element={<Navigate replace to="dashboard" />} />
+            <ErrorBoundary fallback={<div>Error</div>}>
+              {/* <AuthProvider> */}
+              {/* <UserProvider> */}
+              <Routes>
+                {/* <ProtectedRoutes> */}
 
+                <Route path="/" element={<AppLayout />}>
+                  <Route index element={<Navigate replace to="dashboard" />} />
                   <Route path={routes.dashboard.url} element={<Dashboard />} />
                   <Route path={routes.board.url} element={<Board />} />
-                  <Route path={routes.vision.url} element={<Vision />} />
+                  <Route path={routes.image.url} element={<Vision />} />
+                  <Route path={routes.practice.url} element={<Vision />} />
+                </Route>
+                <Route path={routes.settings.url} element={<Settings />} />
+                <Route path={routes.help.url} element={<Help />} />
 
-                  <Route path={routes.settings.url} element={<Settings />} />
-                  <Route path={routes.help.url} element={<Help />} />
+                <Route path={routes.login.url} element={<Login />} />
+                <Route path={routes.signup.url} element={<Signup />} />
+              </Routes>
 
-                  {/* </ProtectedRoutes> */}
-                </Routes>
-                {/* </UserProvider> */}
-                {/* </AuthProvider> */}
-              </ErrorBoundary>
-            </Layout>
+              {/* </ProtectedRoutes> */}
+
+              {/* </UserProvider> */}
+              {/* </AuthProvider> */}
+            </ErrorBoundary>
           </ThemeProvider>
         </IconContext.Provider>
       </SeoProvider>

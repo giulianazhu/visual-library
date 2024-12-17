@@ -1,5 +1,40 @@
 {
   "translation": {
     "welcome": "Welcome back"
+  },
+  "app": {
+    "title": "Visual Library"
+  },
+  "auth": {
+    "login": "Login",
+    "signup": "Sign up",
+    "logout": "Logout",
+    "username": "Username",
+    "password": "Password",
+    "forgotPassword": "Forgot password?",
+    "resetPassword": "Reset password",
+    "newPassword": "New password"
+  },
+  "user": {
+    "nickname": "Nickname",
+    "email": "Email",
+    "phone": "Phone",
+    "avatar": "Avatar"
+  },
+  "dashboard": {
+    "dashboard": "Dashboard"
+  },
+  "board": {
+    "board": "Board"
+  },
+  "practice": {
+    "practice": "Practice"
+  },
+  "settings": {
+    "settings": "Settings"
+  },
+  "placeholder": {
+    "search": "Search...",
+    "searchBoard": "Search board by title or description..."
   }
 }

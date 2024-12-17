@@ -7,7 +7,14 @@ const textColor = {
 
 const bgColor = {
   primary: '#070F2B',
-  secondary: '#1B1A55',
+  secondary: '#2b303a',
+}
+
+export const darkThemeColors = {
+  text: '#F5F7F9',
+  textHover: '#ffd480',
+  bgPrimary: '#070F2B',
+  bgSecondary: '#2b303a',
 }
 
 export const darkTheme: ThemeConfig = {
@@ -93,7 +100,7 @@ export const darkTheme: ThemeConfig = {
       colorBorder: bgColor.primary,
     },
     Switch: {
-      colorPrimary: bgColor.secondary,
+      colorPrimary: bgColor.primary,
     },
     Drawer: {
       // colorBgContainer: bgColor.secondary,
