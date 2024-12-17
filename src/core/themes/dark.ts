@@ -6,8 +6,8 @@ const textColor = {
 }
 
 const bgColor = {
-  primary: '#212529',
-  secondary: '#343a40',
+  primary: '#070F2B',
+  secondary: '#1B1A55',
 }
 
 export const darkTheme: ThemeConfig = {
