@@ -1,43 +1,36 @@
 import { theme } from 'antd'
 import type { ThemeConfig } from 'antd/es/config-provider'
 
-const textColor = {
-  primary: '#F5F7F9',
-}
-
-const bgColor = {
-  primary: '#070F2B',
-  secondary: '#2b303a',
-}
-
-export const darkThemeColors = {
+const colors = {
   text: '#F5F7F9',
-  textHover: '#ffd480',
+  linkHover: '#ffd480',
   bgPrimary: '#070F2B',
   bgSecondary: '#2b303a',
+  inputBorder: 'rgba(255,255,255, 0.12)',
 }
+export const darkThemeColors = colors
 
 export const darkTheme: ThemeConfig = {
   algorithm: theme.darkAlgorithm,
   token: {
-    colorTextHeading: textColor.primary,
-    colorText: textColor.primary,
-    colorTextBase: textColor.primary,
-    colorIcon: textColor.primary,
-    colorLink: textColor.primary,
-    colorBorder: textColor.primary,
+    colorTextHeading: colors.text,
+    colorText: colors.text,
+    colorTextBase: colors.text,
+    colorIcon: colors.text,
+    colorLink: colors.text,
+    colorBorder: colors.text,
   },
   components: {
     Layout: {
-      headerBg: bgColor.secondary,
+      headerBg: colors.bgSecondary,
       bodyBg: '#212529',
-      siderBg: bgColor.secondary,
+      siderBg: colors.bgSecondary,
       footerBg: '#212529',
     },
     Button: {
-      colorText: textColor.primary,
-      colorBorderSecondary: textColor.primary,
-      colorBorder: textColor.primary,
+      colorText: colors.text,
+      colorBorderSecondary: colors.text,
+      colorBorder: colors.text,
       colorBgContainer: '#212529',
       colorTextLightSolid: '#212529',
     },
@@ -70,7 +63,7 @@ export const darkTheme: ThemeConfig = {
     },
     Card: {
       // colorBgContainer: '#191616',
-      colorBgContainer: bgColor.secondary,
+      colorBgContainer: colors.bgSecondary,
     },
     Radio: {
       colorPrimary: '#F5A32C',
@@ -93,22 +86,19 @@ export const darkTheme: ThemeConfig = {
       colorFillAlter: '#343a40',
     },
     Pagination: {
-      colorBgContainer: bgColor.primary,
+      colorBgContainer: colors.bgPrimary,
     },
     Tag: {
-      defaultColor: bgColor.primary,
-      colorBorder: bgColor.primary,
-    },
-    Switch: {
-      colorPrimary: bgColor.primary,
+      defaultColor: colors.bgPrimary,
+      colorBorder: colors.bgPrimary,
     },
     Drawer: {
-      // colorBgContainer: bgColor.secondary,
-      // colorBgBase: bgColor.secondary,
-      // colorPrimary: bgColor.secondary,
-      // colorBgLayout: bgColor.secondary,
+      // colorBgContainer: colors.bgSecondary,
+      // colorBgBase: colors.bgSecondary,
+      // colorPrimary: colors.bgSecondary,
+      // colorBgLayout: colors.bgSecondary,
       // color,
-      // colorBorderSecondary: bgColor.secondary,
+      // colorBorderSecondary: colors.bgSecondary,
       // colorFillAlter: '#343a40',
       // colorBgBase: '#343a40',
       // colorBgContainer: '#343a40',

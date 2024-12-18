@@ -10,7 +10,9 @@ function Searcher({ placeholder = i18next.t('placeholder.search') }: SearcherPro
   return (
     <Form>
       <Form.Item>
-        <Input.Search placeholder={placeholder} className={style['searcher']} />
+        <div className={style['searcher']}>
+          <Input.Search placeholder={placeholder} />
+        </div>
       </Form.Item>
     </Form>
   )

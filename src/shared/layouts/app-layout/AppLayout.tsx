@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 import routes from '@configs/routes'
 import RouteLink from 'shared/ui/route-link'
 import ThemeSwitcher from 'shared/ui/theme-switcher'
-import { SunIcon, UserIcon } from 'shared/icons'
+import { UserIcon } from 'shared/icons'
 import classNames from 'classnames'
 
 export interface AppLayoutProps {}

@@ -56,7 +56,7 @@ form {
 
 .ant-typography.font-primary,
 .font-primary {
-  color: variables.$primary-color;
+  color: variables.$color-primary;
 }
 
 .subtitle {
@@ -94,6 +94,15 @@ button.ant-btn.ant-btn-text {
   align-items: end;
   text-decoration: underline;
   color: variables.$grey-color;
+}
+
+.ant-btn-variant-outlined {
+  .dark & {
+    border: 1px solid variables.$color-input-border-dark;
+  }
+  .light & {
+    border: 1px solid variables.$color-input-border-light;
+  }
 }
 
 // OTHER

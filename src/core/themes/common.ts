@@ -1,16 +1,18 @@
 import type { ThemeConfig } from 'antd/es/config-provider'
 
-export const color = {
+const colors = {
   primary: '#9290C3',
+  bgHover: '#ffd480',
 }
+export const commonThemeColors = colors
 
 export const commonTheme: ThemeConfig = {
   token: {
     fontFamily: 'Montserrat, sans-serif',
-    colorPrimary: color.primary,
-    colorLinkHover: color.primary,
-    colorLinkActive: color.primary,
-    colorError: color.primary,
+    colorPrimary: colors.primary,
+    colorLinkHover: colors.primary,
+    colorLinkActive: colors.primary,
+    colorError: colors.primary,
     fontSize: 16,
     fontSizeHeading1: 40,
     lineHeightHeading1: 1.5,
@@ -35,16 +37,16 @@ export const commonTheme: ThemeConfig = {
       // menu component has theme attribute that allow switching between item / darkitem based on current theme value
       // so i retrieved theme from useTheme and passed it to menu component and set all styles in common.ts instead of light/dark.ts
       fontSize: 15,
-      itemSelectedColor: color.primary,
-      darkItemSelectedColor: color.primary,
+      itemSelectedColor: colors.primary,
+      darkItemSelectedColor: colors.primary,
       itemColor: '#4E4E50',
       darkItemColor: '#F5F7F9',
       itemSelectedBg: 'transparent',
       darkItemSelectedBg: 'transparent',
       itemBg: '#f5f7f9',
       darkItemBg: '#343a40',
-      itemHoverColor: color.primary,
-      darkItemHoverColor: color.primary,
+      itemHoverColor: colors.primary,
+      darkItemHoverColor: colors.primary,
       itemHoverBg: '#ffffff',
       darkItemHoverBg: '#21252975',
       subMenuItemBg: '#f5f7f9',
@@ -53,32 +55,33 @@ export const commonTheme: ThemeConfig = {
       darkPopupBg: '#343a40',
     },
     Typography: {
-      colorLinkActive: color.primary,
+      colorLinkActive: colors.primary,
     },
     Tabs: {
-      colorPrimaryActive: color.primary,
-      itemSelectedColor: color.primary,
+      colorPrimaryActive: colors.primary,
+      itemSelectedColor: colors.primary,
     },
     Button: {
-      colorPrimary: color.primary,
-      colorText: color.primary,
+      colorPrimary: colors.primary,
+      colorText: colors.primary,
       colorBgTextHover: 'rgba(245, 163, 44, 0.06)',
       colorBgTextActive: 'rgba(245, 163, 44, 0.15)',
-      colorLink: color.primary,
+      colorLink: colors.primary,
       colorLinkHover: '#ffd480',
-      colorLinkActive: color.primary,
+      colorLinkActive: colors.primary,
       colorTextLightSolid: 'rgba(0, 0, 0, 0.88)',
       controlHeight: 36,
       textHoverBg: 'transparent',
     },
     Input: {
-      colorPrimary: color.primary,
+      colorPrimary: colors.primary,
       lineWidth: 1.5,
-      errorActiveShadow: `0 0 0 2px ${color.primary}`,
+      errorActiveShadow: `0 0 0 2px ${colors.primary}`,
       colorTextDisabled: 'grey',
+      // input focus border color = activeBorderColor
     },
     Select: {
-      colorPrimary: color.primary,
+      colorPrimary: colors.primary,
     },
     Card: {
       colorBorderSecondary: 'transparent',
@@ -95,7 +98,7 @@ export const commonTheme: ThemeConfig = {
     },
     Drawer: {},
     DatePicker: {
-      colorPrimary: color.primary,
+      colorPrimary: colors.primary,
       lineWidth: 1.5,
     },
     Checkbox: {
@@ -105,7 +108,7 @@ export const commonTheme: ThemeConfig = {
     },
     Table: {},
     Tag: {
-      defaultBg: color.primary,
+      defaultBg: colors.primary,
       fontSize: 11,
       fontWeightStrong: 600,
     },

@@ -19,11 +19,11 @@ function Dashboard() {
 
   return (
     <>
-      <Searcher placeholder={t('placeholder.searchBoard')} />
-      <div className={style['dashboard']}>Dashboard</div>
-      <Button type="primary" onClick={() => setTheme(theme === Theme.Dark ? Theme.Light : Theme.Dark)}>
-        Hello
-      </Button>
+      <Flex align="center" justify="center">
+        <div className="w-ab-700">
+          <Searcher placeholder={t('placeholder.searchBoard')} />
+        </div>
+      </Flex>
       <Flex gap="small" className="py-30">
         <Card className="h-ab-300 w-ab-200"></Card>
         <Card className="h-ab-300 w-ab-200"></Card>
