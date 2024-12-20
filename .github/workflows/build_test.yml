@@ -66,6 +66,13 @@ jobs:
       #   uses: actions/setup-node@v4
       #   with:
       #     node-version: '18'
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
 
       - name: Install Dependencies #in case invalid or no cache
       - run: npm install
