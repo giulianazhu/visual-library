@@ -3,6 +3,17 @@
 export type Locale = 'en' | 'cn' | 'jp'
 export type LabelSource = 'local' | 'server'
 
+export interface Route {
+  key: string
+  url: string
+  private: boolean
+  menu: () => string
+}
+
+export type Routes = {
+  [key: string]: Route
+}
+
 // export interface ApplicationError {
 //   id: number
 //   text: string

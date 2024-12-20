@@ -5,8 +5,6 @@ import LanguageDetector from 'i18next-browser-languagedetector'
 import api from '@configs/api'
 import { getUserLanguage } from '@helpers/localizationHelper'
 
-console.log(api.getLocalLabels(getUserLanguage()))
-
 const backendOptionsLocal = {
   //develop branch code
   // loadPath: apis.getLocalLabels(getUserLanguage), //for now using local labels.json

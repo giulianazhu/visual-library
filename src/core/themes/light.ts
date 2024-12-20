@@ -1,11 +1,12 @@
 import { theme } from 'antd'
 import type { ThemeConfig } from 'antd/es/config-provider'
 
+// 9AA6B2,BCCCDC
 const borderColor = '#ced4da'
 
 const bgColor = {
-  primary: '#ffffff',
-  secondary: '#f5f7f9',
+  primary: '#F8FAFC',
+  secondary: '#D9EAFD',
 }
 
 const textColor = {
