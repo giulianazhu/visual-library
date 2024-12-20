@@ -44,6 +44,8 @@ jobs:
   cacheDependencies:
     name: Cache Dependencies
     uses: ./.github/workflows/cache_deps.yml
+    with:
+      node-version: '18'
 
   buildAndTest:
     needs: cacheDependencies
