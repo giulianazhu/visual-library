@@ -53,26 +53,27 @@ on:
 #         run: npm run test
 
 jobs:
-  cacheDependencies:
-    uses: ./.github/workflows/cache_deps.yml
   buildAndTest:
     needs: cacheDependencies
     runs-on: ubuntu-latest
     steps:
-      # - name: Checkout repository
-      #   uses: actions/checkout@v4
-
-      # - name: Use Node.js
-      #   uses: actions/setup-node@v4
-      #   with:
-      #     node-version: '18'
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
+
+      - name: Cache node modules
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
 
       - name: Install Dependencies #in case invalid or no cache
       - run: npm install
