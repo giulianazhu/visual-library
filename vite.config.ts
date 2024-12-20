@@ -14,6 +14,7 @@ export default defineConfig({
     tsconfigPaths(),
   ],
   build: {
+    target: 'es2022',
     emptyOutDir: true, // empty the dist directory before building
     outDir: 'dist', // dist = default output directory
     rollupOptions: {
