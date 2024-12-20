@@ -41,11 +41,11 @@ jobs:
         with:
           node-version: '18'
 
-  # cacheDependencies:
-  #   name: Cache Dependencies
-  #   uses: ./.github/workflows/cache_deps.yml
-  #   with:
-  #     node-version: '18'
+  caching:
+    name: Cache Dependencies
+    uses: ./.github/workflows/cache_deps.yml
+    with:
+      node-version: '18'
 
   buildAndTest:
     needs: cacheDependencies
