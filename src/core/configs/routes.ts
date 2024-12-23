@@ -29,7 +29,7 @@ export const routes = {
   },
   image: {
     key: 'image',
-    url: `/board/${RoutePath.Detail}/image${RoutePath.SubDetail}`,
+    url: `/board/${RoutePath.Detail}/image/${RoutePath.SubDetail}`,
     private: true,
     menu: () => i18next.t('image.image'),
   },

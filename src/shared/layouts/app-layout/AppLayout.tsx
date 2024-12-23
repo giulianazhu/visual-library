@@ -1,9 +1,8 @@
 import { Avatar, Button, Flex, Layout, Typography } from 'antd'
-import { Outlet } from 'react-router'
+import { NavLink, Outlet } from 'react-router'
 import style from './styles.module.scss'
 import { useTranslation } from 'react-i18next'
-import routes from '@configs/routes'
-import RouteLink from 'shared/ui/route-link'
+import routes from 'core/configs/routes'
 import ThemeSwitcher from 'shared/ui/theme-switcher'
 import { UserIcon } from 'shared/icons'
 import classNames from 'classnames'
@@ -24,12 +23,12 @@ function AppLayout() {
               </Flex>
             </Typography.Title>
             <Flex align="center">
-              <RouteLink route={routes.dashboard}>
+              <NavLink to={routes.dashboard.url}>
                 <Button type="link"> {t('dashboard.dashboard')} </Button>
-              </RouteLink>
-              <RouteLink route={routes.practice}>
+              </NavLink>
+              <NavLink to={routes.practice.url}>
                 <Button type="link">{t('practice.practice')}</Button>
-              </RouteLink>
+              </NavLink>
             </Flex>
           </Flex>
           <Flex align="center" gap="large">

@@ -41,7 +41,8 @@
   },
   "placeholder": {
     "search": "Search...",
-    "searchBoard": "Search board by title or description..."
+    "searchBoard": "Search board by title or description...",
+    "searchImage": "Search image by title or description..."
   },
   "search": {
     "search": "Search",
@@ -50,6 +51,10 @@
     "sortBy": "Sort by",
     "sortByRecency": "Sort by recency",
     "sortByActivity": "Sort by activity",
-    "applyFilters": "Apply filters"
+    "applyFilters": "Apply filters",
+    "reset": "Reset",
+    "resetAll": "Reset all",
+    "results": "Results",
+    "showResults": "Show {{desc}} results"
   }
 }

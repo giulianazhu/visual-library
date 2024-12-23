@@ -1,8 +1,11 @@
-import style from './styles.module.scss';
+import Seo from 'shared/ui/seo'
+import Search from 'features/board/controllers/search'
 
-function Board(){
+function Board() {
   return (
-    <div className={style['board']}>Board</div>
+    <Seo pageLabel="image" pageTitle="board title">
+      <Search />
+    </Seo>
   )
 }
 

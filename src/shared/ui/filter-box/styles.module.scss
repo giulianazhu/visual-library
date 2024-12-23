@@ -1,0 +1,16 @@
+@use '/src/core/styles/variables';
+@use '/src/core/styles/mixins';
+
+.filters-box {
+  :global {
+    .ant-tag.reset {
+      border: none;
+      background-color: transparent;
+      color: grey;
+      cursor: pointer;
+    }
+    .reset-all span {
+      text-decoration: underline;
+    }
+  }
+}

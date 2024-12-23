@@ -1,21 +1,23 @@
 export interface SearchParameters {
-  query?: string
-  tags: number[] | []
-  page?: number
-  pageSize?: number
-  sortBy?: Sorters
+  query: string
+  tags: number[]
+  page: number
+  pageSize: number
+  sortBy: Sorters
 }
 
 export interface Sorters {
-  recency: 'new' | 'old'
-  activity: 'active' | 'inactive'
+  activity: 'asc' | 'desc'
+  [key: string]: 'asc' | 'desc'
 }
 
 export interface SearchParametersSetters {
   setQuery: (query: SearchParameters['query']) => void
+  setTags: (tags: SearchParameters['tags']) => void
   setPage: (page: SearchParameters['page']) => void
   setPageSize: (pageSize: SearchParameters['pageSize']) => void
-  setSortBy: (orderBy: SearchParameters['sortBy']) => void
+  setSortBy: (sortBy: SearchParameters['sortBy']) => void
+  setResetAll: () => void
 }
 
 export interface InfiniteSearch extends SearchParametersSetters {

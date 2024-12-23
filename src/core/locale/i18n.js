@@ -2,8 +2,8 @@ import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
 import Backend from 'i18next-http-backend'
 import LanguageDetector from 'i18next-browser-languagedetector'
-import api from '@configs/api'
-import { getUserLanguage } from '@helpers/localizationHelper'
+import api from 'core/configs/api'
+import { getUserLanguage } from 'core/helpers/localizationHelper'
 
 const backendOptionsLocal = {
   //develop branch code

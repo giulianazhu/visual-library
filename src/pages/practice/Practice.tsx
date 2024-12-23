@@ -1,8 +1,11 @@
-import style from './styles.module.scss';
+import Seo from 'shared/ui/seo'
+import style from './styles.module.scss'
 
-function Practice(){
+function Practice() {
   return (
-    <div className={style['practice']}>Practice</div>
+    <Seo pageLabel="practice.practice">
+      <div className={style['practice']}>Practice</div>
+    </Seo>
   )
 }
 
