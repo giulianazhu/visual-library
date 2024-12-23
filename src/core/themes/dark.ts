@@ -33,6 +33,7 @@ export const darkTheme: ThemeConfig = {
       colorBorder: colors.text,
       colorBgContainer: '#212529',
       colorTextLightSolid: '#212529',
+      colorLinkHover: colors.linkHover,
     },
     Input: {
       colorBorder: 'rgba(255,255,255, 0.12)',
@@ -62,7 +63,6 @@ export const darkTheme: ThemeConfig = {
       colorSplit: 'rgba(25, 22, 22, 0.7)',
     },
     Card: {
-      // colorBgContainer: '#191616',
       colorBgContainer: colors.bgSecondary,
     },
     Radio: {
@@ -93,6 +93,7 @@ export const darkTheme: ThemeConfig = {
       colorBorder: colors.bgPrimary,
     },
     Drawer: {
+      // colorFill: colors.bgPrimary,
       // colorBgContainer: colors.bgSecondary,
       // colorBgBase: colors.bgSecondary,
       // colorPrimary: colors.bgSecondary,

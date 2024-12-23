@@ -105,6 +105,40 @@ button.ant-btn.ant-btn-text {
   }
 }
 
+.ant-drawer .ant-drawer-content {
+  .ant-drawer-title {
+    padding-block: 11px;
+    font-size: 16px;
+  }
+  .dark & {
+    background-color: variables.$bg-primary-dark;
+  }
+  .light & {
+    background-color: variables.$bg-primary-light;
+  }
+}
+
+.ant-card {
+  // .light & {
+  //   background-color: variables.$bg-tertiary-light;
+  // }
+  // .dark & {
+  //   background-color: variables.$bg-secondary-dark;
+  // }
+  .ant-card-head {
+    height: 30px;
+    padding-inline: 16px;
+    font-size: 14px;
+  }
+  .ant-card-body {
+    padding: 0 16px 16px 16px;
+  }
+}
+
+.ant-tag {
+  font-size: 12px;
+}
+
 // OTHER
 // .ant-table.ant-table-scroll-horizontal .ant-table-container .ant-table-content {
 //   &::-webkit-scrollbar {

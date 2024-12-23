@@ -1,4 +1,4 @@
-import { Avatar, Button, Flex, Layout, Space, Switch, Typography } from 'antd'
+import { Avatar, Button, Flex, Layout, Typography } from 'antd'
 import { Outlet } from 'react-router'
 import style from './styles.module.scss'
 import { useTranslation } from 'react-i18next'
@@ -38,7 +38,7 @@ function AppLayout() {
           </Flex>
         </Flex>
       </Layout.Header>
-      <div className="p-30">
+      <div className="p-30 px-50">
         <Outlet />
       </div>
     </Layout>

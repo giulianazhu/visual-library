@@ -8,8 +8,9 @@ const colors = {
   linkHover: '#4a80f5',
   border: '#ced4da',
   inputBorder: 'rgba(0,0,0, 0.12)',
-  bgPrimary: '#F8FAFC',
+  bgPrimary: '#FFFFFF',
   bgSecondary: '#D9EAFD',
+  bgTertiary: '#f5f5f5',
 }
 export const lightThemeColors = colors
 
@@ -89,6 +90,9 @@ export const lightTheme: ThemeConfig = {
     },
     Switch: {
       colorPrimary: commonThemeColors.primary,
+    },
+    Card: {
+      colorBgContainer: colors.bgTertiary,
     },
   },
 }

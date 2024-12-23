@@ -27,6 +27,12 @@
   "board": {
     "board": "Board"
   },
+  "image": {
+    "title": "Title",
+    "description": "Description",
+    "tags": "Tags",
+    "notes": "Notes"
+  },
   "practice": {
     "practice": "Practice"
   },
@@ -36,5 +42,14 @@
   "placeholder": {
     "search": "Search...",
     "searchBoard": "Search board by title or description..."
+  },
+  "search": {
+    "search": "Search",
+    "advancedFilters": "Advanced filters",
+    "filterByTags": "Filter by tags",
+    "sortBy": "Sort by",
+    "sortByRecency": "Sort by recency",
+    "sortByActivity": "Sort by activity",
+    "applyFilters": "Apply filters"
   }
 }
