@@ -29,87 +29,65 @@ on:
       - 'eslint-config.js'
 
 jobs:
-  setup:
-    name: Checkout and Setup
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Use Node.js
-        uses: actions/setup-node@v4
+      - name: Cache node modules
+        id: cache-npm
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
         with:
-          node-version: '18'
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
 
-  cacheDependencies:
-    name: Cache Dependencies
-    uses: ./.github/workflows/cache_deps.yml
+      - if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+        name: List the state of node modules
+        continue-on-error: true
+        run: npm list
 
-  buildAndTest:
-    needs: cacheDependencies
-    name: Build and Test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Install Dependencies #in case invalid or no cache
-      - run: npm install
+      - name: Install dependencies
+        run: npm install
 
-      - name: 🔨 Build
+      - name: Build
         run: npm run build
 
-      - name: 🧪 Test
+      - name: Test
         run: npm run test
+# jobs:
+#   buildAndTest:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v4
 
-  #     # Upload dist artifacts
-  #     - uses: actions/upload-artifact@v3
-  #       with:
-  #         name: dist
-  #         path: dist/
+#       - name: Use Node.js
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: '18'
 
-  #     # Upload coverage artifacts
-  #     - uses: actions/upload-artifact@v3
-  #       with:
-  #         name: coverage
-  #         path: coverage/lcov.info
+#       - name: Cache node modules
+#         uses: actions/cache@v3
+#         env:
+#           cache-name: cache-node-modules
+#         with:
+#           path: ~/.npm
+#           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+#           restore-keys: |
+#             ${{ runner.os }}-build-${{ env.cache-name }}-
 
-  # coverage:
-  #   name: Coverage Analysis
-  #   needs: buildAndTest
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     # Download coverage artifacts
-  #     - uses: actions/download-artifact@v3
-  #       with:
-  #         name: coverage
+#       - name: Install Dependencies #in case invalid or no cache
+#       - run: npm install
 
-  #     - name: 📈 Upload coverage to Codecov
-  #       uses: codecov/codecov-action@v3
-  #       with:
-  #         token: ${{ secrets.CODECOV_TOKEN }}
-  #         files: lcov.info
+#       - name: 🔨 Build
+#         run: npm run build
 
-  # deploy:
-  #   name: Deploy
-  #   # Deploy only for main branch
-  #   if: github.ref == 'refs/heads/main'
-  #   needs: buildAndTest
-  #   runs-on: ubuntu-latest
-  #   permissions:
-  #     contents: write
-  #   # Manual deployment
-  #   # See https://devblogs.microsoft.com/devops/i-need-manual-approvers-for-github-actions-and-i-got-them-now/
-  #   environment:
-  #     name: pchmn.github.io/vite-react-ts-ghactions-template
-  #     url: https://pchmn.github.io/vite-react-ts-ghactions-template/
-  #   steps:
-  #     # Download dist artifacts
-  #     - uses: actions/download-artifact@v3
-  #       with:
-  #         name: dist
-  #         path: dist/
-
-  #     - name: 🚀 Deploy to GitHub Pages
-  #       uses: peaceiris/actions-gh-pages@v3
-  #       with:
-  #         github_token: ${{ secrets.GITHUB_TOKEN }}
-  #         publish_dir: dist
-# inspirations from https://github.com/pchmn/vite-react-ts-ghactions-template/blob/main/.github/workflows/ci.yml
+#       - name: 🧪 Test
+#         run: npm run test

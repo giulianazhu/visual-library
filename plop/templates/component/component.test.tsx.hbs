@@ -6,16 +6,19 @@ import {{pascalCase name}} from './{{pascalCase name}}'
 describe.skip('{{pascalCase name}} Component', () => {
 
   it('renders correctly', () => {
-    render(<{{pascalCase name}} />)
-    const el = screen.getByText({{'pascalCase name'}})
-    expect(el).toBeInTheDocument()
+    render(<{{pascalCase name}} prop="string" />)
+    const el = screen.getByText('')
+     expect(el).toBeInTheDocument()
   })
 
    it('handles user interaction', async () => {
     const handleEvent = vi.fn()
     render(<{{pascalCase name}} />)
 
-    await userEvent.click(screen.getByText('Click Me'))
-    expect(handleEvent).toHaveBeenCalledTimes(1)
-  })
+  // const handleEvent = vi.fn()
+  // render(<{{pascalCase name}} prop="string" />)
+
+   // await userEvent.click(screen.getByText('Click Me'))
+   // expect(handleEvent).toHaveBeenCalledTimes(1)
+  //})
 })
