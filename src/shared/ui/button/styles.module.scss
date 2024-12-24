@@ -1,6 +1,6 @@
 @use '/src/core/styles/variables';
-@use '/src/core/styles/functions';
+@use '/src/core/styles/mixins';
 
 .button {
-  background-color: variables.$primary-color;
+
 }
