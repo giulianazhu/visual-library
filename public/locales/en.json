@@ -44,6 +44,11 @@
     "searchBoard": "Search board by title or description...",
     "searchImage": "Search image by title or description..."
   },
+  "button": {
+    "edit": "Edit",
+    "save": "Save",
+    "cancel": "Cancel"
+  },
   "search": {
     "search": "Search",
     "advancedFilters": "Advanced filters",

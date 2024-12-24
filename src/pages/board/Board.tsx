@@ -1,5 +1,5 @@
+import Search from 'features/image/controllers/search'
 import Seo from 'shared/ui/seo'
-import Search from 'features/board/controllers/search'
 
 function Board() {
   return (

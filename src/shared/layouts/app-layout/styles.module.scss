@@ -1,6 +1,15 @@
 @use '/src/core/styles/variables';
-@use '/src/core/styles/functions';
+@use '/src/core/styles/mixins';
 
 .app-layout {
   min-height: 100vh;
+  :global {
+    .outlet-container {
+      padding-block: 30px;
+      padding-inline: 50px;
+      @include mixins.breakpoint('size-md-down') {
+        padding: 30px;
+      }
+    }
+  }
 }

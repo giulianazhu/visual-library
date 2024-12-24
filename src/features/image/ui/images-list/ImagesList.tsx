@@ -9,6 +9,7 @@ interface ImagesListProps {
 }
 
 function ImagesList({ images }: ImagesListProps) {
+  console.log(routes.image.url)
   return (
     <div className={style['image-list']}>
       {images}

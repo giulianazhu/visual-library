@@ -15,16 +15,15 @@
 .ant-row,
 .ant-tabs,
 .ant-form,
-.ant-select,
 .ant-table-wrapper,
 .ant-picker.ant-picker-outlined,
-.ant-input-number {
+.ant-input-number,
+.ant-input {
   width: 100%;
 }
 
 .ant-flex {
   max-width: 100%;
-  height: 100%;
 }
 
 .ant-table-cell .ant-form-item {
@@ -60,7 +59,7 @@ form {
 }
 
 .subtitle {
-  color: variables.$grey-color;
+  color: variables.$color-grey;
 }
 
 .subtitle-sm {
@@ -84,16 +83,15 @@ form {
 
 body .ant-btn .react-icon,
 body button .react-icon,
-#root .ant-btn .react-icon,
 #root button .react-icon {
-  font-size: 15px;
+  font-size: 18px;
 }
 
 button.ant-btn.ant-btn-text {
   padding-block: 0;
   align-items: end;
   text-decoration: underline;
-  color: variables.$grey-color;
+  color: variables.$color-grey;
 }
 
 .ant-btn-variant-outlined {
@@ -132,6 +130,12 @@ button.ant-btn.ant-btn-text {
   }
   .ant-card-body {
     padding: 0 16px 16px 16px;
+  }
+}
+
+#root.ant-card {
+  .ant-btn {
+    font-size: 13px;
   }
 }
 
@@ -181,3 +185,18 @@ button.ant-btn.ant-btn-text {
 //     border-radius: 4px;
 //   }
 // }
+
+#root {
+  ::-webkit-scrollbar {
+    width: 6px !important;
+    height: 6px !important;
+    background-color: #0c0a0b !important;
+    border-radius: 8px !important;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(14.93deg, variables.$color-grey -42.27%, variables.$color-primary 95.89%);
+    height: 500px !important;
+    border-radius: 8px !important;
+  }
+}

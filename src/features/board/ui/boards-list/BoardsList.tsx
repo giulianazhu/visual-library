@@ -14,7 +14,7 @@ function BoardsList({ boards }: BoardsListProps) {
     <div className={style['board-list']}>
       {boards}
       <Flex gap="small" wrap={true} className="py-30">
-        <NavLink to={routes.image.url.replace(RoutePath.Detail, boardId.toString())}>
+        <NavLink to={routes.board.url.replace(RoutePath.Detail, boardId.toString())}>
           <Card className="h-ab-300 w-ab-200"></Card>
         </NavLink>
         <Card className="h-ab-300 w-ab-200"></Card>

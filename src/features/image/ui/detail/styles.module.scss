@@ -1,0 +1,56 @@
+@use '/src/core/styles/variables';
+@use '/src/core/styles/mixins';
+
+.detail {
+  :global {
+    .ant-card-body {
+      display: flex;
+
+      gap: 1em;
+      padding: 20px;
+      height: calc(100vh - 200px);
+      @include mixins.breakpoint('size-md-down') {
+        flex-direction: column;
+        height: auto;
+      }
+    }
+    .image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 0 1 50%;
+      @include mixins.breakpoint('size-md-down') {
+        flex: auto;
+      }
+      :global(.dark) & {
+        background-color: #21252995;
+      }
+      :global(.light) & {
+        background-color: white;
+      }
+    }
+    .text-container {
+      padding-inline: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      flex: 0 1 50%;
+      height: 100%;
+      overflow-y: auto;
+      @include mixins.breakpoint('size-md-down') {
+        padding-inline: 0px;
+        flex: auto;
+      }
+      .ant-select {
+        font-size: 13px;
+      }
+      .notes-label {
+        font-weight: 500;
+      }
+      .notes-content,
+      .notes-form {
+        font-size: 13px;
+      }
+    }
+  }
+}

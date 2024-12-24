@@ -14,11 +14,6 @@ export const commonTheme: ThemeConfig = {
     colorLinkActive: colors.primary,
     colorError: colors.primary,
     fontSize: 14,
-    // fontSizeHeading1: 36,
-    // fontSizeHeading2: 24,
-    // fontSizeHeading3: 24,
-    // fontSizeHeading4: 24,
-    // fontSizeHeading5: 16,
     lineHeightHeading1: 1.5,
     fontWeightStrong: 500,
     borderRadius: 8,
@@ -82,6 +77,7 @@ export const commonTheme: ThemeConfig = {
     },
     Select: {
       colorPrimary: colors.primary,
+      fontSize: 13,
     },
     Card: {
       colorBorderSecondary: 'transparent',
@@ -104,6 +100,8 @@ export const commonTheme: ThemeConfig = {
       defaultBg: colors.primary,
       fontSize: 11,
       fontWeightStrong: 600,
+      colorBorder: 'transparent',
+      colorBorderBg: 'transparent',
     },
     Collapse: {
       fontSizeIcon: 15,

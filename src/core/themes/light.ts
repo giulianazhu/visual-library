@@ -5,7 +5,9 @@ import { commonThemeColors } from './common'
 const colors = {
   text: '#4E4E50',
   infoText: '#000000d9',
-  linkHover: '#4a80f5',
+  // linkHover: '#4a80f5',
+  // linkHover: '#f4b538',
+  linkHover: '#5f5f5f',
   border: '#ced4da',
   inputBorder: 'rgba(0,0,0, 0.12)',
   bgPrimary: '#FFFFFF',
@@ -86,7 +88,6 @@ export const lightTheme: ThemeConfig = {
     },
     Tag: {
       defaultColor: colors.bgPrimary,
-      colorBorder: colors.bgPrimary,
     },
     Switch: {
       colorPrimary: commonThemeColors.primary,

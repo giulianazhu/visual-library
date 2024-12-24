@@ -147,3 +147,11 @@ $weights: 100, 200, 300, 400, 500, 600, 700, 800, 900, lighter, light, normal, b
     font-weight: $weight !important; //needed to override ant builtin font-weight
   }
 }
+
+$decorations: none, underline, overline, line-through;
+
+@each $decoration in $decorations {
+  .text-#{$decoration} {
+    text-decoration: $decoration;
+  }
+}

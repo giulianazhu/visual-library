@@ -7,7 +7,6 @@ import Searcher from 'shared/ui/searcher'
 function Search() {
   // called the query hook
   const images = []
-
   return (
     <>
       <Flex align="center" justify="center">

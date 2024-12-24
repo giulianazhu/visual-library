@@ -19,7 +19,7 @@ body,
 
   .app-layout .app-content {
     position: relative;
-    height: calc(100vh - variables.$header-lg);
+    height: calc(100vh - variables.$header-height);
     overflow: auto;
     &::-webkit-scrollbar {
       width: 6px;

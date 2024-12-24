@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { ConfigProvider } from 'antd'
-import { LocalStorageKey, Theme } from '@app-types/enums'
+import { LocalStorageKey, Theme } from 'types/enums'
 import { commonTheme } from '../../themes/common'
 import { lightTheme } from '../../themes/light'
 import { darkTheme } from '../../themes/dark'

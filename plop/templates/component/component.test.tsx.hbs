@@ -7,7 +7,7 @@ describe.skip('{{pascalCase name}} Component', () => {
 
   it('renders correctly', () => {
     render(<{{pascalCase name}} />)
-    const el = screen.getByText({{pascalCase name}})
+    const el = screen.getByText({{'pascalCase name'}})
     expect(el).toBeInTheDocument()
   })
 

@@ -1,7 +1,7 @@
 import style from './styles.module.scss'
 import { Switch } from 'antd'
 import { useThemeContext } from 'core/providers/theme'
-import { Theme } from '@app-types/enums'
+import { Theme } from 'types/enums'
 import { MoonIcon, SunIcon } from 'shared/icons'
 
 function ThemeSwitcher() {

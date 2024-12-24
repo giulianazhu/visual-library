@@ -90,7 +90,6 @@ export const darkTheme: ThemeConfig = {
     },
     Tag: {
       defaultColor: colors.bgPrimary,
-      colorBorder: colors.bgPrimary,
     },
     Drawer: {
       // colorFill: colors.bgPrimary,
