@@ -4,7 +4,7 @@ import ExampleController from './ExampleController'
 describe.skip('Controller API Integration', () => {
   it('should call API and render data correctly', async () => {
     const mockData = { id: 1, name: 'Test Item' }
-    vi.spyOn(global, 'fetch').mockResolvedValueOnce({ Response: { json: async () => mockData } })
+    const mockFn = vi.spyOn(global, 'fetch').mockResolvedValueOnce(new Response(JSON.stringify(mockData)))
 
     render(<ExampleController prop="string" />)
 
@@ -12,7 +12,7 @@ describe.skip('Controller API Integration', () => {
 
     await waitFor(() => expect(screen.getByText(mockData.name)).toBeInTheDocument())
 
-    global.fetch.mockRestore()
+    mockFn.mockRestore()
   })
 
   //it('handles user interaction and trigger state changes', async () => {
