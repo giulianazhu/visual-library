@@ -17,4 +17,10 @@ export enum RoutePath {
   SubDetail = ':subId',
   New = 'new',
   Tab = ':tab/:action?',
+  Status = ':status',
+}
+
+export enum PracticeStatus {
+  Settings = 'settings',
+  Start = 'start',
 }

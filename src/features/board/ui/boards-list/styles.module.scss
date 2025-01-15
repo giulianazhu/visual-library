@@ -2,5 +2,48 @@
 @use '/src/core/styles/mixins';
 
 .boards-list {
-
+  :global {
+    .add-board {
+      height: 275px;
+      width: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 8px;
+      box-shadow: variables.$box-shadow-x2-sm;
+      flex: 1 0 200px;
+      cursor: pointer;
+      transition: all ease-out 0.3s;
+      &:hover {
+        & svg {
+          transition: all ease-out 0.3s;
+          transform: scale(1.05);
+        }
+      }
+      :global(.dark) & {
+        background-color: variables.$bg-tertiary-dark;
+        & svg {
+          color: variables.$color-darker-grey;
+        }
+        &:hover {
+          background-color: variables.$bg-secondary-dark;
+          & svg {
+            color: variables.$color-grey-dark;
+          }
+        }
+      }
+      :global(.light) & {
+        background-color: variables.$bg-tertiary-light;
+        & svg {
+          color: variables.$color-lighter-grey;
+        }
+        &:hover {
+          background-color: variables.$bg-secondary-light;
+          & svg {
+            color: rgb(58, 58, 58);
+          }
+        }
+      }
+    }
+  }
 }

@@ -1,10 +1,12 @@
 import { useTranslation } from 'react-i18next'
 import style from './styles.module.scss'
-import { Button, Card, Drawer, Flex, Image, Select, Space, Tag, Typography } from 'antd'
+import { Button, Card, Drawer, Flex, Image, Space, Tag, Typography } from 'antd'
 import TextArea from 'antd/es/input/TextArea'
 import { useThemeContext } from 'core/providers/theme'
 import { useState } from 'react'
 import { EditNoteIcon } from 'shared/icons'
+import FormDrawer from 'shared/ui/form-drawer'
+import EditDetail from 'features/image/controllers/edit-detail'
 
 interface DetailProps {
   image: Record<string, any>
@@ -13,7 +15,6 @@ interface DetailProps {
 function Detail({ image }: DetailProps) {
   const [isEdit, setIsEdit] = useState(false)
   const [isEditNote, setIsEditNote] = useState(false)
-
   const { t } = useTranslation()
   const { theme } = useThemeContext()
 
@@ -28,10 +29,17 @@ function Detail({ image }: DetailProps) {
           <div className="text-container">
             <Space direction="vertical">
               <Flex justify="space-between" align="center">
-                <Typography.Title level={4}>{image.title}</Typography.Title>{' '}
-                <Button onClick={() => setIsEdit(true)}>{t('button.edit')}</Button>
+                <Typography.Title level={4}>{image.title}</Typography.Title>
+                <FormDrawer
+                  open={isEdit}
+                  setOpen={setIsEdit}
+                  title={t('action.edit')}
+                  customDrawerButton={<Button onClick={() => setIsEdit(true)}>{t('action.edit')}</Button>}
+                >
+                  <EditDetail setIsEdit={setIsEdit} image={image} />
+                </FormDrawer>
               </Flex>
-              <Typography.Text>{image.description}</Typography.Text>
+              <Typography.Text className="fontsize-13">{image.description}</Typography.Text>
               <Space>
                 {image.tags.map((tag: string) => (
                   <Tag key={tag}>{tag}</Tag>
@@ -45,10 +53,10 @@ function Detail({ image }: DetailProps) {
                   {isEditNote ? (
                     <Flex gap="small">
                       <Button type="link" className="px-0" onClick={() => setIsEditNote(false)}>
-                        {t('button.cancel')}
+                        {t('action.cancel')}
                       </Button>
                       <Button type="link" className="text-underline font-500 px-0">
-                        {t('button.save')}
+                        {t('action.save')}
                       </Button>
                     </Flex>
                   ) : (
@@ -62,31 +70,13 @@ function Detail({ image }: DetailProps) {
                 {isEditNote ? (
                   <TextArea value={image.notes} className="notes-form" autoSize={true} />
                 ) : (
-                  <div className="notes-content">{image.notes}</div>
+                  <div className="notes-content subtitle">{image.notes}</div>
                 )}
               </Flex>
-
-              {/* <TextArea rows={4} value={image.notes} /> */}
             </Flex>
           </div>
         </Card>
       </div>
-      <Drawer open={isEdit} onClose={() => setIsEdit(false)} title={t('button.edit')}>
-        <Card>
-          <form>
-            <Select
-              showSearch
-              filterOption={(input, option) => (option?.label ?? '').toLowerCase().includes(input.toLowerCase())}
-              value={image.boardId}
-              options={[
-                { label: 'Board name 1', value: 1 },
-                { label: 'Board name 2', value: 2 },
-                { label: 'Board name 3', value: 3 },
-              ]}
-            ></Select>
-          </form>
-        </Card>
-      </Drawer>
     </>
   )
 }

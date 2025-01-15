@@ -6,6 +6,7 @@ import FilterBox from '../filter-box'
 import { useSearchBoard } from 'features/board/store/search'
 import { StoreApi, UseBoundStore } from 'zustand'
 import { InfiniteSearch } from 'types/store/common'
+import FormDrawer from '../form-drawer'
 
 interface SearcherProps {
   placeholderLabel?: string
@@ -25,11 +26,19 @@ function Searcher({ placeholderLabel, searchContext }: SearcherProps) {
           value={pars.query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        <Button type="link" onClick={() => setShowFilters(true)} className="show-filters">
-          {t('search.advancedFilters')}
-        </Button>
+        <FormDrawer
+          open={showFilters}
+          setOpen={setShowFilters}
+          title={t('search.advancedFilters')}
+          customDrawerButton={
+            <Button type="link" onClick={() => setShowFilters(true)} className="show-filters">
+              {t('search.advancedFilters')}
+            </Button>
+          }
+        >
+          <FilterBox open={showFilters} setOpen={setShowFilters} searchContext={searchContext} />
+        </FormDrawer>
       </Flex>
-      <FilterBox open={showFilters} setOpen={setShowFilters} searchContext={searchContext} />
     </>
   )
 }

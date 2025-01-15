@@ -1,4 +1,3 @@
-import './App.css'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router'
 import { lazy } from 'react'
 import { IconContext } from 'react-icons'
@@ -39,8 +38,9 @@ function App() {
                     <Route index element={<Navigate replace to="dashboard" />} />
                     <Route path={routes.dashboard.url} element={<Dashboard />} />
                     <Route path={routes.board.url} element={<Board />} />
+                    {/* <Route path={routes.boardNew.url} element={<Create />} /> */}
                     <Route path={routes.image.url} element={<Image />} />
-                    <Route path={routes.practice.url} element={<Practice />} />
+                    <Route path={routes.practiceStatus.url} element={<Practice />} />
                   </Route>
                   <Route path={routes.settings.url} element={<Settings />} />
                   <Route path={routes.help.url} element={<Help />} />

@@ -11,7 +11,8 @@ const colors = {
   border: '#ced4da',
   inputBorder: 'rgba(0,0,0, 0.12)',
   bgPrimary: '#FFFFFF',
-  bgSecondary: '#D9EAFD',
+  // bgSecondary: '#D9EAFD',
+  bgSecondary: '#f2f8ff',
   bgTertiary: '#f5f5f5',
 }
 export const lightThemeColors = colors
@@ -53,12 +54,16 @@ export const lightTheme: ThemeConfig = {
       colorBgContainer: '#ffffff',
       colorTextPlaceholder: 'rgba(0,0,0, 0.4)',
       colorText: colors.infoText,
+      hoverBorderColor: commonThemeColors.primary,
+      activeBorderColor: commonThemeColors.primary,
     },
     InputNumber: {
       colorBorder: 'rgba(0,0,0, 0.12)',
       colorBgContainer: '#ffffff',
       colorTextPlaceholder: 'rgba(0,0,0, 0.4)',
       colorText: colors.infoText,
+      hoverBorderColor: commonThemeColors.primary,
+      activeBorderColor: commonThemeColors.primary,
     },
     Select: {
       colorBorder: 'rgba(0,0,0, 0.12)',
@@ -66,12 +71,16 @@ export const lightTheme: ThemeConfig = {
       controlItemBgActive: '#FCDEB3',
       colorTextPlaceholder: 'rgba(0,0,0, 0.4)',
       colorText: colors.infoText,
+      hoverBorderColor: commonThemeColors.primary,
+      activeBorderColor: commonThemeColors.primary,
     },
     DatePicker: {
       colorBorder: 'rgba(0,0,0, 0.12)',
       colorBgContainer: '#ffffff',
       colorTextPlaceholder: 'rgba(0,0,0, 0.4)',
       colorText: colors.infoText,
+      hoverBorderColor: commonThemeColors.primary,
+      activeBorderColor: commonThemeColors.primary,
     },
     Checkbox: {
       colorBorder: 'rgba(0,0,0, 0.12)',

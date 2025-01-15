@@ -1,9 +1,17 @@
+import { ColorPicker } from 'antd'
 import type { ThemeConfig } from 'antd/es/config-provider'
 
 const colors = {
   primary: '#9290C3',
+  contrast: '#ffd480',
   bgHover: '#ffd480',
 }
+
+const fontSize = {
+  general: 13,
+  input: 13,
+}
+
 export const commonThemeColors = colors
 
 export const commonTheme: ThemeConfig = {
@@ -13,7 +21,7 @@ export const commonTheme: ThemeConfig = {
     colorLinkHover: colors.primary,
     colorLinkActive: colors.primary,
     colorError: colors.primary,
-    fontSize: 14,
+    fontSize: fontSize.general,
     lineHeightHeading1: 1.5,
     fontWeightStrong: 500,
     borderRadius: 8,
@@ -66,9 +74,10 @@ export const commonTheme: ThemeConfig = {
       colorTextLightSolid: 'rgba(0, 0, 0, 0.88)',
       controlHeight: 36,
       textHoverBg: 'transparent',
-      fontSize: 14,
+      fontSize: 13,
     },
     Input: {
+      fontSize: fontSize.input,
       colorPrimary: colors.primary,
       lineWidth: 1.5,
       errorActiveShadow: `0 0 0 2px ${colors.primary}`,
@@ -77,13 +86,13 @@ export const commonTheme: ThemeConfig = {
     },
     Select: {
       colorPrimary: colors.primary,
-      fontSize: 13,
+      fontSize: fontSize.input,
     },
     Card: {
       colorBorderSecondary: 'transparent',
     },
     Radio: {
-      fontSize: 12,
+      fontSize: fontSize.input,
       colorBorder: 'transparent',
     },
     DatePicker: {
@@ -94,6 +103,7 @@ export const commonTheme: ThemeConfig = {
       controlInteractiveSize: 20,
       borderRadiusSM: 7,
       lineWidth: 1.5,
+      fontSize: fontSize.input,
     },
     Table: {},
     Tag: {

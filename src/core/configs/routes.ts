@@ -33,15 +33,15 @@ export const routes = {
     private: true,
     menu: () => i18next.t('image.image'),
   },
-  newImage: {
-    key: 'image-new',
-    url: `/vision/${RoutePath.New}`,
-    private: true,
-    menu: () => i18next.t('image.new'),
-  },
   practice: {
     key: 'practice',
     url: `/practice`,
+    private: true,
+    menu: () => i18next.t('practice.practice'),
+  },
+  practiceStatus: {
+    key: 'practiceStatus',
+    url: `/practice/${RoutePath.Status}`,
     private: true,
     menu: () => i18next.t('practice.practice'),
   },

@@ -13,12 +13,12 @@ describe.skip('{{pascalCase name}} Component', () => {
 
    it('handles user interaction', async () => {
     const handleEvent = vi.fn()
-    render(<{{pascalCase name}} />)
+    render(<{{pascalCase name}} prop="string" />)
 
   // const handleEvent = vi.fn()
   // render(<{{pascalCase name}} prop="string" />)
 
    // await userEvent.click(screen.getByText('Click Me'))
    // expect(handleEvent).toHaveBeenCalledTimes(1)
-  //})
+  })
 })

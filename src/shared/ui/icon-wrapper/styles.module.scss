@@ -1,0 +1,16 @@
+@use '/src/core/styles/variables';
+@use '/src/core/styles/mixins';
+
+.icon-wrapper {
+  display: flex;
+  align-items: center;
+  &:global(.small) {
+    gap: 0.2em;
+  }
+  &:global(.medium) {
+    gap: 0.5em;
+  }
+  &:global(.large) {
+    gap: 1em;
+  }
+}

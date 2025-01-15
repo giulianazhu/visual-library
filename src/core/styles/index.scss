@@ -7,6 +7,9 @@
 
 :root {
   letter-spacing: 0.3px;
+  * {
+    font-size: 13px;
+  }
 }
 
 // LAYOUT AND SPACING
@@ -59,7 +62,12 @@ form {
 }
 
 .subtitle {
-  color: variables.$color-grey;
+  .dark & {
+    color: variables.$color-grey-dark;
+  }
+  .light & {
+    color: variables.$color-grey-light;
+  }
 }
 
 .subtitle-sm {
@@ -143,60 +151,17 @@ button.ant-btn.ant-btn-text {
   font-size: 12px;
 }
 
-// OTHER
-// .ant-table.ant-table-scroll-horizontal .ant-table-container .ant-table-content {
-//   &::-webkit-scrollbar {
+// #root {
+//   ::-webkit-scrollbar {
 //     width: 6px !important;
 //     height: 6px !important;
 //     background-color: #0c0a0b !important;
+//     border-radius: 8px !important;
 //   }
 
-//   &::-webkit-scrollbar-thumb {
-//     // background: linear-gradient(14.93deg, #868686 -42.27%, #eb832e 95.89%);
+//   ::-webkit-scrollbar-thumb {
+//     background: linear-gradient(14.93deg, variables.$color-grey -42.27%, variables.$color-primary 95.89%);
 //     height: 500px !important;
-//     border-radius: 4px !important;
+//     border-radius: 8px !important;
 //   }
 // }
-
-// :where(.css-dev-only-do-not-override-1qn07u7)div.ant-table-wrapper .ant-table.ant-table-scroll-horizontal {
-//   scrollbar-color: orange !important;
-//   &::-webkit-scrollbar {
-//     width: 6px !important;
-//     height: 6px !important;
-//     background-color: #0c0a0b !important;
-//   }
-
-//   &::-webkit-scrollbar-thumb {
-//     background: linear-gradient(14.93deg, #868686 -42.27%, #eb832e 95.89%);
-//     height: 500px !important;
-//     border-radius: 4px !important;
-//   }
-// }
-
-// div {
-//   &::-webkit-scrollbar {
-//     width: 6px;
-//     height: 6px;
-//     background-color: #0c0a0b;
-//   }
-//   &::-webkit-scrollbar-thumb {
-//     background: linear-gradient(14.93deg, #868686 -42.27%, #eb832e 95.89%);
-//     height: 500px;
-//     border-radius: 4px;
-//   }
-// }
-
-#root {
-  ::-webkit-scrollbar {
-    width: 6px !important;
-    height: 6px !important;
-    background-color: #0c0a0b !important;
-    border-radius: 8px !important;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: linear-gradient(14.93deg, variables.$color-grey -42.27%, variables.$color-primary 95.89%);
-    height: 500px !important;
-    border-radius: 8px !important;
-  }
-}

@@ -1,0 +1,31 @@
+@use '/src/core/styles/variables';
+@use '/src/core/styles/mixins';
+
+.form-card {
+  padding: 20px 15px;
+  min-height: 100%;
+  height: max-content;
+  border-radius: 8px;
+  box-shadow: variables.$box-shadow-x2-md;
+  :global {
+    textarea {
+      min-height: 300px;
+      height: 100%;
+      max-height: 300px;
+    }
+    button {
+      margin-top: 20px;
+    }
+    .sub-card {
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: variables.$box-shadow-x2-sm;
+    }
+  }
+  :global(.dark) & {
+    background-color: variables.$bg-tertiary-dark;
+  }
+  :global(.light) & {
+    background-color: variables.$bg-tertiary-light;
+  }
+}

@@ -1,11 +1,13 @@
 import { theme } from 'antd'
 import type { ThemeConfig } from 'antd/es/config-provider'
+import { commonThemeColors } from './common'
 
 const colors = {
   text: '#F5F7F9',
   linkHover: '#ffd480',
-  bgPrimary: '#070F2B',
+  bgPrimary: '#212529',
   bgSecondary: '#2b303a',
+  bgTertiary: '#262a327d',
   inputBorder: 'rgba(255,255,255, 0.12)',
 }
 export const darkThemeColors = colors
@@ -39,11 +41,15 @@ export const darkTheme: ThemeConfig = {
       colorBorder: 'rgba(255,255,255, 0.12)',
       colorBgContainer: '#212529',
       colorTextPlaceholder: 'rgba(255,255,255, 0.4)',
+      hoverBorderColor: commonThemeColors.primary,
+      activeBorderColor: commonThemeColors.primary,
     },
     InputNumber: {
       colorBorder: 'rgba(255,255,255, 0.12)',
       colorBgContainer: '#212529',
       colorTextPlaceholder: 'rgba(255,255,255, 0.4)',
+      hoverBorderColor: commonThemeColors.primary,
+      activeBorderColor: commonThemeColors.primary,
     },
     Select: {
       colorBorder: 'rgba(255,255,255, 0.12)',
@@ -51,6 +57,8 @@ export const darkTheme: ThemeConfig = {
       colorBgElevated: 'rgb(20, 18, 18)',
       controlItemBgActive: '#69491E',
       colorTextPlaceholder: 'rgba(255,255,255, 0.4)',
+      hoverBorderColor: commonThemeColors.primary,
+      activeBorderColor: commonThemeColors.primary,
     },
     Popover: {
       colorBgElevated: 'rgb(20, 18, 18)',
@@ -63,7 +71,7 @@ export const darkTheme: ThemeConfig = {
       colorSplit: 'rgba(25, 22, 22, 0.7)',
     },
     Card: {
-      colorBgContainer: colors.bgSecondary,
+      colorBgContainer: colors.bgTertiary,
     },
     Radio: {
       colorPrimary: '#F5A32C',

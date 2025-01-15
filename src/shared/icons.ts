@@ -17,18 +17,30 @@ import {
   IoIosSunny,
   IoIosMoon,
   IoIosArrowRoundBack,
+  IoMdExit,
 } from 'react-icons/io'
-import { FaFacebookSquare, FaInstagramSquare, FaLinkedin, FaRegCopy, FaUser } from 'react-icons/fa'
+import {
+  FaArrowLeft,
+  FaArrowRight,
+  FaFacebookSquare,
+  FaInstagramSquare,
+  FaLinkedin,
+  FaRegCopy,
+  FaRegStar,
+  FaStar,
+  FaUser,
+} from 'react-icons/fa'
 import {
   RiDeleteBin7Fill,
   RiContactsBookLine,
   RiContractLine,
   RiDashboard2Line,
   RiShieldUserLine,
+  RiErrorWarningLine,
 } from 'react-icons/ri'
 import { SlSettings } from 'react-icons/sl'
 import { HiOutlinePlus, HiOutlineDocumentReport, HiOutlineTruck } from 'react-icons/hi'
-import { TbCurrencyEuro, TbFileExport, TbListDetails, TbWorld } from 'react-icons/tb'
+import { TbCurrencyEuro, TbFileExport, TbFilterSearch, TbListDetails, TbWorld } from 'react-icons/tb'
 import { PiBuildingOffice, PiNotePencil } from 'react-icons/pi'
 import { GiReceiveMoney } from 'react-icons/gi'
 import { MdLockOutline, MdModeEdit, MdOutlineConstruction, MdOutlineEmail, MdOutlinePhone } from 'react-icons/md'
@@ -39,6 +51,7 @@ import { GrStatusGood } from 'react-icons/gr'
 import { BsBell } from 'react-icons/bs'
 import { RxHamburgerMenu } from 'react-icons/rx'
 import LoadSpinIcon from './ui/load-spin-icon'
+import { CiPause1, CiPlay1 } from 'react-icons/ci'
 
 const icons = {
   LoadIcon: LoadSpinIcon,
@@ -56,6 +69,13 @@ const icons = {
   //   direction
   ArrowCircleIcon: IoIosArrowDropleftCircle,
   ArrowIcon: IoIosArrowRoundBack,
+
+  //practice
+  PlayIcon: CiPlay1,
+  LeftArrowIcon: FaArrowLeft,
+  RightArrowIcon: FaArrowRight,
+  PauseIcon: CiPause1,
+  ExitIcon: IoMdExit,
 
   //   menu
   UserIcon: FaUser,
@@ -97,8 +117,11 @@ const icons = {
 
   //   etc.
   CopyrightIcon: AiOutlineCopyright,
+  FilterIcon: TbFilterSearch,
+  WarningIcon: RiErrorWarningLine,
+  StarEmptyIcon: FaRegStar,
+  StarFullIcon: FaStar,
 }
-
 // Export the icons object, and also allow individual named exports if needed
 export { icons }
 
@@ -148,4 +171,13 @@ export const {
   LanguageIcon,
   TranslationIcon,
   UserIcon,
+  FilterIcon,
+  WarningIcon,
+  StarEmptyIcon,
+  StarFullIcon,
+  PlayIcon,
+  PauseIcon,
+  LeftArrowIcon,
+  RightArrowIcon,
+  ExitIcon,
 } = icons

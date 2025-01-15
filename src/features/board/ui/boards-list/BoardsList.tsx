@@ -1,26 +1,40 @@
 import style from './styles.module.scss'
-import { Card, Flex } from 'antd'
-import { NavLink } from 'react-router'
-import routes from 'core/configs/routes'
-import { RoutePath } from 'types/enums'
+import { Button, Flex, Space } from 'antd'
+import { AddIcon, EditPenIcon } from 'shared/icons'
+import FormDrawer from 'shared/ui/form-drawer'
+import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import Create from 'features/board/controllers/create'
+import EditItem from 'features/board/controllers/edit-item'
+import ListHeader from 'shared/ui/list-header'
+import IconWrapper from 'shared/ui/icon-wrapper'
 
 interface BoardsListProps {
   boards: any[]
 }
 
 function BoardsList({ boards }: BoardsListProps) {
-  const boardId = 1
+  const [isCreate, setIsCreate] = useState(false)
+
+  const { t } = useTranslation()
   return (
-    <div className={style['board-list']}>
-      {boards}
-      <Flex gap="small" wrap={true} className="py-30">
-        <NavLink to={routes.board.url.replace(RoutePath.Detail, boardId.toString())}>
-          <Card className="h-ab-300 w-ab-200"></Card>
-        </NavLink>
-        <Card className="h-ab-300 w-ab-200"></Card>
-        <Card className="h-ab-300 w-ab-200"></Card>
-      </Flex>
-    </div>
+    <Flex gap="small" wrap={true} className={style['boards-list']}>
+      {boards.map((board, i) => (
+        <EditItem board={board} key={i} />
+      ))}
+      <FormDrawer
+        title={t('board.create')}
+        open={isCreate}
+        setOpen={setIsCreate}
+        customDrawerButton={
+          <div className="add-board" onClick={() => setIsCreate(true)}>
+            <AddIcon size={30} />
+          </div>
+        }
+      >
+        <Create />
+      </FormDrawer>
+    </Flex>
   )
 }
 

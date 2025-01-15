@@ -10,9 +10,9 @@ function AppLayout() {
   return (
     <Layout className={classNames(style['app-layout'])}>
       <Header />
-      <div className="outlet-container">
+      <Layout.Content className="outlet-container">
         <Outlet />
-      </div>
+      </Layout.Content>
     </Layout>
   )
 }

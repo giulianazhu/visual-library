@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 import routes from 'core/configs/routes'
 import ThemeSwitcher from 'shared/ui/theme-switcher'
 import { UserIcon } from 'shared/icons'
+import { PracticeStatus, RoutePath } from 'types/enums'
 
 function Header() {
   const { t } = useTranslation()
@@ -23,7 +24,7 @@ function Header() {
             <NavLink to={routes.dashboard.url}>
               <Button type="link"> {t('dashboard.dashboard')} </Button>
             </NavLink>
-            <NavLink to={routes.practice.url}>
+            <NavLink to={routes.practiceStatus.url.replace(RoutePath.Status, PracticeStatus.Settings)}>
               <Button type="link">{t('practice.practice')}</Button>
             </NavLink>
           </Flex>

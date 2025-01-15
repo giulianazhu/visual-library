@@ -1,0 +1,13 @@
+@use '/src/core/styles/variables';
+@use '/src/core/styles/mixins';
+
+.practice-form {
+  :global {
+    .ant-flex {
+      @include mixins.breakpoint('size-lg-up') {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+      }
+    }
+  }
+}

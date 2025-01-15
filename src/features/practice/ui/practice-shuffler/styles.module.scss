@@ -1,0 +1,63 @@
+@use '/src/core/styles/variables';
+@use '/src/core/styles/mixins';
+
+.practice-shuffler {
+  :global {
+    .carousel-container {
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: variables.$box-shadow-x2-md;
+      .timer {
+        position: absolute;
+        top: 30px;
+        right: 20px;
+        z-index: 1;
+      }
+      .controller {
+        position: relative;
+        padding: 10px;
+        background-color: grey;
+        box-shadow: variables.$button-shadow-md_dark;
+        :global(.dark) & {
+          background-color: variables.$bg-secondary-dark;
+          box-shadow: variables.$button-shadow-md_dark;
+        }
+        :global(.light) & {
+          background-color: variables.$bg-secondary-light;
+          box-shadow: variables.$button-shadow-md_dark;
+        }
+        .end-button {
+          position: absolute;
+          right: 0;
+        }
+      }
+      .ant-carousel {
+        .carousel-item {
+          height: calc(100vh - 200px);
+          width: 100%;
+          :global(.dark) & {
+            background-color: variables.$bg-tertiary-dark;
+          }
+          :global(.light) & {
+            background-color: variables.$bg-primary-light;
+          }
+        }
+        .image-container {
+          img {
+            margin-inline: auto;
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: contain;
+          }
+        }
+        .interval-container {
+          display: flex !important;
+        }
+      }
+    }
+    img {
+      max-height: 100%;
+    }
+  }
+}

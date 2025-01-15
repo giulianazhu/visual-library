@@ -9,6 +9,7 @@ function ThemeSwitcher() {
 
   return (
     <Switch
+      checked={theme === Theme.Dark}
       className={style.switcher}
       checkedChildren={<MoonIcon />}
       unCheckedChildren={<SunIcon />}

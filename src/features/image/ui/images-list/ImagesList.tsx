@@ -1,26 +1,38 @@
 import style from './styles.module.scss'
-import { Card, Flex } from 'antd'
-import { NavLink } from 'react-router'
-import routes from 'core/configs/routes'
-import { RoutePath } from 'types/enums'
+import { Flex, Space } from 'antd'
+import { AddIcon } from 'shared/icons'
+import FormDrawer from 'shared/ui/form-drawer'
+import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import Create from 'features/image/controllers/create'
+import ImageListItem from '../image-list-item'
 
 interface ImagesListProps {
   images: any[]
 }
 
 function ImagesList({ images }: ImagesListProps) {
-  console.log(routes.image.url)
+  const [isCreate, setIsCreate] = useState(false)
+  const { t } = useTranslation()
   return (
-    <div className={style['image-list']}>
-      {images}
-      <Flex gap="small" wrap={true} className="py-30">
-        <NavLink to={routes.image.url.replace(RoutePath.Detail, '1').replace(RoutePath.SubDetail, '1')}>
-          <Card className="h-ab-300 w-ab-200"></Card>
-        </NavLink>
-        <Card className="h-ab-300 w-ab-200"></Card>
-        <Card className="h-ab-300 w-ab-200"></Card>
-      </Flex>
-    </div>
+    <Flex gap="small" wrap={true} className={style['images-list']}>
+      {images.map((image, i) => (
+        // maybe two separate edit one for editboardlistitem, editboarddetail or imagelistitem imagedetail
+        <ImageListItem image={image} />
+      ))}
+      <FormDrawer
+        title={t('board.create')}
+        open={isCreate}
+        setOpen={setIsCreate}
+        customDrawerButton={
+          <div className="add-board" onClick={() => setIsCreate(true)}>
+            <AddIcon size={30} />
+          </div>
+        }
+      >
+        <Create />
+      </FormDrawer>
+    </Flex>
   )
 }
 

@@ -1,6 +1,8 @@
 {
-  "translation": {
-    "welcome": "Welcome back"
+  "general": {
+    "title": "Title",
+    "description": "Description",
+    "tags": "Tags"
   },
   "app": {
     "title": "Visual Library"
@@ -25,16 +27,25 @@
     "dashboard": "Dashboard"
   },
   "board": {
-    "board": "Board"
+    "board": "Board",
+    "boards": "Boards",
+    "create": "Create new board",
+    "edit": "Edit board",
+    "delete": "Delete board"
   },
   "image": {
-    "title": "Title",
-    "description": "Description",
-    "tags": "Tags",
+    "image": "Image",
+    "add": "Add new image",
+    "edit": "Edit image",
+    "delete": "Delete image",
     "notes": "Notes"
   },
   "practice": {
-    "practice": "Practice"
+    "practice": "Practice",
+    "number": "Number",
+    "duration": "Duration",
+    "pause": "Pause",
+    "isTimed": "Timed"
   },
   "settings": {
     "settings": "Settings"
@@ -42,12 +53,24 @@
   "placeholder": {
     "search": "Search...",
     "searchBoard": "Search board by title or description...",
-    "searchImage": "Search image by title or description..."
+    "searchImage": "Search image by title or description...",
+    "select": "Select"
   },
-  "button": {
+  "warning": {
+    "required": "Required field",
+    "invalid": "Invalid field",
+    "requiredOrInvalid": "Required or invalid field"
+  },
+  "action": {
+    "add": "Add",
+    "create": "Create",
     "edit": "Edit",
+    "delete": "Delete",
     "save": "Save",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "selectAll": "Select all",
+    "deleteAll": "Delete all"
   },
   "search": {
     "search": "Search",

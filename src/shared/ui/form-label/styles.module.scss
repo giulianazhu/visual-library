@@ -1,0 +1,12 @@
+@use '/src/core/styles/variables';
+@use '/src/core/styles/mixins';
+
+.form-label {
+  font-size: 13px;
+  font-weight: 500;
+  opacity: 0.7;
+  display: block;
+  &:global(.required):after {
+    content: '*';
+  }
+}
