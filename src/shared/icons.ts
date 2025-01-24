@@ -45,11 +45,11 @@ import { PiBuildingOffice, PiNotePencil } from 'react-icons/pi'
 import { GiReceiveMoney } from 'react-icons/gi'
 import { MdLockOutline, MdModeEdit, MdOutlineConstruction, MdOutlineEmail, MdOutlinePhone } from 'react-icons/md'
 import { AiOutlineCopyright, AiOutlineEuro, AiOutlineHistory, AiOutlineShop } from 'react-icons/ai'
-import { LuClock } from 'react-icons/lu'
+import { LuCircleHelp, LuClock } from 'react-icons/lu'
 import { BiBuildingHouse, BiExport } from 'react-icons/bi'
 import { GrStatusGood } from 'react-icons/gr'
 import { BsBell } from 'react-icons/bs'
-import { RxHamburgerMenu } from 'react-icons/rx'
+import { RxDoubleArrowUp, RxHamburgerMenu } from 'react-icons/rx'
 import LoadSpinIcon from './ui/load-spin-icon'
 import { CiPause1, CiPlay1 } from 'react-icons/ci'
 
@@ -69,6 +69,7 @@ const icons = {
   //   direction
   ArrowCircleIcon: IoIosArrowDropleftCircle,
   ArrowIcon: IoIosArrowRoundBack,
+  DoubleArrowIcon: RxDoubleArrowUp,
 
   //practice
   PlayIcon: CiPlay1,
@@ -85,6 +86,7 @@ const icons = {
   ConstructIcon: MdOutlineConstruction,
   LanguageIcon: TbWorld,
   TranslationIcon: IoLanguage,
+  HelpIcon: LuCircleHelp,
 
   //   general info
   InfoIcon: IoInformationCircle,
@@ -180,4 +182,6 @@ export const {
   LeftArrowIcon,
   RightArrowIcon,
   ExitIcon,
+  DoubleArrowIcon,
+  HelpIcon,
 } = icons

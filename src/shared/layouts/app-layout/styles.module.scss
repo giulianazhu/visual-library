@@ -8,8 +8,6 @@
   :global {
     .outlet-container {
       height: 100vh;
-      padding-block: 30px;
-      padding-inline: 30px;
       position: relative;
       overflow-y: auto;
       @include mixins.breakpoint('size-md-down') {

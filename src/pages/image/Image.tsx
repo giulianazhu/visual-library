@@ -4,7 +4,9 @@ import Seo from 'shared/ui/seo'
 function Image() {
   return (
     <Seo pageLabel="image" pageTitle="image title">
-      <Load />
+      <div>
+        <Load />
+      </div>
     </Seo>
   )
 }

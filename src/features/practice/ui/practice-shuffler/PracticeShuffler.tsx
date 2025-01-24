@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next'
 import style from './styles.module.scss'
 import { Button, Carousel, Flex, Progress, ProgressProps, Typography } from 'antd'
 import { useEffect, useRef, useState } from 'react'
@@ -16,22 +15,16 @@ const conicColors: ProgressProps['strokeColor'] = {
 }
 
 interface PracticeShufflerProps {
-  prop: string
+  settings: any
+  images: any
 }
 
-function PracticeShuffler({ prop }: PracticeShufflerProps) {
-  const timer = 5
+function PracticeShuffler({ settings, images }: PracticeShufflerProps) {
+  const timer = settings.duration
   const [countdown, setCountdown] = useState(timer)
   const [isCountingDown, setIsCountingDown] = useState(false)
   const intervalRef = useRef<NodeJS.Timeout | null>(null)
   const carouselRef = useRef<CarouselRef>(null)
-
-  const images = [
-    '/src/assets/images/image1.jpg',
-    '/src/assets/images/image2.jpg',
-    '/src/assets/images/image3.jpg',
-    '/src/assets/images/cameleon.jpg',
-  ]
 
   const startTimer = () => {
     if (intervalRef.current) {

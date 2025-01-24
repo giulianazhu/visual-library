@@ -1,12 +1,13 @@
 import { useTranslation } from 'react-i18next'
 import style from './styles.module.scss'
-import { Button, Card, Drawer, Flex, Image, Space, Tag, Typography } from 'antd'
+import { Button, Card, Flex, Image, Space, Tag, Typography } from 'antd'
 import TextArea from 'antd/es/input/TextArea'
 import { useThemeContext } from 'core/providers/theme'
 import { useState } from 'react'
-import { EditNoteIcon } from 'shared/icons'
+import { ArrowCircleIcon, EditNoteIcon } from 'shared/icons'
 import FormDrawer from 'shared/ui/form-drawer'
 import EditDetail from 'features/image/controllers/edit-detail'
+import IconWrapper from 'shared/ui/icon-wrapper'
 
 interface DetailProps {
   image: Record<string, any>
@@ -21,7 +22,20 @@ function Detail({ image }: DetailProps) {
   return (
     <>
       <div className={style['detail']}>
-        <Card>
+        <Flex justify="space-between">
+          <Button type="link" className="prev-icon">
+            <IconWrapper>
+              <ArrowCircleIcon /> {t('action.prev')}
+            </IconWrapper>
+          </Button>
+          <Button type="link" className="next-icon">
+            <IconWrapper>
+              {t('action.next')}
+              <ArrowCircleIcon />
+            </IconWrapper>
+          </Button>
+        </Flex>
+        <div className="detail-content">
           <div className="image-container">
             <Image src={image.src} key={theme} height="100%" />
             {/* force re-render based on key ==> theme value to sync with theme switch else cannot open preview */}
@@ -75,7 +89,7 @@ function Detail({ image }: DetailProps) {
               </Flex>
             </Flex>
           </div>
-        </Card>
+        </div>
       </div>
     </>
   )

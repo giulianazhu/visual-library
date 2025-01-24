@@ -4,7 +4,9 @@ import Search from 'features/board/controllers/search'
 function Dashboard() {
   return (
     <Seo pageLabel="dashboard.dashboard">
-      <Search />
+      <div className="page">
+        <Search />
+      </div>
     </Seo>
   )
 }

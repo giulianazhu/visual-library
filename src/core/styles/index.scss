@@ -7,12 +7,14 @@
 
 :root {
   letter-spacing: 0.3px;
-  * {
-    font-size: 13px;
-  }
 }
 
 // LAYOUT AND SPACING
+.page {
+  padding-block: 30px;
+  padding-inline: 30px;
+}
+
 .ant-menu,
 .ant-space,
 .ant-row,

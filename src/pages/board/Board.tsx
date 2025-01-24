@@ -4,7 +4,9 @@ import Seo from 'shared/ui/seo'
 function Board() {
   return (
     <Seo pageLabel="image" pageTitle="board title">
-      <Search />
+      <div className="page">
+        <Search />
+      </div>
     </Seo>
   )
 }

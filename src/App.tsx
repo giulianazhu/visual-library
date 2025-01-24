@@ -18,7 +18,7 @@ const Board = lazy(() => import('pages/board'))
 const Image = lazy(() => import('pages/image'))
 const Practice = lazy(() => import('pages/practice'))
 
-const Settings = lazy(() => import('pages/settings'))
+const User = lazy(() => import('pages/user'))
 const Help = lazy(() => import('pages/help'))
 
 function App() {
@@ -33,7 +33,6 @@ function App() {
                 {/* <UserProvider> */}
                 <Routes>
                   {/* <ProtectedRoutes> */}
-
                   <Route path="/" element={<AppLayout />}>
                     <Route index element={<Navigate replace to="dashboard" />} />
                     <Route path={routes.dashboard.url} element={<Dashboard />} />
@@ -41,14 +40,12 @@ function App() {
                     {/* <Route path={routes.boardNew.url} element={<Create />} /> */}
                     <Route path={routes.image.url} element={<Image />} />
                     <Route path={routes.practiceStatus.url} element={<Practice />} />
+                    <Route path={routes.user.url} element={<User />} />
+                    <Route path={routes.help.url} element={<Help />} />
                   </Route>
-                  <Route path={routes.settings.url} element={<Settings />} />
-                  <Route path={routes.help.url} element={<Help />} />
-
                   <Route path={routes.login.url} element={<Login />} />
                   <Route path={routes.signup.url} element={<Signup />} />
                 </Routes>
-
                 {/* </ProtectedRoutes> */}
 
                 {/* </UserProvider> */}

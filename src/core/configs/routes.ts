@@ -45,6 +45,12 @@ export const routes = {
     private: true,
     menu: () => i18next.t('practice.practice'),
   },
+  user: {
+    key: 'user',
+    url: `/user/${RoutePath.Tab}`,
+    private: true,
+    menu: () => i18next.t('user.profile'),
+  },
   settings: {
     key: 'settings',
     url: `/settings/${RoutePath.Tab}`,

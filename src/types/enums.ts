@@ -24,3 +24,9 @@ export enum PracticeStatus {
   Settings = 'settings',
   Start = 'start',
 }
+
+export enum UserTab {
+  Account = 'account',
+  Profile = 'profile',
+  Settings = 'settings',
+}

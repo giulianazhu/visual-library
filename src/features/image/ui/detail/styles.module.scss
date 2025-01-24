@@ -2,14 +2,20 @@
 @use '/src/core/styles/mixins';
 
 .detail {
+  padding: 2em;
+  :global(.dark) & {
+    background-color: variables.$bg-primary-dark;
+  }
+  :global(.light) & {
+    background-color: variables.$bg-primary-light;
+  }
   :global {
-    .ant-card-body {
+    .detail-content {
       display: flex;
-
       gap: 1em;
       padding: 20px;
       height: calc(100vh - 200px);
-      box-shadow: variables.$box-shadow-x2-md;
+
       @include mixins.breakpoint('size-md-down') {
         flex-direction: column;
         height: auto;
@@ -52,6 +58,9 @@
       .notes-form {
         font-size: 13px;
       }
+    }
+    .next-icon svg {
+      transform: scale(-1);
     }
   }
 }

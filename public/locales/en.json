@@ -18,10 +18,13 @@
     "newPassword": "New password"
   },
   "user": {
-    "nickname": "Nickname",
+    "account": "Account",
+    "avatar": "Avatar",
     "email": "Email",
+    "nickname": "Nickname",
     "phone": "Phone",
-    "avatar": "Avatar"
+    "profile": "Profile",
+    "username": "Username"
   },
   "dashboard": {
     "dashboard": "Dashboard"
@@ -63,14 +66,18 @@
   },
   "action": {
     "add": "Add",
-    "create": "Create",
-    "edit": "Edit",
-    "delete": "Delete",
-    "save": "Save",
     "cancel": "Cancel",
     "confirm": "Confirm",
+    "create": "Create",
+    "delete": "Delete",
+    "deleteAll": "Delete all",
+    "edit": "Edit",
+    "hide": "Hide",
+    "next": "Next",
+    "prev": "Prev",
+    "save": "Save",
     "selectAll": "Select all",
-    "deleteAll": "Delete all"
+    "showMore": "Show more"
   },
   "search": {
     "search": "Search",
@@ -84,5 +91,8 @@
     "resetAll": "Reset all",
     "results": "Results",
     "showResults": "Show {{desc}} results"
+  },
+  "help": {
+    "help": "Help"
   }
 }

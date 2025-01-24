@@ -4,10 +4,11 @@
 .practice-shuffler {
   :global {
     .carousel-container {
-      border-radius: 8px;
-      overflow: hidden;
+      height: 100%;
       position: relative;
+      border-radius: 8px;
       box-shadow: variables.$box-shadow-x2-md;
+      overflow: hidden;
       .timer {
         position: absolute;
         top: 30px;
@@ -15,8 +16,9 @@
         z-index: 1;
       }
       .controller {
-        position: relative;
+        height: 60px;
         padding: 10px;
+        position: relative;
         background-color: grey;
         box-shadow: variables.$button-shadow-md_dark;
         :global(.dark) & {
@@ -34,7 +36,7 @@
       }
       .ant-carousel {
         .carousel-item {
-          height: calc(100vh - 200px);
+          height: calc(100vh - 140px);
           width: 100%;
           :global(.dark) & {
             background-color: variables.$bg-tertiary-dark;
