@@ -9,6 +9,7 @@ import routes from 'core/configs/routes'
 import AppLayout from 'shared/layouts/app-layout/AppLayout'
 import Seo from 'shared/ui/seo'
 import { HelmetProvider } from 'react-helmet-async'
+import { useQueryClient, QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 const Login = lazy(() => import('pages/login'))
 const Signup = lazy(() => import('pages/signup'))
@@ -21,6 +22,8 @@ const Practice = lazy(() => import('pages/practice'))
 const User = lazy(() => import('pages/user'))
 const Help = lazy(() => import('pages/help'))
 
+const queryClient = new QueryClient()
+
 function App() {
   return (
     <BrowserRouter>
@@ -31,21 +34,23 @@ function App() {
               <ErrorBoundary fallback={<div>Error</div>}>
                 {/* <AuthProvider> */}
                 {/* <UserProvider> */}
-                <Routes>
-                  {/* <ProtectedRoutes> */}
-                  <Route path="/" element={<AppLayout />}>
-                    <Route index element={<Navigate replace to="dashboard" />} />
-                    <Route path={routes.dashboard.url} element={<Dashboard />} />
-                    <Route path={routes.board.url} element={<Board />} />
-                    {/* <Route path={routes.boardNew.url} element={<Create />} /> */}
-                    <Route path={routes.image.url} element={<Image />} />
-                    <Route path={routes.practiceStatus.url} element={<Practice />} />
-                    <Route path={routes.user.url} element={<User />} />
-                    <Route path={routes.help.url} element={<Help />} />
-                  </Route>
-                  <Route path={routes.login.url} element={<Login />} />
-                  <Route path={routes.signup.url} element={<Signup />} />
-                </Routes>
+                <QueryClientProvider client={queryClient}>
+                  <Routes>
+                    {/* <ProtectedRoutes> */}
+                    <Route path="/" element={<AppLayout />}>
+                      <Route index element={<Navigate replace to="dashboard" />} />
+                      <Route path={routes.dashboard.url} element={<Dashboard />} />
+                      <Route path={routes.board.url} element={<Board />} />
+                      {/* <Route path={routes.boardNew.url} element={<Create />} /> */}
+                      <Route path={routes.image.url} element={<Image />} />
+                      <Route path={routes.practiceStatus.url} element={<Practice />} />
+                      <Route path={routes.user.url} element={<User />} />
+                      <Route path={routes.help.url} element={<Help />} />
+                    </Route>
+                    <Route path={routes.login.url} element={<Login />} />
+                    <Route path={routes.signup.url} element={<Signup />} />
+                  </Routes>
+                </QueryClientProvider>
                 {/* </ProtectedRoutes> */}
 
                 {/* </UserProvider> */}

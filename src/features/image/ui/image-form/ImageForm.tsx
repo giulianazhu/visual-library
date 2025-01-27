@@ -11,7 +11,7 @@ import FormCard from 'shared/ui/form-card'
 interface ImageFormProps {
   image?: any
   isLoading: boolean
-  onSubmit: () => void
+  onSubmit: (data: any) => Promise<void>
   form: UseFormReturn<any>
 }
 

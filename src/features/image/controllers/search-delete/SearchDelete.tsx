@@ -1,15 +1,23 @@
 import { Flex } from 'antd'
-import EditDetail from 'features/board/controllers/edit-detail'
+import EditItem from 'features/board/controllers/edit-item'
 import { useSearchBoard } from 'features/board/store/search'
+import { useDelete } from 'features/image/hooks/useDelete'
+import useSearch from 'features/image/hooks/useSearch'
 import ImagesList from 'features/image/ui/images-list'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import useToast from 'shared/hooks/useToast'
 import ListHeader from 'shared/ui/list-header'
 
 import Searcher from 'shared/ui/searcher'
 
-function Search() {
+function SearchDelete() {
   const [deleteImages, setDeleteImages] = useState<number[]>([])
+  const [deleteBoards, setDeleteBoards] = useState<number[]>([])
+
+  const { isPending: isSearching, data } = useSearch()
+  const { isPending: isDeleting, mutateAsync: mutateDelete } = useDelete()
+  const { showSuccess, showError, contextHolder } = useToast()
 
   const { t } = useTranslation()
   // called the query hook
@@ -23,7 +31,21 @@ function Search() {
     deleteImages.length === images.length ? setDeleteImages([]) : setDeleteImages(images.map((image) => image.id))
   }
 
-  const handleDelete = () => {}
+  const handleDelete = async () => {
+    try {
+      const res = await mutateDelete(deleteBoards) // Perform the mutation
+      if (res.error) {
+        throw new Error('error')
+      }
+      showSuccess()
+    } catch (error) {
+      if (error instanceof Error) {
+        showError()
+      }
+      console.error('Mutation failed:', error) // Handle unexpected errors
+      // Show an error message or feedback
+    }
+  }
 
   return (
     <>
@@ -37,7 +59,9 @@ function Search() {
         checkAll={deleteImages.length === images.length}
         onChange={setDeleteImages}
         onCheckAllChange={onCheckAllChange}
-        customEditButton={<EditDetail board={{}} />}
+        onDelete={handleDelete}
+        disabled={isSearching}
+        isDeleting={isDeleting}
       >
         <ImagesList images={images} />
       </ListHeader>
@@ -45,4 +69,4 @@ function Search() {
   )
 }
 
-export default Search
+export default SearchDelete

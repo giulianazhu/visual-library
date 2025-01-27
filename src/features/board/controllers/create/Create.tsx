@@ -1,24 +1,40 @@
 import { yupResolver } from '@hookform/resolvers/yup'
+import { useCreate } from 'features/board/hooks/useCreate'
 import BoardForm from 'features/board/ui/board-form'
-import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { boardSchema } from 'schemas/board'
+import useToast from 'shared/hooks/useToast'
 
-function Create() {
-  const [isCreating, setIsCreating] = useState(false)
+interface CreateProps {
+  setIsCreate: (value: boolean) => void
+}
 
-  const handleCreate = () => {
-    setIsCreating(true)
-    // call api
-    console.log('create')
-    setIsCreating(false)
-  }
-
+function Create({ setIsCreate }: CreateProps) {
   const form = useForm({ resolver: yupResolver(boardSchema) })
+  const { isPending: isCreating, mutateAsync } = useCreate()
+  const { showSuccess, showError, contextHolder } = useToast()
+
+  const handleCreate = async (data: any) => {
+    try {
+      const res = await mutateAsync(data)
+      if (res.error) {
+        throw new Error('error')
+      }
+      setIsCreate(false)
+      form.reset()
+      showSuccess()
+    } catch (error) {
+      if (error instanceof Error) {
+        showError()
+      }
+      console.error('Mutation failed:', error)
+    }
+  }
 
   return (
     <>
-      <BoardForm form={form} isLoading={isCreating} onSubmit={handleCreate} />
+      {contextHolder}
+      <BoardForm form={form} isSubmitting={isCreating} onSubmit={handleCreate} />
     </>
   )
 }

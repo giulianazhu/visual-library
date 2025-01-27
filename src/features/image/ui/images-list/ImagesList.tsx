@@ -5,7 +5,7 @@ import FormDrawer from 'shared/ui/form-drawer'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import Create from 'features/image/controllers/create'
-import ImageListItem from '../image-list-item'
+import EditItem from 'features/image/controllers/edit-item'
 
 interface ImagesListProps {
   images: any[]
@@ -18,7 +18,7 @@ function ImagesList({ images }: ImagesListProps) {
     <Flex gap="small" wrap={true} className={style['images-list']}>
       {images.map((image, i) => (
         // maybe two separate edit one for editboardlistitem, editboarddetail or imagelistitem imagedetail
-        <ImageListItem image={image} />
+        <EditItem image={image} key={i} />
       ))}
       <FormDrawer
         title={t('board.create')}

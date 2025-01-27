@@ -1,13 +1,19 @@
-import { Button, Flex } from 'antd'
+import { Flex } from 'antd'
+import { useDelete } from 'features/board/hooks/useDelete'
+import useSearch from 'features/board/hooks/useSearch'
 import { useSearchBoard } from 'features/board/store/search'
 import BoardsList from 'features/board/ui/boards-list'
 import { useState } from 'react'
+import useToast from 'shared/hooks/useToast'
 import ListHeader from 'shared/ui/list-header'
 
 import Searcher from 'shared/ui/searcher'
 
-function Search() {
+function SearchDelete() {
   const [deleteBoards, setDeleteBoards] = useState<number[]>([])
+  const { isPending: isSearching, data } = useSearch()
+  const { isPending: isDeleting, mutateAsync: mutateDelete } = useDelete()
+  const { showSuccess, showError, contextHolder } = useToast()
 
   // called the query hook
   const boards = [
@@ -19,8 +25,21 @@ function Search() {
   const onCheckAllChange = () => {
     deleteBoards.length === boards.length ? setDeleteBoards([]) : setDeleteBoards(boards.map((board) => board.id))
   }
-  const handleDelete = () => {}
-
+  const handleDelete = async () => {
+    try {
+      const res = await mutateDelete(deleteBoards) // Perform the mutation
+      if (res.error) {
+        throw new Error('error')
+      }
+      showSuccess()
+    } catch (error) {
+      if (error instanceof Error) {
+        showError()
+      }
+      console.error('Mutation failed:', error) // Handle unexpected errors
+      // Show an error message or feedback
+    }
+  }
   return (
     <>
       <Flex align="center" justify="center">
@@ -33,11 +52,14 @@ function Search() {
         checkAll={deleteBoards.length === boards.length}
         onChange={setDeleteBoards}
         onCheckAllChange={onCheckAllChange}
+        onDelete={handleDelete}
+        isDeleting={isDeleting}
+        disabled={isSearching}
       >
-        <BoardsList boards={boards} />
+        {isSearching ? <div>Searching...</div> : <BoardsList boards={boards} />}
       </ListHeader>
     </>
   )
 }
 
-export default Search
+export default SearchDelete

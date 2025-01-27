@@ -1,13 +1,12 @@
 import { useTranslation } from 'react-i18next'
 import style from './styles.module.scss'
-import { Button, Card, Flex, Image, Space, Tag, Typography } from 'antd'
+import { Button, Flex, Image, Space, Tag, Typography } from 'antd'
 import TextArea from 'antd/es/input/TextArea'
 import { useThemeContext } from 'core/providers/theme'
 import { useState } from 'react'
-import { ArrowCircleIcon, EditNoteIcon } from 'shared/icons'
+import { EditNoteIcon, StarEmptyIcon, StarFullIcon } from 'shared/icons'
 import FormDrawer from 'shared/ui/form-drawer'
 import EditDetail from 'features/image/controllers/edit-detail'
-import IconWrapper from 'shared/ui/icon-wrapper'
 
 interface DetailProps {
   image: Record<string, any>
@@ -22,19 +21,6 @@ function Detail({ image }: DetailProps) {
   return (
     <>
       <div className={style['detail']}>
-        <Flex justify="space-between">
-          <Button type="link" className="prev-icon">
-            <IconWrapper>
-              <ArrowCircleIcon /> {t('action.prev')}
-            </IconWrapper>
-          </Button>
-          <Button type="link" className="next-icon">
-            <IconWrapper>
-              {t('action.next')}
-              <ArrowCircleIcon />
-            </IconWrapper>
-          </Button>
-        </Flex>
         <div className="detail-content">
           <div className="image-container">
             <Image src={image.src} key={theme} height="100%" />
@@ -44,14 +30,17 @@ function Detail({ image }: DetailProps) {
             <Space direction="vertical">
               <Flex justify="space-between" align="center">
                 <Typography.Title level={4}>{image.title}</Typography.Title>
-                <FormDrawer
-                  open={isEdit}
-                  setOpen={setIsEdit}
-                  title={t('action.edit')}
-                  customDrawerButton={<Button onClick={() => setIsEdit(true)}>{t('action.edit')}</Button>}
-                >
-                  <EditDetail setIsEdit={setIsEdit} image={image} />
-                </FormDrawer>
+                <Flex gap="small">
+                  <Button className="px-10">{image.isFavourite ? <StarFullIcon /> : <StarEmptyIcon />}</Button>
+                  <FormDrawer
+                    open={isEdit}
+                    setOpen={setIsEdit}
+                    title={t('action.edit')}
+                    customDrawerButton={<Button onClick={() => setIsEdit(true)}>{t('action.edit')}</Button>}
+                  >
+                    <EditDetail setIsEdit={setIsEdit} image={image} />
+                  </FormDrawer>
+                </Flex>
               </Flex>
               <Typography.Text className="fontsize-13">{image.description}</Typography.Text>
               <Space>

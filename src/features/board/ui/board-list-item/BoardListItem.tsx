@@ -16,12 +16,23 @@ interface BoardListItemProps {
   isEdit: boolean
   setIsEdit: (isEdit: boolean) => void
   isSaving: boolean
-  onEdit: () => void
+  onEdit: (data: any) => Promise<void>
   onStar: () => void
   onDelete: () => void
+  isDeleting: boolean
 }
 
-function BoardListItem({ board, form, isEdit, setIsEdit, isSaving, onEdit, onDelete, onStar }: BoardListItemProps) {
+function BoardListItem({
+  board,
+  form,
+  isEdit,
+  setIsEdit,
+  isSaving,
+  onEdit,
+  onDelete,
+  onStar,
+  isDeleting,
+}: BoardListItemProps) {
   const { t } = useTranslation()
   return (
     <Flex vertical gap="small" className={style['board-list-item']}>
@@ -39,7 +50,14 @@ function BoardListItem({ board, form, isEdit, setIsEdit, isSaving, onEdit, onDel
             </span>
           }
         >
-          <BoardForm board={board} form={form} onSubmit={onEdit} onDelete={onDelete} isLoading={isSaving} />
+          <BoardForm
+            board={board}
+            form={form}
+            onSubmit={onEdit}
+            onDelete={onDelete}
+            isSubmitting={isSaving}
+            isDeleting={isDeleting}
+          />
         </FormDrawer>
       </Flex>
       <NavLink to={routes.board.url.replace(RoutePath.Detail, (1).toString())}>

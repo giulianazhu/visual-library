@@ -2,7 +2,7 @@
 @use '/src/core/styles/mixins';
 
 .detail {
-  padding: 2em;
+  padding: 3em;
   :global(.dark) & {
     background-color: variables.$bg-primary-dark;
   }
@@ -13,8 +13,7 @@
     .detail-content {
       display: flex;
       gap: 1em;
-      padding: 20px;
-      height: calc(100vh - 200px);
+      height: calc(100vh - 180px);
 
       @include mixins.breakpoint('size-md-down') {
         flex-direction: column;

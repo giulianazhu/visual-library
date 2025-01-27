@@ -65,7 +65,7 @@ export default tseslint.config(
       'check-file/filename-naming-convention': [
         'error',
         {
-          'src/**/*.{jsx, tsx}': 'PASCAL_CASE',
+          'src/**/*.{jsx, tsx}': ['PASCAL_CASE', 'CAMEL_CASE'],
           'src/**/*.{ts, js}': 'CAMEL_CASE',
           'src/**/*.{scss, module.scss}': 'KEBAB_CASE',
         },

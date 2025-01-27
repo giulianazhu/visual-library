@@ -1,29 +1,25 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import Search from './Search'
+import EditItem from './EditItem'
 
 
-describe.skip('Search Integration', () => {
+describe.skip('Controller API Integration', () => {
   it('should call API and render data correctly', async () => {
-    const mockData = { id: 1, name: 'Test Item' };
-    vi.spyOn(global, 'fetch').mockResolvedValueOnce({
-      json: async () => mockData,
-    });
+    const mockData = { id: 1, name: 'Test Item' }
+    const mockFn = vi.spyOn(global, 'fetch').mockResolvedValueOnce(new Response(JSON.stringify(mockData)))
 
-    render(<Search />);
+    render(<EditItem prop="string" />)
 
-    //looks for the loading text
-    expect(screen.getByText(/loading/i)).toBeInTheDocument();
+    expect(screen.getByText(/loading/i)).toBeInTheDocument()
 
-    //waits for the component to render the async data
-    await waitFor(() => expect(screen.getByText(mockData.name)).toBeInTheDocument());
+    await waitFor(() => expect(screen.getByText(mockData.name)).toBeInTheDocument())
 
-    global.fetch.mockRestore();
-  });
+    mockFn.mockRestore()
+  })
 
   it('handles user interaction and trigger state changes', async () => {
     const user = userEvent.setup();
-    render(<Search />);
+    render(<EditItem />);
 
     const input = screen.getByPlaceholderText(/enter value/i); // Replace placeholder with actual text
     await user.type(input, 'New Value');

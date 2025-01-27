@@ -1,10 +1,9 @@
 import { yupResolver } from '@hookform/resolvers/yup'
+import { useEdit } from 'features/image/hooks/useEdit'
 import ImageForm from 'features/image/ui/image-form'
-import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router'
 import { imageSchema } from 'schemas/image'
-import * as yup from 'yup'
+import useToast from 'shared/hooks/useToast'
 
 interface EditDetailProps {
   setIsEdit: (val: boolean) => void
@@ -12,21 +11,32 @@ interface EditDetailProps {
 }
 
 function EditDetail({ setIsEdit, image }: EditDetailProps) {
-  const [isSaving, setIsSaving] = useState(false)
-  // reac thook form logic
-
   const form = useForm({ resolver: yupResolver(imageSchema), defaultValues: { ...image } })
-  const navigate = useNavigate()
+  const { mutateAsync: mutatePut, isPending: isSaving } = useEdit(image.id)
+  const { showSuccess, showError, contextHolder } = useToast()
 
-  const handleSave = () => {
-    setIsSaving(true)
-    console.log('saving... calling api')
-    setIsSaving(false)
-    setIsEdit(false)
-    console.log('redirect to image detail')
-    // navigate()
+  const handleSave = async (data: any) => {
+    try {
+      const res = await mutatePut(data)
+      if (res.error) {
+        throw new Error('error')
+      }
+      showSuccess()
+      setIsEdit(false)
+    } catch (error) {
+      if (error instanceof Error) {
+        showError()
+      }
+      console.error('Mutation failed:', error)
+    }
   }
-  return <ImageForm image={image} form={form} isLoading={isSaving} onSubmit={handleSave} />
+
+  return (
+    <>
+      {contextHolder}
+      <ImageForm image={image} form={form} isLoading={isSaving} onSubmit={handleSave} />
+    </>
+  )
 }
 
 export default EditDetail

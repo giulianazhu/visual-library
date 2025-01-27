@@ -1,11 +1,13 @@
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import Search from './Search'
+import Search from './SearchDelete'
 
 describe.skip('Search Integration', () => {
   it('should call API and render data correctly', async () => {
     const mockData = { id: 1, name: 'Test Item' }
-    const mockApi = vi.spyOn(global, 'fetch').mockResolvedValue(new Response(JSON.stringify(mockData)))
+    vi.spyOn(global, 'fetch').mockResolvedValueOnce({
+      json: async () => mockData,
+    })
 
     render(<Search />)
 
@@ -15,7 +17,7 @@ describe.skip('Search Integration', () => {
     //waits for the component to render the async data
     await waitFor(() => expect(screen.getByText(mockData.name)).toBeInTheDocument())
 
-    mockApi.mockRestore()
+    global.fetch.mockRestore()
   })
 
   it('handles user interaction and trigger state changes', async () => {

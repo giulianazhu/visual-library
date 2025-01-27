@@ -32,7 +32,7 @@ function BoardsList({ boards }: BoardsListProps) {
           </div>
         }
       >
-        <Create />
+        <Create setIsCreate={setIsCreate} />
       </FormDrawer>
     </Flex>
   )

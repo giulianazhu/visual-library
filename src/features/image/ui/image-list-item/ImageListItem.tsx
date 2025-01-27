@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next'
 import style from './styles.module.scss'
 import { Checkbox, Flex, Typography } from 'antd'
 import { StarEmptyIcon } from 'shared/icons'
@@ -13,7 +12,6 @@ interface ImageListItemProps {
 }
 
 function ImageListItem({ image, onStar }: ImageListItemProps) {
-  const { t } = useTranslation()
   const boardId = useParams().id!
   return (
     <Flex vertical gap="small" className={style['image-list-item']}>

@@ -12,12 +12,13 @@ import IconWrapper from 'shared/ui/icon-wrapper'
 interface BoardFormProps {
   board?: any
   form: UseFormReturn<any>
-  isLoading: boolean
-  onSubmit: () => void
+  onSubmit: (form: any) => Promise<void>
   onDelete?: () => void
+  isSubmitting: boolean
+  isDeleting?: boolean
 }
 
-function BoardForm({ board, isLoading, onSubmit, form, onDelete }: BoardFormProps) {
+function BoardForm({ board, isSubmitting, isDeleting, onSubmit, form, onDelete }: BoardFormProps) {
   const { t } = useTranslation()
   const { handleSubmit, control } = form
 
@@ -39,7 +40,7 @@ function BoardForm({ board, isLoading, onSubmit, form, onDelete }: BoardFormProp
           </FormRow>
           {board ? (
             <Flex justify="space-between">
-              <Button>
+              <Button loading={isDeleting} onClick={onDelete}>
                 <IconWrapper>
                   {t('action.delete')}
                   <DeleteIcon />
@@ -51,7 +52,7 @@ function BoardForm({ board, isLoading, onSubmit, form, onDelete }: BoardFormProp
             </Flex>
           ) : (
             <Flex justify="flex-end">
-              <Button type="primary" htmlType="submit">
+              <Button type="primary" htmlType="submit" loading={isSubmitting}>
                 {t('action.add')}
               </Button>
             </Flex>
