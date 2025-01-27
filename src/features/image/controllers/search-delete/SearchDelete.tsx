@@ -25,6 +25,7 @@ function SearchDelete() {
     { id: 1, title: 'Image 1', url: '/src/assets/images/image1.jpg', isFavourite: true },
     { id: 2, title: 'Image 2', url: '/src/assets/images/image2.jpg', isFavourite: false },
     { id: 3, title: 'Image 3', url: '/src/assets/images/image3.jpg', isFavourite: true },
+    { id: 1, title: 'Image 1', url: '/src/assets/images/cameleon.jpg', isFavourite: true },
   ]
 
   const onCheckAllChange = () => {

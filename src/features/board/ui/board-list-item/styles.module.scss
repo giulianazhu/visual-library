@@ -2,15 +2,12 @@
 @use '/src/core/styles/mixins';
 
 .board-list-item {
-  height: 275px;
-  width: 200px;
   padding: 10px;
   flex: 1 0 200px;
   position: relative;
   border-radius: 8px;
   cursor: pointer;
-  box-shadow: variables.$box-shadow-x2-sm;
-
+  box-shadow: variables.$box-shadow-x2-lg;
   :global {
     .board-container {
       transition: all 0.2s ease-out;

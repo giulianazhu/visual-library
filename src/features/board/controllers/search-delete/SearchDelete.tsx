@@ -20,6 +20,19 @@ function SearchDelete() {
     { id: 1, title: 'Board 1', isFavourite: true },
     { id: 2, title: 'Board 2', isFavourite: false },
     { id: 3, title: 'Board 3', isFavourite: true },
+    { id: 1, title: 'Board 1', isFavourite: true },
+    { id: 2, title: 'Board 2', isFavourite: false },
+    { id: 3, title: 'Board 3', isFavourite: true },
+    { id: 1, title: 'Board 1', isFavourite: true },
+    { id: 2, title: 'Board 2', isFavourite: false },
+    { id: 3, title: 'Board 3', isFavourite: true },
+    { id: 1, title: 'Board 1', isFavourite: true },
+    { id: 2, title: 'Board 2', isFavourite: false },
+    { id: 3, title: 'Board 3', isFavourite: true },
+    { id: 1, title: 'Board 1', isFavourite: true },
+    { id: 2, title: 'Board 2', isFavourite: false },
+    { id: 3, title: 'Board 3', isFavourite: true },
+    { id: 1, title: 'Board 1', isFavourite: true },
   ]
 
   const onCheckAllChange = () => {

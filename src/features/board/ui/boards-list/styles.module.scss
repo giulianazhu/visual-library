@@ -2,15 +2,20 @@
 @use '/src/core/styles/mixins';
 
 .boards-list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 250px));
+  grid-auto-rows: 275px;
+  grid-auto-flow: row;
+  gap: 3em;
+  justify-content: space-evenly;
   :global {
     .add-board {
-      height: 275px;
-      width: 200px;
       display: flex;
       justify-content: center;
       align-items: center;
       border-radius: 8px;
-      box-shadow: variables.$box-shadow-x2-sm;
+      box-shadow: variables.$box-shadow-x2-xl;
       flex: 1 0 200px;
       cursor: pointer;
       transition: all ease-out 0.3s;

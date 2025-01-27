@@ -50,7 +50,7 @@ function ListHeader<DataType>({
         </Flex>
         {customEditButton ? customEditButton : <Button type="link" className="placeholder-button"></Button>}
       </Flex>
-      <Checkbox.Group value={checkedList} onChange={onChange}>
+      <Checkbox.Group className="w-100" value={checkedList} onChange={onChange}>
         {options}
       </Checkbox.Group>
     </div>

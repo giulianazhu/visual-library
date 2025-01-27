@@ -1,5 +1,4 @@
 import style from './styles.module.scss'
-import { Flex, Space } from 'antd'
 import { AddIcon } from 'shared/icons'
 import FormDrawer from 'shared/ui/form-drawer'
 import { useState } from 'react'
@@ -15,7 +14,7 @@ function ImagesList({ images }: ImagesListProps) {
   const [isCreate, setIsCreate] = useState(false)
   const { t } = useTranslation()
   return (
-    <Flex gap="small" wrap={true} className={style['images-list']}>
+    <div className={style['images-list']}>
       {images.map((image, i) => (
         // maybe two separate edit one for editboardlistitem, editboarddetail or imagelistitem imagedetail
         <EditItem image={image} key={i} />
@@ -32,7 +31,7 @@ function ImagesList({ images }: ImagesListProps) {
       >
         <Create />
       </FormDrawer>
-    </Flex>
+    </div>
   )
 }
 

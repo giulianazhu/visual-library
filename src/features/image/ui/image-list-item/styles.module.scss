@@ -2,14 +2,12 @@
 @use '/src/core/styles/mixins';
 
 .image-list-item {
-  height: 275px;
-  width: 200px;
   flex: 1 0 200px;
   padding: 10px;
   position: relative;
   border-radius: 8px;
   cursor: pointer;
-  box-shadow: variables.$box-shadow-x2-sm;
+  box-shadow: variables.$box-shadow-x2-lg;
 
   :global {
     .image-container {

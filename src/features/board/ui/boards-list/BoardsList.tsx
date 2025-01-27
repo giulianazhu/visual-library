@@ -15,7 +15,8 @@ function BoardsList({ boards }: BoardsListProps) {
 
   const { t } = useTranslation()
   return (
-    <Flex gap="small" wrap={true} className={style['boards-list']}>
+    // <Flex gap="large" wrap={true} className={style['boards-list']}>
+    <div className={style['boards-list']}>
       {boards.map((board, i) => (
         <EditItem board={board} key={i} />
       ))}
@@ -31,7 +32,8 @@ function BoardsList({ boards }: BoardsListProps) {
       >
         <Create setIsCreate={setIsCreate} />
       </FormDrawer>
-    </Flex>
+    </div>
+    // </Flex>
   )
 }
 
