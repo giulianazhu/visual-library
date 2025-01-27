@@ -45,7 +45,7 @@ function BoardListItem({
           open={isEdit}
           setOpen={setIsEdit}
           customDrawerButton={
-            <span>
+            <span data-testid="edit-button">
               <EditPenIcon className="edit-icon" onClick={() => setIsEdit(true)} />
             </span>
           }

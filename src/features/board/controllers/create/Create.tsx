@@ -1,5 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useCreate } from 'features/board/hooks/useCreate'
+import useCreate from 'features/board/hooks/useCreate'
 import BoardForm from 'features/board/ui/board-form'
 import { useForm } from 'react-hook-form'
 import { boardSchema } from 'schemas/board'

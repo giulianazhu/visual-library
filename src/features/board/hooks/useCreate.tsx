@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 
-export function useCreate() {
+function useCreate() {
   const queryClient = useQueryClient()
 
   const mutation = useMutation({
@@ -25,3 +25,5 @@ export function useCreate() {
 
   return mutation
 }
+
+export default useCreate

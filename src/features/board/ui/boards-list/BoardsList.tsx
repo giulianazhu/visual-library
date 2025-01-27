@@ -1,14 +1,11 @@
 import style from './styles.module.scss'
-import { Button, Flex, Space } from 'antd'
-import { AddIcon, EditPenIcon } from 'shared/icons'
+import { Flex } from 'antd'
+import { AddIcon } from 'shared/icons'
 import FormDrawer from 'shared/ui/form-drawer'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import Create from 'features/board/controllers/create'
 import EditItem from 'features/board/controllers/edit-item'
-import ListHeader from 'shared/ui/list-header'
-import IconWrapper from 'shared/ui/icon-wrapper'
-
 interface BoardsListProps {
   boards: any[]
 }
