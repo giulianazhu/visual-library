@@ -13,7 +13,7 @@ function Header() {
   const items: MenuProps['items'] = [
     {
       key: '1',
-      label: <NavLink to={routes.user.url.replace(RoutePath.Tab, UserTab.Account)}>{t('user.profile')}</NavLink>,
+      label: <NavLink to={routes.user.url.replace(RoutePath.Tab, UserTab.Account)}>{t('user.account')}</NavLink>,
       icon: (
         <NavLink to={routes.user.url.replace(RoutePath.Tab, UserTab.Account)}>
           <UserIcon size={20} />

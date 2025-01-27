@@ -2,7 +2,8 @@
   "general": {
     "title": "Title",
     "description": "Description",
-    "tags": "Tags"
+    "tags": "Tags",
+    "pageUnderConstruction": "Page under construction"
   },
   "app": {
     "title": "Visual Library"
@@ -94,5 +95,13 @@
   },
   "help": {
     "help": "Help"
+  },
+  "toast": {
+    "success": {
+      "msg": "Operation successful"
+    },
+    "error": {
+      "msg": "Operation failed"
+    }
   }
 }

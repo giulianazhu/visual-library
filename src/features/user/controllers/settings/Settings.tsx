@@ -4,7 +4,7 @@ function Settings() {
   // fetch settings data
   // edit logic
 
-  return <SettingsForm />
+  return <SettingsForm prop="string" />
 }
 
 export default Settings

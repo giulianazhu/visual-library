@@ -17,15 +17,14 @@ function AccountForm({ form, isSubmitting, onSubmit }: AccountFormProps) {
   const { control, handleSubmit } = form
 
   return (
-    <div className={style['account-form']}>
-      <FormCard>
-        <form>
-          <FormRow>
-            <FormLabel>test</FormLabel>
-          </FormRow>
-        </form>
-      </FormCard>
-    </div>
+    <div>{t('general.pageUnderConstruction')}</div>
+    // <div className={style['account-form']}>
+    //   <FormCard>
+    //     <form>
+    //       <FormRow>{t('general.pageUnderConstruction')}</FormRow>
+    //     </form>
+    //   </FormCard>
+    // </div>
   )
 }
 

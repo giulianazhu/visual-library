@@ -15,7 +15,7 @@ function Account() {
     resolver: yupResolver(userSchema),
   })
 
-  const handleSubmit = (form) => {
+  const handleSubmit = () => {
     // save account data
     // edit logic
   }

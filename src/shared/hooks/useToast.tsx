@@ -9,13 +9,13 @@ const useToast = () => {
   const toastRef = useRef({
     showSuccess: (msg?: string, desc?: string) => {
       api.success({
-        message: msg || t('notification.success.msg'),
+        message: msg || t('toast.success.msg'),
         description: desc || '',
       })
     },
     showError: (msg?: string, desc?: string) => {
       api.error({
-        message: msg || t('notification.error.msg'),
+        message: msg || t('toast.error.msg'),
         description: desc || '',
       })
     },
