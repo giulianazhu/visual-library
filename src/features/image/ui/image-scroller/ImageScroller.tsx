@@ -74,7 +74,7 @@ function ImageScroller({ images }: ImageScrollerProps) {
 
       <div className="image-scroller" ref={containerRef}>
         <Flex gap="middle">
-          {images.map((img) => (
+          {images.map((img: any) => (
             <div className={classNames('scroller-item', { active: parseInt(id) === img.id })} key={img.id}>
               <img src={img.src} alt={img.id} />
             </div>

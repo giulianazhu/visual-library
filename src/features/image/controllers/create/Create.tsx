@@ -1,5 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useCreate } from 'features/board/hooks/useCreate'
+import useCreate from 'features/board/hooks/useCreate'
 import ImageForm from 'features/image/ui/image-form'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
