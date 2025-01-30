@@ -4,11 +4,12 @@
 .delete-checker {
   :global {
     .list-header {
-      margin-block: 2em;
+      // margin-block: 2em;
+      // margin-block: 1em;
       padding: 1em;
       justify-content: space-between;
       align-items: center;
-      border-block-end: 1px solid rgba(0, 0, 0, 0.186);
+      // border-block-start: 1px solid rgba(0, 0, 0, 0.186);
     }
     .placeholder-button {
       opacity: 0;

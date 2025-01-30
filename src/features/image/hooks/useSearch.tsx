@@ -1,16 +1,15 @@
-import { useQuery } from '@tanstack/react-query'
+import { useQuery, UseQueryResult } from '@tanstack/react-query'
+import { mockImages } from 'shared/utils/mockData'
+import { fakeFetcher } from 'shared/utils/utils'
+import { ApiImage } from 'types/api/image'
 
 function useSearch() {
-  const query = useQuery({
+  const query: UseQueryResult<ApiImage[], Error> = useQuery({
     queryFn: async () => {
-      return { data: 'sth' }
-      // const response = await fetch('/api/boards')
-      // if (!response.ok) {
-      //   throw new Error('Network response was not ok')
-      // }
-      // return response.json()
+      const res = await fakeFetcher(mockImages)
+      return res.data
     },
-    queryKey: ['boards'],
+    queryKey: ['images'],
   })
 
   return query

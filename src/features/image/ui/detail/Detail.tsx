@@ -7,12 +7,14 @@ import { useState } from 'react'
 import { EditNoteIcon, StarEmptyIcon, StarFullIcon } from 'shared/icons'
 import FormDrawer from 'shared/ui/form-drawer'
 import EditDetail from 'features/image/controllers/edit-detail'
+import { ApiImage } from 'types/api/image'
 
 interface DetailProps {
-  image: Record<string, any>
+  image: ApiImage
+  onStar: () => void
 }
 
-function Detail({ image }: DetailProps) {
+function Detail({ image, onStar }: DetailProps) {
   const [isEdit, setIsEdit] = useState(false)
   const [isEditNote, setIsEditNote] = useState(false)
   const { t } = useTranslation()
@@ -23,7 +25,7 @@ function Detail({ image }: DetailProps) {
       <div className={style['detail']}>
         <div className="detail-content">
           <div className="image-container">
-            <Image src={image.src} key={theme} height="100%" />
+            <Image src={image.url} key={theme} height="100%" />
             {/* force re-render based on key ==> theme value to sync with theme switch else cannot open preview */}
           </div>
           <div className="text-container">
@@ -31,7 +33,9 @@ function Detail({ image }: DetailProps) {
               <Flex justify="space-between" align="center">
                 <Typography.Title level={4}>{image.title}</Typography.Title>
                 <Flex gap="small">
-                  <Button className="px-10">{image.isFavourite ? <StarFullIcon /> : <StarEmptyIcon />}</Button>
+                  <Button className="px-10" onClick={onStar}>
+                    {image.isFavourite ? <StarFullIcon /> : <StarEmptyIcon />}
+                  </Button>
                   <FormDrawer
                     open={isEdit}
                     setOpen={setIsEdit}
@@ -44,7 +48,7 @@ function Detail({ image }: DetailProps) {
               </Flex>
               <Typography.Text className="fontsize-13">{image.description}</Typography.Text>
               <Space>
-                {image.tags.map((tag: string) => (
+                {image.tags.map((tag: number) => (
                   <Tag key={tag}>{tag}</Tag>
                 ))}
               </Space>
@@ -71,9 +75,9 @@ function Detail({ image }: DetailProps) {
               </Flex>
               <Flex vertical className="notes-container">
                 {isEditNote ? (
-                  <TextArea value={image.notes} className="notes-form" autoSize={true} />
+                  <TextArea value={image.note} className="notes-form" autoSize={true} />
                 ) : (
-                  <div className="notes-content subtitle">{image.notes}</div>
+                  <div className="notes-content subtitle">{image.note}</div>
                 )}
               </Flex>
             </Flex>

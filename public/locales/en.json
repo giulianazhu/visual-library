@@ -35,7 +35,8 @@
     "boards": "Boards",
     "create": "Create new board",
     "edit": "Edit board",
-    "delete": "Delete board"
+    "delete": "Delete board",
+    "items": "Items"
   },
   "image": {
     "image": "Image",

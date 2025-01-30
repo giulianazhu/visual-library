@@ -20,9 +20,9 @@ function ListHeader<DataType>({
   onCheckAllChange,
   onDelete,
   isDeleting,
+  disabled,
   customEditButton,
   children: options,
-  disabled,
 }: ListHeaderProps<DataType>) {
   const { t } = useTranslation()
 

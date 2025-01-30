@@ -1,14 +1,10 @@
 import {
   IoEyeOutline,
-  IoCarOutline,
   IoInformationCircle,
   IoMoonOutline,
   IoDocumentOutline,
   IoCloseOutline,
   IoLanguage,
-  IoVolumeHighOutline,
-  IoVolumeLowOutline,
-  IoVolumeMediumOutline,
 } from 'react-icons/io5'
 import {
   IoIosSearch,
@@ -23,6 +19,7 @@ import {
   FaArrowLeft,
   FaArrowRight,
   FaFacebookSquare,
+  FaHome,
   FaInstagramSquare,
   FaLinkedin,
   FaRegCopy,
@@ -30,23 +27,15 @@ import {
   FaStar,
   FaUser,
 } from 'react-icons/fa'
-import {
-  RiDeleteBin7Fill,
-  RiContactsBookLine,
-  RiContractLine,
-  RiDashboard2Line,
-  RiShieldUserLine,
-  RiErrorWarningLine,
-} from 'react-icons/ri'
+import { RiDeleteBin7Fill, RiContactsBookLine, RiDashboard2Line, RiErrorWarningLine } from 'react-icons/ri'
 import { SlSettings } from 'react-icons/sl'
-import { HiOutlinePlus, HiOutlineDocumentReport, HiOutlineTruck } from 'react-icons/hi'
-import { TbCurrencyEuro, TbFileExport, TbFilterSearch, TbListDetails, TbWorld } from 'react-icons/tb'
-import { PiBuildingOffice, PiNotePencil } from 'react-icons/pi'
-import { GiReceiveMoney } from 'react-icons/gi'
+import { HiOutlinePlus, HiOutlineDocumentReport } from 'react-icons/hi'
+import { TbFileExport, TbFilterSearch, TbListDetails, TbWorld } from 'react-icons/tb'
+import { PiNotePencil } from 'react-icons/pi'
 import { MdLockOutline, MdModeEdit, MdOutlineConstruction, MdOutlineEmail, MdOutlinePhone } from 'react-icons/md'
-import { AiOutlineCopyright, AiOutlineEuro, AiOutlineHistory, AiOutlineShop } from 'react-icons/ai'
+import { AiOutlineCopyright, AiOutlineHistory, AiOutlineShop } from 'react-icons/ai'
 import { LuCircleHelp, LuClock } from 'react-icons/lu'
-import { BiBuildingHouse, BiExport } from 'react-icons/bi'
+import { BiExport } from 'react-icons/bi'
 import { GrStatusGood } from 'react-icons/gr'
 import { BsBell } from 'react-icons/bs'
 import { RxDoubleArrowUp, RxHamburgerMenu } from 'react-icons/rx'
@@ -79,6 +68,7 @@ const icons = {
   ExitIcon: IoMdExit,
 
   //   menu
+  HomeIcon: FaHome,
   UserIcon: FaUser,
   MenuIcon: RxHamburgerMenu,
   CloseIcon: IoCloseOutline,
@@ -184,4 +174,5 @@ export const {
   ExitIcon,
   DoubleArrowIcon,
   HelpIcon,
+  HomeIcon,
 } = icons

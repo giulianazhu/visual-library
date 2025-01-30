@@ -28,25 +28,18 @@ function EditItem({ board }: EditItemProps) {
       }
       showSuccess()
     } catch (error) {
-      if (error instanceof Error) {
-        showError()
-      }
-      console.error('Mutation failed:', error)
+      if (error instanceof Error) showError()
     }
   }
 
   const handleStar = async () => {
-    // change star to fill or empty
     try {
       const res = await mutatePatch()
       if (res.error) {
         throw new Error('error')
       }
     } catch (error) {
-      if (error instanceof Error) {
-        showError()
-      }
-      console.error('Mutation failed:', error)
+      if (error instanceof Error) showError()
     }
   }
 
@@ -61,7 +54,7 @@ function EditItem({ board }: EditItemProps) {
       if (error instanceof Error) {
         showError()
       }
-      console.error('Mutation failed:', error)
+      console.error(error)
     }
   }
 

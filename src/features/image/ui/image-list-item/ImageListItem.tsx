@@ -5,9 +5,10 @@ import { NavLink, useParams } from 'react-router'
 import routes from 'core/configs/routes'
 import { RoutePath } from 'types/enums'
 import classNames from 'classnames'
+import { ApiImage } from 'types/api/image'
 
 interface ImageListItemProps {
-  image: any
+  image: ApiImage
   onStar: () => void
 }
 
@@ -20,7 +21,9 @@ function ImageListItem({ image, onStar }: ImageListItemProps) {
           <StarEmptyIcon className={classNames('star-icon', { active: image.isFavourite })} onClick={() => onStar()} />
         </span>
       </Flex>
-      <NavLink to={routes.image.url.replace(RoutePath.SubDetail, image.id).replace(RoutePath.Detail, boardId)}>
+      <NavLink
+        to={routes.image.url.replace(RoutePath.SubDetail, image.id.toString()).replace(RoutePath.Detail, boardId)}
+      >
         <div className="image-container">
           <img src={image.url} />
         </div>

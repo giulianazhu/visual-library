@@ -4,6 +4,7 @@ import BoardForm from 'features/board/ui/board-form'
 import { useForm } from 'react-hook-form'
 import { boardSchema } from 'schemas/board'
 import useToast from 'shared/hooks/useToast'
+import { ApiCreateBoard } from 'types/api/board'
 
 interface CreateProps {
   setIsCreate: (value: boolean) => void
@@ -11,12 +12,12 @@ interface CreateProps {
 
 function Create({ setIsCreate }: CreateProps) {
   const form = useForm({ resolver: yupResolver(boardSchema) })
-  const { isPending: isCreating, mutateAsync } = useCreate()
+  const { isPending: isCreating, mutateAsync: mutateCreate } = useCreate<ApiCreateBoard>()
   const { showSuccess, showError, contextHolder } = useToast()
 
-  const handleCreate = async (data: any) => {
+  const handleCreate = async (data: ApiCreateBoard) => {
     try {
-      const res = await mutateAsync(data)
+      const res = await mutateCreate(data)
       if (res.error) {
         throw new Error('error')
       }
@@ -24,10 +25,7 @@ function Create({ setIsCreate }: CreateProps) {
       form.reset()
       showSuccess()
     } catch (error) {
-      if (error instanceof Error) {
-        showError()
-      }
-      console.error('Mutation failed:', error)
+      if (error instanceof Error) showError()
     }
   }
 

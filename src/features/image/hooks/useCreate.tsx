@@ -1,27 +1,22 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { fakeFetcher } from 'shared/utils/utils'
 
-export function useCreate() {
+function useCreate<DataType>() {
   const queryClient = useQueryClient()
 
   const mutation = useMutation({
-    mutationFn: async (data) => {
-      return {
-        ok: true,
-        status: 200,
-        json: async () => ({
-          message: 'Fake fetch successful',
-          data: { id: 1, name: 'Test Item' },
-        }),
-        error: false,
-      }
+    mutationFn: async (data: DataType) => {
+      return fakeFetcher(data)
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['boards'] })
+      queryClient.invalidateQueries({ queryKey: ['images'] })
     },
     onError: (error) => {
-      console.error('error', error)
+      console.error(error)
     },
   })
 
   return mutation
 }
+
+export default useCreate

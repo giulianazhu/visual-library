@@ -9,9 +9,10 @@ import FormDrawer from 'shared/ui/form-drawer'
 import BoardForm from '../board-form'
 import { UseFormReturn } from 'react-hook-form'
 import classNames from 'classnames'
+import { ApiBoard } from 'types/api/board'
 
 interface BoardListItemProps {
-  board: any
+  board: ApiBoard
   form: UseFormReturn<any>
   isEdit: boolean
   setIsEdit: (isEdit: boolean) => void
@@ -60,19 +61,19 @@ function BoardListItem({
           />
         </FormDrawer>
       </Flex>
-      <NavLink to={routes.board.url.replace(RoutePath.Detail, (1).toString())}>
+      <NavLink to={routes.board.url.replace(RoutePath.Detail, board.id.toString())}>
         <div className="board-container">
           <div className="board-grid">
-            <img src="/src/assets/images/image1.jpg" />
-            <img src="/src/assets/images/image2.jpg" />
-            <img src="/src/assets/images/image3.jpg" />
+            {board.thumbnailImgs?.map((img: string, index: number) => <img key={index} src={img} alt="thumbnail" />)}
           </div>
         </div>
       </NavLink>
       <Flex className="h-100" justify="space-between">
         <Flex vertical justify="center">
           <Typography.Text className="font-500">{board.title}</Typography.Text>
-          <Typography.Text className="fontsize-12">1234 items</Typography.Text>
+          <Typography.Text className="fontsize-12">
+            {board.totalImgs} {t('board.items')}
+          </Typography.Text>
         </Flex>
 
         <Checkbox value={board.id} />

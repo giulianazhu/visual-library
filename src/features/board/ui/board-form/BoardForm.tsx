@@ -8,11 +8,12 @@ import FormInput from 'shared/ui/form-input'
 import FormCard from 'shared/ui/form-card'
 import { DeleteIcon } from 'shared/icons'
 import IconWrapper from 'shared/ui/icon-wrapper'
+import { ApiCreateBoard } from 'types/api/board'
 
 interface BoardFormProps {
   board?: any
-  form: UseFormReturn<any>
-  onSubmit: (form: any) => Promise<void>
+  form: UseFormReturn<ApiCreateBoard>
+  onSubmit: (form: ApiCreateBoard) => void
   onDelete?: () => void
   isSubmitting: boolean
   isDeleting?: boolean

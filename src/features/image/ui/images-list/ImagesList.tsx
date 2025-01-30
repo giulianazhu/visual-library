@@ -5,9 +5,10 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import Create from 'features/image/controllers/create'
 import EditItem from 'features/image/controllers/edit-item'
+import { ApiImage } from 'types/api/image'
 
 interface ImagesListProps {
-  images: any[]
+  images: ApiImage[] | undefined
 }
 
 function ImagesList({ images }: ImagesListProps) {
@@ -15,10 +16,6 @@ function ImagesList({ images }: ImagesListProps) {
   const { t } = useTranslation()
   return (
     <div className={style['images-list']}>
-      {images.map((image, i) => (
-        // maybe two separate edit one for editboardlistitem, editboarddetail or imagelistitem imagedetail
-        <EditItem image={image} key={i} />
-      ))}
       <FormDrawer
         title={t('board.create')}
         open={isCreate}
@@ -31,6 +28,7 @@ function ImagesList({ images }: ImagesListProps) {
       >
         <Create />
       </FormDrawer>
+      {images?.map((image, i) => <EditItem image={image} key={i} />)}
     </div>
   )
 }

@@ -1,23 +1,25 @@
 import { useTranslation } from 'react-i18next'
 import FormRow from 'shared/ui/form-row'
 import FormLabel from 'shared/ui/form-label'
-import { Button, Card, Flex } from 'antd'
+import { Button, Flex } from 'antd'
 import { UseFormReturn } from 'react-hook-form'
 import FormSelect from 'shared/ui/form-select'
 import FormInput from 'shared/ui/form-input'
 import FormTextArea from 'shared/ui/form-text-area'
 import FormCard from 'shared/ui/form-card'
+import { mockBoards } from 'shared/utils/mockData'
 
 interface ImageFormProps {
   image?: any
-  isLoading: boolean
+  isSubmitting: boolean
   onSubmit: (data: any) => Promise<void>
   form: UseFormReturn<any>
 }
 
-function ImageForm({ image, isLoading, onSubmit, form }: ImageFormProps) {
+function ImageForm({ image, isSubmitting, onSubmit, form }: ImageFormProps) {
   const { t } = useTranslation()
   const { handleSubmit, control } = form
+  const boardOptions = mockBoards.map((board) => ({ label: board.title, value: board.id }))
 
   return (
     <FormCard>
@@ -27,18 +29,7 @@ function ImageForm({ image, isLoading, onSubmit, form }: ImageFormProps) {
             <FormLabel htmlFor="boardId" required={true}>
               {t('board.board')}
             </FormLabel>
-            <FormSelect
-              control={control}
-              name="boardId"
-              mode="multiple"
-              options={[
-                { label: 'Board name 1', value: 1 },
-                { label: 'Board name 2', value: 2 },
-                { label: 'Board name 3', value: 3 },
-                { label: 'Board name 4', value: 4 },
-                { label: 'Board name 5', value: 5 },
-              ]}
-            />
+            <FormSelect control={control} name="boardId" mode="multiple" options={boardOptions} />
           </FormRow>
           <FormRow>
             <FormLabel htmlFor="title">{t('general.title')}</FormLabel>
@@ -58,11 +49,11 @@ function ImageForm({ image, isLoading, onSubmit, form }: ImageFormProps) {
           </FormRow>
           <Flex justify="end">
             {image ? (
-              <Button type="primary" htmlType="submit">
+              <Button type="primary" htmlType="submit" loading={isSubmitting}>
                 {t('action.save')}
               </Button>
             ) : (
-              <Button type="primary" htmlType="submit">
+              <Button type="primary" htmlType="submit" loading={isSubmitting}>
                 {t('action.add')}
               </Button>
             )}

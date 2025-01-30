@@ -12,7 +12,7 @@ function Start() {
       '/src/assets/images/image1.jpg',
       '/src/assets/images/image2.jpg',
       '/src/assets/images/image3.jpg',
-      '/src/assets/images/cameleon.jpg',
+      '/src/assets/images/image4.jpg',
     ]
     setImages(images)
     // load images based on settings ==> filter by board, tags + sortby + number

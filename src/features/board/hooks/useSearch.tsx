@@ -1,14 +1,13 @@
-import { useQuery } from '@tanstack/react-query'
+import { useQuery, UseQueryResult } from '@tanstack/react-query'
+import { mockBoards } from 'shared/utils/mockData'
+import { fakeFetcher } from 'shared/utils/utils'
+import { ApiBoard } from 'types/api/board'
 
 function useSearch() {
-  const query = useQuery({
+  const query: UseQueryResult<ApiBoard[], Error> = useQuery({
     queryFn: async () => {
-      return { data: 'sth' }
-      // const response = await fetch('/api/boards')
-      // if (!response.ok) {
-      //   throw new Error('Network response was not ok')
-      // }
-      // return response.json()
+      const res = await fakeFetcher(mockBoards)
+      return res.data
     },
     queryKey: ['boards'],
   })

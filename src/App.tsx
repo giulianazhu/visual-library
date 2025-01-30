@@ -9,7 +9,7 @@ import routes from 'core/configs/routes'
 import AppLayout from 'shared/layouts/app-layout/AppLayout'
 import Seo from 'shared/ui/seo'
 import { HelmetProvider } from 'react-helmet-async'
-import { useQueryClient, QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 const Login = lazy(() => import('pages/login'))
 const Signup = lazy(() => import('pages/signup'))

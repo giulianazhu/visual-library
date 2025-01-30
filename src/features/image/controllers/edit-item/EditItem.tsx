@@ -8,21 +8,17 @@ interface EditItemProps {
 }
 
 function EditItem({ image }: EditItemProps) {
-  const { mutateAsync: mutatePatch, isPending: isStarring } = useStar(image.id)
+  const { mutateAsync: mutatePatch } = useStar(image.id)
   const { showError, contextHolder } = useToast()
 
   const handleStar = async () => {
-    // change star to fill or empty
     try {
       const res = await mutatePatch()
       if (res.error) {
         throw new Error('error')
       }
     } catch (error) {
-      if (error instanceof Error) {
-        showError()
-      }
-      console.error('Mutation failed:', error)
+      if (error instanceof Error) showError()
     }
   }
 

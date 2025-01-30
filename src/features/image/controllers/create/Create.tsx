@@ -1,20 +1,24 @@
 import { yupResolver } from '@hookform/resolvers/yup'
-import useCreate from 'features/board/hooks/useCreate'
+import useCreate from 'features/image/hooks/useCreate'
+
 import ImageForm from 'features/image/ui/image-form'
-import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { imageSchema } from 'schemas/image'
 import useToast from 'shared/hooks/useToast'
+import { ApiCreateImage } from 'types/api/image'
 
-function Create() {
-  const [isCreate, setIsCreate] = useState(false)
+interface CreateProps {
+  setIsCreate: (value: boolean) => void
+}
+
+function Create({ setIsCreate }: CreateProps) {
   const form = useForm({ resolver: yupResolver(imageSchema) })
-  const { isPending: isCreating, mutateAsync } = useCreate()
+  const { isPending: isCreating, mutateAsync: mutateCreate } = useCreate<ApiCreateImage>()
   const { showSuccess, showError, contextHolder } = useToast()
 
-  const handleCreate = async (data: any) => {
+  const handleCreate = async (data: ApiCreateImage) => {
     try {
-      const res = await mutateAsync(data)
+      const res = await mutateCreate(data)
       if (res.error) {
         throw new Error('error')
       }
@@ -22,17 +26,14 @@ function Create() {
       form.reset()
       showSuccess()
     } catch (error) {
-      if (error instanceof Error) {
-        showError()
-      }
-      console.error('Mutation failed:', error)
+      if (error instanceof Error) showError()
     }
   }
 
   return (
     <>
       {contextHolder}
-      <ImageForm form={form} isLoading={isCreating} onSubmit={handleCreate} />
+      <ImageForm form={form} isSubmitting={isCreating} onSubmit={handleCreate} />
     </>
   )
 }

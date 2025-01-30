@@ -1,25 +1,18 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { useMutation, UseMutationResult, useQueryClient } from '@tanstack/react-query'
+import { fakeFetcher } from 'shared/utils/utils'
 
-export function useDelete() {
+export function useDelete<ParamType>() {
   const queryClient = useQueryClient()
 
   const mutation = useMutation({
-    mutationFn: async (ids: number[] | number) => {
-      return {
-        ok: true,
-        status: 200,
-        json: async () => ({
-          message: 'Fake fetch successful',
-          data: { id: 1, name: 'Test Item' },
-        }),
-        error: false,
-      }
+    mutationFn: async (ids: ParamType) => {
+      return fakeFetcher(ids)
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['boards'] })
+      queryClient.invalidateQueries({ queryKey: ['images'] })
     },
     onError: (error) => {
-      console.error('error', error)
+      console.error(error)
     },
   })
 
