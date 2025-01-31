@@ -27,8 +27,8 @@ function BoardForm({ board, isSubmitting, isDeleting, onSubmit, form, onDelete }
     control,
     formState: { errors },
   } = form
-  const { userTags } = useUserStore((state) => state)
-  const tagOptions = userTags.map((tag) => ({ label: tag.name, value: tag.id }))
+  const { tags: userTags } = useUserStore((state) => state.user)
+  const tagOptions = userTags?.map((tag) => ({ label: tag.name, value: tag.id })) ?? []
   const hasErrors = Object.keys(errors).length > 0
 
   return (

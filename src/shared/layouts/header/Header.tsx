@@ -6,11 +6,12 @@ import routes from 'core/configs/routes'
 import ThemeSwitcher from 'shared/ui/theme-switcher'
 import { HelpIcon, SettingIcon, UserIcon } from 'shared/icons'
 import { PracticeStatus, RoutePath, UserTab } from 'types/enums'
+import LanguageSwitcher from 'features/app/ui/language-switcher'
 
 function Header() {
   const { t } = useTranslation()
 
-  const items: MenuProps['items'] = [
+  const accountItems: MenuProps['items'] = [
     {
       key: '1',
       label: <NavLink to={routes.user.url.replace(RoutePath.Tab, UserTab.Account)}>{t('user.account')}</NavLink>,
@@ -60,8 +61,9 @@ function Header() {
           </Flex>
         </Flex>
         <Flex align="center" gap="large">
+          <LanguageSwitcher />
           <ThemeSwitcher />
-          <Dropdown menu={{ items }}>
+          <Dropdown menu={{ items: accountItems }}>
             <a onClick={(e) => e.preventDefault()}>
               <Space>
                 <Avatar icon={<UserIcon />} />

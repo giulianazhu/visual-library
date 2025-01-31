@@ -1,7 +1,7 @@
 import { Flex } from 'antd'
-import { useSearchBoard } from 'features/board/store/search'
 import { useDelete } from 'features/image/hooks/useDelete'
 import useSearch from 'features/image/hooks/useSearch'
+import { SearchImageStore, useSearchImage } from 'features/image/store/search'
 import ImagesList from 'features/image/ui/images-list'
 import { useState } from 'react'
 import useToast from 'shared/hooks/useToast'
@@ -41,7 +41,7 @@ function SearchDelete() {
       {contextHolder}
       <Flex align="center" justify="center">
         <div className="w-ab-700">
-          <Searcher placeholderLabel="placeholder.searchBoard" searchContext={useSearchBoard} />
+          <Searcher<SearchImageStore> placeholderLabel="placeholder.searchBoard" useSearchContext={useSearchImage} />
         </div>
       </Flex>
       <ListHeader

@@ -30,3 +30,9 @@ export enum UserTab {
   Profile = 'profile',
   Settings = 'settings',
 }
+
+export enum SortBy {
+  Random = 'random',
+  ActiveFirst = 'active',
+  ActiveLast = 'inactive',
+}

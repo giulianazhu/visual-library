@@ -95,9 +95,6 @@ export const lightTheme: ThemeConfig = {
     Pagination: {
       colorBgContainer: colors.bgPrimary,
     },
-    Tag: {
-      defaultColor: colors.bgPrimary,
-    },
     Switch: {
       colorPrimary: commonThemeColors.primary,
     },

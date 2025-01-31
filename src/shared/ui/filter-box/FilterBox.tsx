@@ -3,47 +3,56 @@ import style from './styles.module.scss'
 import { Button, Card, Flex, Radio, Slider, Tag } from 'antd'
 import { CloseIcon } from 'shared/icons'
 import { StoreApi, UseBoundStore } from 'zustand'
-import { InfiniteSearch } from 'types/store/common'
+import { SortBy } from 'types/enums'
+import useUserStore from 'features/app/store/user'
+import { useState } from 'react'
+import { SearchStore } from 'types/store/common'
 
-const tagsData = [1, 2, 3, 4]
-
-const options2 = [
-  { label: 'Most active first', value: 'desc' },
-  { label: 'Least active first', value: 'asc' },
-]
-
-interface FilterBoxProps {
-  open: boolean
+interface FilterBoxProps<T extends SearchStore> {
   setOpen: (open: boolean) => void
-  searchContext: UseBoundStore<StoreApi<InfiniteSearch>>
+  useSearchContext: UseBoundStore<StoreApi<T>>
 }
 
-function FilterBox({ open, setOpen, searchContext }: FilterBoxProps) {
+function FilterBox<T extends SearchStore>({ setOpen, useSearchContext }: FilterBoxProps<T>) {
   const { t } = useTranslation()
-  const { pars, setTags, setSortBy, setResetAll, setPageSize } = searchContext()
+  const { tags: userTags } = useUserStore((state) => state.user)
+  const { filters, setFilters, setResetFilters } = useSearchContext()
+
+  const [tags, setTags] = useState<number[]>(filters.tags)
+  const [sortBy, setSortBy] = useState(filters.sortBy)
+  const [limit, setLimit] = useState(filters.limit)
 
   const handleChange = (tag: number, checked: boolean) => {
     if (checked) {
-      setTags([...pars.tags, tag])
+      setTags([...tags, tag])
     } else {
-      setTags(pars.tags.filter((t) => t !== tag))
+      setTags(tags.filter((t) => t !== tag))
     }
   }
 
+  const handleApplyFilters = () => {
+    setFilters({ tags, sortBy, limit })
+    setOpen(false)
+  }
+
+  const options = [
+    { label: t('general.sortBy.activeFirst'), value: SortBy.ActiveFirst },
+    { label: t('general.sortBy.activeLast'), value: SortBy.ActiveLast },
+  ]
   return (
     <Flex vertical gap="large" className={style['filter-box']}>
       <Card title={t('search.filterByTags')}>
         <Flex wrap={true} gap="small">
-          {tagsData.map((tag) => (
+          {userTags?.map((tag) => (
             <Tag.CheckableTag
-              key={tag}
-              checked={pars.tags.includes(tag)}
-              onChange={(checked) => handleChange(tag, checked)}
+              key={tag.id}
+              checked={tags.includes(tag.id)}
+              onChange={(checked) => handleChange(tag.id, checked)}
             >
-              {tag}
+              {tag.name}
             </Tag.CheckableTag>
           ))}
-          <Tag icon={<CloseIcon size={13} />} onClick={() => setTags([])} className="reset">
+          <Tag icon={<CloseIcon size={13} />} onClick={() => setTags([])} className="reset ">
             {t('search.reset')}
           </Tag>
         </Flex>
@@ -51,26 +60,26 @@ function FilterBox({ open, setOpen, searchContext }: FilterBoxProps) {
       <Card title={t('search.sortByActivity')}>
         <Radio.Group
           block
-          options={options2}
-          value={pars.sortBy.activity}
+          options={options}
+          value={sortBy}
           optionType="button"
           buttonStyle="solid"
-          onChange={(e) => setSortBy({ ...pars.sortBy, activity: e.target.value })}
+          onChange={(e) => setSortBy(e.target.value)}
         />
       </Card>
-      <Card title={t('search.showResults', { desc: pars.pageSize })}>
+      <Card title={t('search.showResults', { desc: limit })}>
         <Slider
           min={10}
           max={50}
           step={10}
           marks={{ 10: 10, 20: 20, 30: 30, 40: 40, 50: 50 }}
-          value={pars.pageSize}
-          onChange={setPageSize}
+          value={limit}
+          onChange={(val) => setLimit(val)}
         />
       </Card>
       <Flex vertical gap="small">
-        <Button>{t('search.applyFilters')}</Button>
-        <Button className="reset-all" type="link" onClick={setResetAll}>
+        <Button onClick={handleApplyFilters}>{t('search.applyFilters')}</Button>
+        <Button className="reset-all" type="link" onClick={setResetFilters}>
           {t('search.resetAll')}
         </Button>
       </Flex>

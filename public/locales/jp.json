@@ -1,3 +1,120 @@
 {
-  "welcome": "おかえりなさい"
+  "general": {
+    "title": "タイトル",
+    "description": "説明",
+    "tags": "タグ",
+    "pageUnderConstruction": "ページは現在開発中です",
+    "featureUnderConstruction": "機能は現在開発中です",
+    "mockUnavailable": "モック機能は利用できません",
+    "loading": "読み込み中...",
+    "sortBy": {
+      "random": "ランダム",
+      "activeFirst": "最もアクティブな順",
+      "activeLast": "最も非アクティブな順"
+    }
+  },
+  "app": {
+    "title": "Visual Library",
+    "welcome": "Visual Library へようこそ",
+    "desc": "アーティストや写真家のためのビジュアルリソース管理プラットフォーム"
+  },
+  "auth": {
+    "login": "ログイン",
+    "signup": "新規登録",
+    "logout": "ログアウト",
+    "username": "ユーザー名",
+    "password": "パスワード",
+    "forgotPassword": "パスワードを忘れましたか？",
+    "resetPassword": "パスワードをリセット",
+    "newPassword": "新しいパスワード"
+  },
+  "user": {
+    "account": "アカウント",
+    "avatar": "アバター",
+    "email": "メールアドレス",
+    "nickname": "ニックネーム",
+    "phone": "電話番号",
+    "profile": "プロフィール",
+    "username": "ユーザー名"
+  },
+  "dashboard": {
+    "dashboard": "ダッシュボード"
+  },
+  "board": {
+    "board": "ボード",
+    "boards": "ボード",
+    "create": "新しいボードを作成",
+    "edit": "ボードを編集",
+    "delete": "ボードを削除",
+    "items": "アイテム"
+  },
+  "image": {
+    "image": "画像",
+    "add": "新しい画像を追加",
+    "edit": "画像を編集",
+    "delete": "画像を削除",
+    "notes": "メモ"
+  },
+  "practice": {
+    "practice": "練習",
+    "number": "回数",
+    "duration": "時間",
+    "pause": "一時停止",
+    "isTimed": "タイマー付き"
+  },
+  "settings": {
+    "settings": "設定"
+  },
+  "placeholder": {
+    "search": "検索...",
+    "searchBoard": "タイトルまたは説明でボードを検索...",
+    "searchImage": "タイトルまたは説明で画像を検索...",
+    "select": "選択"
+  },
+  "warning": {
+    "required": "必須項目",
+    "invalid": "無効な項目",
+    "requiredOrInvalid": "必須または無効な項目",
+    "formMsg": "必須または無効な項目を正しく入力してください。"
+  },
+  "action": {
+    "add": "追加",
+    "cancel": "キャンセル",
+    "confirm": "確認",
+    "create": "作成",
+    "delete": "削除",
+    "deleteAll": "すべて削除",
+    "edit": "編集",
+    "hide": "非表示",
+    "next": "次へ",
+    "prev": "前へ",
+    "save": "保存",
+    "selectAll": "すべて選択",
+    "showMore": "もっと表示",
+    "start": "開始"
+  },
+  "search": {
+    "search": "検索",
+    "advancedFilters": "高度なフィルター",
+    "filterByTags": "タグで絞り込む",
+    "sortBy": "並び替え",
+    "sortByRecency": "最新順",
+    "sortByActivity": "アクティブ順",
+    "applyFilters": "フィルターを適用",
+    "reset": "リセット",
+    "resetAll": "すべてリセット",
+    "results": "検索結果",
+    "showResults": "{{desc}}件の結果を表示"
+  },
+  "help": {
+    "help": "ヘルプ"
+  },
+  "toast": {
+    "success": {
+      "msg": "操作が成功しました"
+    },
+    "error": {
+      "msg": "操作に失敗しました"
+    }
+  }
 }

@@ -3,6 +3,8 @@ export interface ApiUser {
   username: string
   email: string
   nickname?: string
+  tags?: ApiUserTag[]
+  boards: ApiUserBoard[]
   preferredLanguage?: string
   preferredTheme?: string
   createdAt?: string
@@ -10,6 +12,11 @@ export interface ApiUser {
 }
 
 export interface ApiUserTag {
+  id: number
+  name: string
+}
+
+export interface ApiUserBoard {
   id: number
   name: string
 }

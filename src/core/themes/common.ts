@@ -106,7 +106,6 @@ export const commonTheme: ThemeConfig = {
     },
     Table: {},
     Tag: {
-      defaultBg: colors.primary,
       fontSize: 11,
       fontWeightStrong: 600,
       colorBorder: 'transparent',

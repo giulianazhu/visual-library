@@ -1,7 +1,7 @@
 import { Flex } from 'antd'
 import { useDelete } from 'features/board/hooks/useDelete'
 import useSearch from 'features/board/hooks/useSearch'
-import { useSearchBoard } from 'features/board/store/search'
+import { SearchBoardStore, useSearchBoard } from 'features/board/store/search'
 import BoardsList from 'features/board/ui/boards-list'
 import { useState } from 'react'
 import useToast from 'shared/hooks/useToast'
@@ -11,7 +11,9 @@ import SkeletonList from 'shared/ui/skeleton-list'
 
 function SearchDelete() {
   const [deleteBoards, setDeleteBoards] = useState<number[]>([])
-  const { isPending: isSearching, data: boards } = useSearch()
+
+  const { query, filters } = useSearchBoard()
+  const { isPending: isSearching, data: boards } = useSearch(query, filters)
   const { isPending: isDeleting, mutateAsync: mutateDelete } = useDelete<number[]>()
   const { showSuccess, showError, contextHolder } = useToast()
 
@@ -39,7 +41,7 @@ function SearchDelete() {
       {contextHolder}
       <Flex align="center" justify="center">
         <div className="w-ab-700">
-          <Searcher placeholderLabel="placeholder.searchBoard" searchContext={useSearchBoard} />
+          <Searcher<SearchBoardStore> placeholderLabel="placeholder.searchBoard" useSearchContext={useSearchBoard} />
         </div>
       </Flex>
       <ListHeader

@@ -39,7 +39,7 @@ async function initLanguage() {
     .init({
       fallbackLng: 'en',
       debug: true,
-      supportedLngs: ['en', 'cn', 'jp'],
+      supportedLngs: ['en', 'it'],
       backend: backendOptionsLocal,
       interpolation: {
         escapeValue: false, // not needed for react as it escapes by default

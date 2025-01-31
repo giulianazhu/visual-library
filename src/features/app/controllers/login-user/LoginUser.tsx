@@ -2,12 +2,13 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import useLogin from 'features/app/hooks/useLogin'
 import useUserStore from 'features/app/store/user'
 import LoginForm from 'features/app/ui/login-form'
+import { getLocalStorageUser, setLocalStorageUser } from 'features/user/helpers'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router'
 import { loginSchema } from 'schemas/app'
 import useToast from 'shared/hooks/useToast'
-import { mockTags, mockUser } from 'shared/utils/mockData'
+import { mockUser, mockUsers } from 'shared/utils/mockData'
 import { fakeFetcher } from 'shared/utils/utils'
 import { ApiLogin } from 'types/api/app'
 
@@ -16,30 +17,25 @@ function LoginUser() {
 
   const { isPending: isAuthenticating, mutateAsync: mutatePost } = useLogin()
   const { showError, contextHolder } = useToast()
-  const { setUser, setUserTags } = useUserStore((state) => state)
+  const { setUser } = useUserStore((state) => state)
   const form = useForm({ resolver: yupResolver(loginSchema) })
   const navigate = useNavigate()
 
-  const bootstrap = async (userid: number) => {
-    console.log('assume fetching with userid', userid)
-    const [userData, userTagsData] = await Promise.all([loadUser(), loadUserTags()])
-    return { userData, userTagsData }
-  }
-
-  const loadUser = async () => {
-    const res = await fakeFetcher(mockUser)
+  const loadUser = async (userId: number) => {
+    const res = await fakeFetcher(mockUsers.find((user) => user.id === userId) || mockUser)
     if (res.data) {
       setUser(res.data)
     }
     return res.data
   }
 
-  const loadUserTags = async () => {
-    const res = await fakeFetcher(mockTags)
-    if (res.data) {
-      setUserTags(res.data)
+  const bootstrap = async (userId: number) => {
+    const user = getLocalStorageUser()
+    if (!user || user.id !== userId) {
+      const userData = await loadUser(userId)
+      setLocalStorageUser(userData)
+      setUser(userData)
     }
-    return res.data
   }
 
   const handleLogin = async (user: ApiLogin) => {

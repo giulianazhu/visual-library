@@ -1,5 +1,5 @@
 import style from './styles.module.scss'
-import { Button, Carousel, Flex, Progress, ProgressProps, Typography } from 'antd'
+import { Button, Carousel, Flex, Progress, ProgressProps } from 'antd'
 import { useEffect, useRef, useState } from 'react'
 import { CarouselRef } from 'antd/es/carousel'
 import { commonThemeColors } from 'core/themes/common'
@@ -8,6 +8,8 @@ import { NavLink } from 'react-router'
 import IconWrapper from 'shared/ui/icon-wrapper'
 import routes from 'core/configs/routes'
 import { PracticeStatus, RoutePath } from 'types/enums'
+import { PracticeSettings } from 'features/practice/store/practice'
+import { ApiPracticeImage } from 'types/api/practice'
 
 const conicColors: ProgressProps['strokeColor'] = {
   '0%': commonThemeColors.primary,
@@ -15,8 +17,8 @@ const conicColors: ProgressProps['strokeColor'] = {
 }
 
 interface PracticeShufflerProps {
-  settings: any
-  images: any
+  settings: PracticeSettings
+  images: ApiPracticeImage[]
 }
 
 function PracticeShuffler({ settings, images }: PracticeShufflerProps) {
@@ -32,7 +34,7 @@ function PracticeShuffler({ settings, images }: PracticeShufflerProps) {
     }
     setIsCountingDown(true)
     intervalRef.current = setInterval(() => {
-      setCountdown((prev) => {
+      setCountdown((prev: PracticeSettings['duration']) => {
         if (prev === 0) {
           goToNext()
           return timer
@@ -94,9 +96,8 @@ function PracticeShuffler({ settings, images }: PracticeShufflerProps) {
         >
           {images.map((image, index) => [
             <div className="carousel-item image-container" key={`image-${index}`}>
-              <img src={image} alt={`Slide ${index}`} />
+              <img src={image.url} alt={`Slide ${index}`} />
             </div>,
-            // <div className="carousel-item interval-container" key={`empty-${index}`}></div>,
           ])}
         </Carousel>
         <Flex justify="center" gap="small" className="controller">

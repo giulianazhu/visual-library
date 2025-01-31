@@ -1,12 +1,10 @@
-import { ApiUserTag } from 'types/api/user'
+import { getLocalStorageUser } from 'features/user/helpers'
 import { ApiUser } from 'types/api/user'
 import { create } from 'zustand'
 
 interface UserStore {
   user: ApiUser
-  userTags: ApiUserTag[]
   setUser: (user: ApiUser) => void
-  setUserTags: (userTags: ApiUserTag[]) => void
 }
 
 const initialStore: UserStore = {
@@ -15,18 +13,17 @@ const initialStore: UserStore = {
     username: '',
     email: '',
     nickname: '',
-    preferredLanguage: '',
+    tags: getLocalStorageUser()?.tags || [],
+    boards: getLocalStorageUser()?.boards || [],
+    preferredLanguage: 'en',
     preferredTheme: '',
   },
-  userTags: [],
   setUser: () => {},
-  setUserTags: () => {},
 }
 
 const useUserStore = create<UserStore>((set) => ({
-  ...initialStore,
+  user: initialStore.user,
   setUser: (user: ApiUser) => set({ user }),
-  setUserTags: (userTags: ApiUserTag[]) => set({ userTags }),
 }))
 
 export default useUserStore

@@ -3,28 +3,29 @@ import { Button, Flex, Input } from 'antd'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import FilterBox from '../filter-box'
-import { useSearchBoard } from 'features/board/store/search'
 import { StoreApi, UseBoundStore } from 'zustand'
-import { InfiniteSearch } from 'types/store/common'
 import FormDrawer from '../form-drawer'
+import { SearchStore } from 'types/store/common'
 
-interface SearcherProps {
+interface SearcherProps<T extends SearchStore> {
   placeholderLabel?: string
-  searchContext: UseBoundStore<StoreApi<InfiniteSearch>>
+  useSearchContext: UseBoundStore<StoreApi<T>>
 }
 
-function Searcher({ placeholderLabel, searchContext }: SearcherProps) {
+function Searcher<T extends SearchStore>({ placeholderLabel, useSearchContext }: SearcherProps<T>) {
   const [showFilters, setShowFilters] = useState(false)
   const { t } = useTranslation()
-  const { pars, setQuery } = useSearchBoard()
+  const { query, setQuery } = useSearchContext()
+  const [search, setSearch] = useState(query)
 
   return (
     <>
       <Flex vertical gap="small" className={style['searcher']}>
         <Input.Search
           placeholder={t(placeholderLabel || 'placeholder.search')}
-          value={pars.query}
-          onChange={(e) => setQuery(e.target.value)}
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          onSearch={() => setQuery(search)}
         />
         <FormDrawer
           open={showFilters}
@@ -36,7 +37,7 @@ function Searcher({ placeholderLabel, searchContext }: SearcherProps) {
             </Button>
           }
         >
-          <FilterBox open={showFilters} setOpen={setShowFilters} searchContext={searchContext} />
+          <FilterBox<T> setOpen={setShowFilters} useSearchContext={useSearchContext} />
         </FormDrawer>
       </Flex>
     </>

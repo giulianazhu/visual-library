@@ -1,3 +1,120 @@
 {
-  "welcome": "欢迎回来"
+  "general": {
+    "title": "标题",
+    "description": "描述",
+    "tags": "标签",
+    "pageUnderConstruction": "页面建设中",
+    "featureUnderConstruction": "功能建设中",
+    "mockUnavailable": "模拟功能不可用",
+    "loading": "加载中...",
+    "sortBy": {
+      "random": "随机",
+      "activeFirst": "最活跃优先",
+      "activeLast": "最不活跃优先"
+    }
+  },
+  "app": {
+    "title": "Visual Library",
+    "welcome": "欢迎来到 Visual Library",
+    "desc": "为艺术家和摄影师管理视觉资源的平台"
+  },
+  "auth": {
+    "login": "登录",
+    "signup": "注册",
+    "logout": "退出",
+    "username": "用户名",
+    "password": "密码",
+    "forgotPassword": "忘记密码？",
+    "resetPassword": "重置密码",
+    "newPassword": "新密码"
+  },
+  "user": {
+    "account": "账户",
+    "avatar": "头像",
+    "email": "电子邮箱",
+    "nickname": "昵称",
+    "phone": "电话",
+    "profile": "个人资料",
+    "username": "用户名"
+  },
+  "dashboard": {
+    "dashboard": "仪表板"
+  },
+  "board": {
+    "board": "看板",
+    "boards": "看板",
+    "create": "创建新看板",
+    "edit": "编辑看板",
+    "delete": "删除看板",
+    "items": "项目"
+  },
+  "image": {
+    "image": "图片",
+    "add": "添加新图片",
+    "edit": "编辑图片",
+    "delete": "删除图片",
+    "notes": "备注"
+  },
+  "practice": {
+    "practice": "练习",
+    "number": "数量",
+    "duration": "时长",
+    "pause": "暂停",
+    "isTimed": "计时"
+  },
+  "settings": {
+    "settings": "设置"
+  },
+  "placeholder": {
+    "search": "搜索...",
+    "searchBoard": "按标题或描述搜索看板...",
+    "searchImage": "按标题或描述搜索图片...",
+    "select": "选择"
+  },
+  "warning": {
+    "required": "必填字段",
+    "invalid": "无效字段",
+    "requiredOrInvalid": "必填或无效字段",
+    "formMsg": "请正确填写必填或无效字段。"
+  },
+  "action": {
+    "add": "添加",
+    "cancel": "取消",
+    "confirm": "确认",
+    "create": "创建",
+    "delete": "删除",
+    "deleteAll": "全部删除",
+    "edit": "编辑",
+    "hide": "隐藏",
+    "next": "下一步",
+    "prev": "上一步",
+    "save": "保存",
+    "selectAll": "全选",
+    "showMore": "显示更多",
+    "start": "开始"
+  },
+  "search": {
+    "search": "搜索",
+    "advancedFilters": "高级筛选",
+    "filterByTags": "按标签筛选",
+    "sortBy": "排序方式",
+    "sortByRecency": "按最新排序",
+    "sortByActivity": "按活跃度排序",
+    "applyFilters": "应用筛选",
+    "reset": "重置",
+    "resetAll": "全部重置",
+    "results": "结果",
+    "showResults": "显示{{desc}}个结果"
+  },
+  "help": {
+    "help": "帮助"
+  },
+  "toast": {
+    "success": {
+      "msg": "操作成功"
+    },
+    "error": {
+      "msg": "操作失败"
+    }
+  }
 }

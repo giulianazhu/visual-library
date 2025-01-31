@@ -6,7 +6,7 @@
     .carousel-container {
       height: 100%;
       position: relative;
-      border-radius: 8px;
+      // border-radius: 8px;
       box-shadow: variables.$box-shadow-x2-md;
       overflow: hidden;
       .timer {
@@ -26,8 +26,8 @@
           box-shadow: variables.$button-shadow-md_dark;
         }
         :global(.light) & {
-          background-color: variables.$bg-secondary-light;
-          box-shadow: variables.$button-shadow-md_dark;
+          background-color: variables.$bg-tertiary-light;
+          box-shadow: variables.$button-shadow-md_light;
         }
         .end-button {
           position: absolute;

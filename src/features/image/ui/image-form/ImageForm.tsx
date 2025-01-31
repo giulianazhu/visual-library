@@ -7,7 +7,6 @@ import FormSelect from 'shared/ui/form-select'
 import FormInput from 'shared/ui/form-input'
 import FormTextArea from 'shared/ui/form-text-area'
 import FormCard from 'shared/ui/form-card'
-import { mockBoards } from 'shared/utils/mockData'
 import { ApiCreateImage, ApiImage } from 'types/api/image'
 import useUserStore from 'features/app/store/user'
 
@@ -25,9 +24,9 @@ function ImageForm({ image, isSubmitting, onSubmit, form }: ImageFormProps) {
     control,
     formState: { errors },
   } = form
-  const { userTags } = useUserStore((state) => state)
-  const boardOptions = mockBoards.map((board) => ({ label: board.title, value: board.id }))
-  const tagsOptions = userTags.map((tag) => ({ label: tag.name, value: tag.id }))
+  const { tags: userTags, boards: userBoards } = useUserStore((state) => state.user)
+  const boardOptions = userBoards?.map((board) => ({ label: board.name, value: board.id })) ?? []
+  const tagsOptions = userTags?.map((tag) => ({ label: tag.name, value: tag.id })) ?? []
   const hasErrors = Object.keys(errors).length > 0
 
   return (

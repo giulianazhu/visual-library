@@ -4,17 +4,6 @@ import { ApiImage } from 'types/api/image'
 import { ApiUser } from 'types/api/user'
 import { TagsMap } from 'types/store/app'
 
-export const mockUser: ApiUser = {
-  id: 1,
-  nickname: 'John Doe',
-  username: 'username_johndoe',
-  email: 'johndoe@gmail.com',
-  preferredLanguage: 'en',
-  preferredTheme: 'dark',
-  createdAt: '2024-12-15T08:45:00Z',
-  modifiedAt: '2025-01-10T10:20:00Z',
-}
-
 export const mockBoards: ApiBoard[] = [
   {
     id: 1,
@@ -337,3 +326,18 @@ export const mockTagsMap: TagsMap = mockTags.reduce((acc, tag: ApiUserTag) => {
   acc[tag.id] = tag.name
   return acc
 }, {} as TagsMap)
+
+export const mockUser: ApiUser = {
+  id: 1,
+  nickname: 'John Doe',
+  username: 'username_johndoe',
+  email: 'johndoe@gmail.com',
+  tags: mockTags,
+  boards: mockBoards.filter((board) => board.userId === 1).map((board) => ({ id: board.id, name: board.title })),
+  preferredLanguage: 'en',
+  preferredTheme: 'dark',
+  createdAt: '2024-12-15T08:45:00Z',
+  modifiedAt: '2025-01-10T10:20:00Z',
+}
+
+export const mockUsers: ApiUser[] = [mockUser, { ...mockUser, id: 2 }]

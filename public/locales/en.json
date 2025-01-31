@@ -6,7 +6,12 @@
     "pageUnderConstruction": "Page under construction",
     "featureUnderConstruction": "Feature under construction",
     "mockUnavailable": "Mock feature unavailable",
-    "loading": "Loading..."
+    "loading": "Loading...",
+    "sortBy": {
+      "random": "Random",
+      "activeFirst": "Most active first",
+      "activeLast": "Least active first"
+    }
   },
   "app": {
     "title": "Visual Library",
@@ -85,7 +90,8 @@
     "prev": "Prev",
     "save": "Save",
     "selectAll": "Select all",
-    "showMore": "Show more"
+    "showMore": "Show more",
+    "start": "Start"
   },
   "search": {
     "search": "Search",
