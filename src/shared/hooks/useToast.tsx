@@ -19,6 +19,12 @@ const useToast = () => {
         description: desc || '',
       })
     },
+    showInfo: (msg?: string, desc?: string) => {
+      api.info({
+        message: msg || t('toast.info.msg'),
+        description: desc || '',
+      })
+    },
     contextHolder,
   })
 

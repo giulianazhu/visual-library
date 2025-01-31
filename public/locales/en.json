@@ -4,6 +4,8 @@
     "description": "Description",
     "tags": "Tags",
     "pageUnderConstruction": "Page under construction",
+    "featureUnderConstruction": "Feature under construction",
+    "mockUnavailable": "Mock feature unavailable",
     "loading": "Loading..."
   },
   "app": {

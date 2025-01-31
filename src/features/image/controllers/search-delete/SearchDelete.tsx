@@ -1,4 +1,4 @@
-import { Flex, Skeleton } from 'antd'
+import { Flex } from 'antd'
 import { useSearchBoard } from 'features/board/store/search'
 import { useDelete } from 'features/image/hooks/useDelete'
 import useSearch from 'features/image/hooks/useSearch'
@@ -8,6 +8,7 @@ import useToast from 'shared/hooks/useToast'
 import ListHeader from 'shared/ui/list-header'
 
 import Searcher from 'shared/ui/searcher'
+import SkeletonList from 'shared/ui/skeleton-list'
 
 function SearchDelete() {
   const [deleteImages, setDeleteImages] = useState<number[]>([])
@@ -52,7 +53,7 @@ function SearchDelete() {
         disabled={isSearching}
         isDeleting={isDeleting}
       >
-        {!images ? <Skeleton active /> : <ImagesList images={images} />}
+        {!images ? <SkeletonList /> : <ImagesList images={images} />}
       </ListHeader>
     </>
   )

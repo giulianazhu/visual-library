@@ -3,16 +3,18 @@ import classNames from 'classnames'
 import { NavLink, useParams } from 'react-router'
 import { useEffect, useRef, useState } from 'react'
 import { DoubleArrowIcon } from 'shared/icons'
-import { Button, Flex } from 'antd'
+import { Button, Flex, Skeleton } from 'antd'
 import IconWrapper from 'shared/ui/icon-wrapper'
 import routes from 'core/configs/routes'
 import { RoutePath } from 'types/enums'
+import { ApiImage } from 'types/api/image'
 
 interface ImageScrollerProps {
-  images: any
+  images: ApiImage[] | undefined
+  isLoading: boolean
 }
 
-function ImageScroller({ images }: ImageScrollerProps) {
+function ImageScroller({ images, isLoading }: ImageScrollerProps) {
   const [isVisible, setIsVisible] = useState(true)
 
   const boardId = useParams().id!
@@ -75,16 +77,22 @@ function ImageScroller({ images }: ImageScrollerProps) {
 
       <div className="image-scroller" ref={containerRef}>
         <Flex gap="middle">
-          {images.map((img: any) => (
-            <NavLink
-              to={routes.image.url.replace(RoutePath.Detail, boardId).replace(RoutePath.SubDetail, img.id)}
-              key={img.id}
-            >
-              <div className={classNames('scroller-item', { active: parseInt(id) === img.id })} key={img.id}>
-                <img src={img.url} alt={img.id} />
-              </div>
-            </NavLink>
-          ))}
+          {isLoading ? (
+            <SkeletonScroller />
+          ) : (
+            <Flex gap="middle">
+              {images?.map((img: any) => (
+                <NavLink
+                  to={routes.image.url.replace(RoutePath.Detail, boardId).replace(RoutePath.SubDetail, img.id)}
+                  key={img.id}
+                >
+                  <div className={classNames('scroller-item', { active: parseInt(id) === img.id })} key={img.id}>
+                    <img src={img.url} alt={img.id} />
+                  </div>
+                </NavLink>
+              )) ?? []}
+            </Flex>
+          )}
         </Flex>
       </div>
     </div>
@@ -92,3 +100,13 @@ function ImageScroller({ images }: ImageScrollerProps) {
 }
 
 export default ImageScroller
+
+const SkeletonScroller = () => {
+  return (
+    <>
+      {Array.from({ length: 10 }).map((_, index) => (
+        <Skeleton.Node key={index} style={{ height: '100px' }} active className="scroller-item skeleton" />
+      ))}
+    </>
+  )
+}

@@ -9,7 +9,7 @@ function useLoad(id: number) {
       const res = await fakeFetcher(mockImages.find((image) => image.id === id))
       return res.data
     },
-    queryKey: ['images', id],
+    queryKey: ['image', id],
   })
 
   return query

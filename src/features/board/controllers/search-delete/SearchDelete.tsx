@@ -1,4 +1,4 @@
-import { Flex, Skeleton } from 'antd'
+import { Flex } from 'antd'
 import { useDelete } from 'features/board/hooks/useDelete'
 import useSearch from 'features/board/hooks/useSearch'
 import { useSearchBoard } from 'features/board/store/search'
@@ -7,6 +7,7 @@ import { useState } from 'react'
 import useToast from 'shared/hooks/useToast'
 import ListHeader from 'shared/ui/list-header'
 import Searcher from 'shared/ui/searcher'
+import SkeletonList from 'shared/ui/skeleton-list'
 
 function SearchDelete() {
   const [deleteBoards, setDeleteBoards] = useState<number[]>([])
@@ -50,7 +51,7 @@ function SearchDelete() {
         isDeleting={isDeleting}
         disabled={isSearching}
       >
-        {isSearching ? <Skeleton active /> : <BoardsList boards={boards} />}
+        {isSearching ? <SkeletonList /> : <BoardsList boards={boards} />}
       </ListHeader>
     </>
   )

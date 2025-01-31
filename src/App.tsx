@@ -10,6 +10,7 @@ import AppLayout from 'shared/layouts/app-layout/AppLayout'
 import Seo from 'shared/ui/seo'
 import { HelmetProvider } from 'react-helmet-async'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 const Login = lazy(() => import('pages/login'))
 
@@ -21,7 +22,13 @@ const Practice = lazy(() => import('pages/practice'))
 const User = lazy(() => import('pages/user'))
 const Help = lazy(() => import('pages/help'))
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: Infinity,
+    },
+  },
+})
 
 function App() {
   return (
@@ -33,6 +40,7 @@ function App() {
               <ErrorBoundary fallback={<div>Error</div>}>
                 {/* <AuthProvider> */}
                 <QueryClientProvider client={queryClient}>
+                  <ReactQueryDevtools initialIsOpen={false} />
                   <Routes>
                     {/* <ProtectedRoutes> */}
                     <Route path="/" element={<AppLayout />}>

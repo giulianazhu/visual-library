@@ -120,6 +120,7 @@ export const commonTheme: ThemeConfig = {
     },
     Notification: {
       colorError: colors.contrast,
+      colorInfo: colors.primary,
     },
     Alert: {
       colorWarning: colors.contrast,
