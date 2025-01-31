@@ -8,5 +8,6 @@
   display: block;
   &:global(.required):after {
     content: '*';
+    color: variables.$color-contrast;
   }
 }

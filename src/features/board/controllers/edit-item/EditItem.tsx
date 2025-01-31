@@ -7,6 +7,7 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { boardSchema } from 'schemas/board'
 import useToast from 'shared/hooks/useToast'
+import { ApiCreateBoard } from 'types/api/board'
 
 interface EditItemProps {
   board: any
@@ -16,8 +17,8 @@ function EditItem({ board }: EditItemProps) {
   const [isEdit, setIsEdit] = useState(false)
   const form = useForm({ resolver: yupResolver(boardSchema), defaultValues: board })
   const { mutateAsync: mutateDelete, isPending: isDeleting } = useDelete()
-  const { mutateAsync: mutatePut, isPending: isSaving } = useEdit(board.id)
-  const { mutateAsync: mutatePatch, isPending: isStarring } = useStar(board.id)
+  const { mutateAsync: mutatePut, isPending: isSaving } = useEdit<ApiCreateBoard>(board.id)
+  const { mutateAsync: mutatePatch } = useStar(board.id)
   const { showSuccess, showError, contextHolder } = useToast()
 
   const handleSave = async (data: any) => {
@@ -27,6 +28,7 @@ function EditItem({ board }: EditItemProps) {
         throw new Error('error')
       }
       showSuccess()
+      setIsEdit(false)
     } catch (error) {
       if (error instanceof Error) showError()
     }
@@ -50,6 +52,7 @@ function EditItem({ board }: EditItemProps) {
         throw new Error('error')
       }
       showSuccess()
+      setIsEdit(false)
     } catch (error) {
       if (error instanceof Error) {
         showError()

@@ -3,10 +3,13 @@
     "title": "Title",
     "description": "Description",
     "tags": "Tags",
-    "pageUnderConstruction": "Page under construction"
+    "pageUnderConstruction": "Page under construction",
+    "loading": "Loading..."
   },
   "app": {
-    "title": "Visual Library"
+    "title": "Visual Library",
+    "welcome": "Welcome to the Visual Library",
+    "desc": "Platform for managing Visual Resources for Artists and Photographers"
   },
   "auth": {
     "login": "Login",
@@ -64,7 +67,8 @@
   "warning": {
     "required": "Required field",
     "invalid": "Invalid field",
-    "requiredOrInvalid": "Required or invalid field"
+    "requiredOrInvalid": "Required or invalid field",
+    "formMsg": "Please fill out the required or invalid fields correctly."
   },
   "action": {
     "add": "Add",

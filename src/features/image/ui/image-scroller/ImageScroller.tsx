@@ -1,20 +1,21 @@
 import style from './styles.module.scss'
 import classNames from 'classnames'
-import { useParams } from 'react-router'
+import { NavLink, useParams } from 'react-router'
 import { useEffect, useRef, useState } from 'react'
 import { DoubleArrowIcon } from 'shared/icons'
 import { Button, Flex } from 'antd'
 import IconWrapper from 'shared/ui/icon-wrapper'
-import { useTranslation } from 'react-i18next'
+import routes from 'core/configs/routes'
+import { RoutePath } from 'types/enums'
 
 interface ImageScrollerProps {
   images: any
 }
 
 function ImageScroller({ images }: ImageScrollerProps) {
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(true)
 
-  const { t } = useTranslation()
+  const boardId = useParams().id!
   const id = useParams().subId!
   const containerRef = useRef<HTMLDivElement>(null)
   const isDragging = useRef(false)
@@ -75,9 +76,14 @@ function ImageScroller({ images }: ImageScrollerProps) {
       <div className="image-scroller" ref={containerRef}>
         <Flex gap="middle">
           {images.map((img: any) => (
-            <div className={classNames('scroller-item', { active: parseInt(id) === img.id })} key={img.id}>
-              <img src={img.src} alt={img.id} />
-            </div>
+            <NavLink
+              to={routes.image.url.replace(RoutePath.Detail, boardId).replace(RoutePath.SubDetail, img.id)}
+              key={img.id}
+            >
+              <div className={classNames('scroller-item', { active: parseInt(id) === img.id })} key={img.id}>
+                <img src={img.url} alt={img.id} />
+              </div>
+            </NavLink>
           ))}
         </Flex>
       </div>

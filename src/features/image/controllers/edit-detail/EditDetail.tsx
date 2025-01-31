@@ -4,10 +4,11 @@ import ImageForm from 'features/image/ui/image-form'
 import { useForm } from 'react-hook-form'
 import { imageSchema } from 'schemas/image'
 import useToast from 'shared/hooks/useToast'
+import { ApiCreateImage, ApiImage } from 'types/api/image'
 
 interface EditDetailProps {
   setIsEdit: (val: boolean) => void
-  image: any
+  image: ApiImage
 }
 
 function EditDetail({ setIsEdit, image }: EditDetailProps) {
@@ -15,7 +16,7 @@ function EditDetail({ setIsEdit, image }: EditDetailProps) {
   const { mutateAsync: mutatePut, isPending: isSaving } = useEdit(image.id)
   const { showSuccess, showError, contextHolder } = useToast()
 
-  const handleSave = async (data: any) => {
+  const handleSave = async (data: ApiCreateImage) => {
     try {
       const res = await mutatePut(data)
       if (res.error) {
@@ -24,17 +25,14 @@ function EditDetail({ setIsEdit, image }: EditDetailProps) {
       showSuccess()
       setIsEdit(false)
     } catch (error) {
-      if (error instanceof Error) {
-        showError()
-      }
-      console.error('Mutation failed:', error)
+      if (error instanceof Error) showError()
     }
   }
 
   return (
     <>
       {contextHolder}
-      <ImageForm image={image} form={form} isLoading={isSaving} onSubmit={handleSave} />
+      <ImageForm image={image} form={form} isSubmitting={isSaving} onSubmit={handleSave} />
     </>
   )
 }

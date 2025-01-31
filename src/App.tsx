@@ -12,7 +12,6 @@ import { HelmetProvider } from 'react-helmet-async'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 const Login = lazy(() => import('pages/login'))
-const Signup = lazy(() => import('pages/signup'))
 
 const Dashboard = lazy(() => import('pages/dashboard'))
 const Board = lazy(() => import('pages/board'))
@@ -33,7 +32,6 @@ function App() {
             <ThemeProvider initialTheme={Theme.Light}>
               <ErrorBoundary fallback={<div>Error</div>}>
                 {/* <AuthProvider> */}
-                {/* <UserProvider> */}
                 <QueryClientProvider client={queryClient}>
                   <Routes>
                     {/* <ProtectedRoutes> */}
@@ -48,12 +46,9 @@ function App() {
                       <Route path={routes.help.url} element={<Help />} />
                     </Route>
                     <Route path={routes.login.url} element={<Login />} />
-                    <Route path={routes.signup.url} element={<Signup />} />
                   </Routes>
                 </QueryClientProvider>
                 {/* </ProtectedRoutes> */}
-
-                {/* </UserProvider> */}
                 {/* </AuthProvider> */}
               </ErrorBoundary>
             </ThemeProvider>

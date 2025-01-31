@@ -1,6 +1,24 @@
-export const mockBoards = [
+import { ApiUserTag } from 'types/api/user'
+import { ApiBoard } from 'types/api/board'
+import { ApiImage } from 'types/api/image'
+import { ApiUser } from 'types/api/user'
+import { TagsMap } from 'types/store/app'
+
+export const mockUser: ApiUser = {
+  id: 1,
+  nickname: 'John Doe',
+  username: 'username_johndoe',
+  email: 'johndoe@gmail.com',
+  preferredLanguage: 'en',
+  preferredTheme: 'dark',
+  createdAt: '2024-12-15T08:45:00Z',
+  modifiedAt: '2025-01-10T10:20:00Z',
+}
+
+export const mockBoards: ApiBoard[] = [
   {
     id: 1,
+    userId: 1,
     title: 'Board 1',
     isFavourite: true,
     totalImgs: 10,
@@ -13,6 +31,7 @@ export const mockBoards = [
   },
   {
     id: 2,
+    userId: 1,
     title: 'Board 2',
     isFavourite: false,
     totalImgs: 20,
@@ -25,6 +44,7 @@ export const mockBoards = [
   },
   {
     id: 3,
+    userId: 1,
     title: 'Board 3',
     isFavourite: true,
     totalImgs: 4,
@@ -37,6 +57,7 @@ export const mockBoards = [
   },
   {
     id: 4,
+    userId: 1,
     title: 'Board 4',
     isFavourite: true,
     totalImgs: 523,
@@ -49,6 +70,7 @@ export const mockBoards = [
   },
   {
     id: 5,
+    userId: 1,
     title: 'Board 5',
     isFavourite: false,
     totalImgs: 2,
@@ -61,6 +83,7 @@ export const mockBoards = [
   },
   {
     id: 6,
+    userId: 1,
     title: 'Board 6',
     isFavourite: true,
     totalImgs: 1,
@@ -73,6 +96,7 @@ export const mockBoards = [
   },
   {
     id: 7,
+    userId: 1,
     title: 'Board 7',
     isFavourite: true,
     totalImgs: 0,
@@ -85,6 +109,7 @@ export const mockBoards = [
   },
   {
     id: 8,
+    userId: 1,
     title: 'Board 8',
     isFavourite: false,
     totalImgs: 101,
@@ -97,6 +122,7 @@ export const mockBoards = [
   },
   {
     id: 9,
+    userId: 1,
     title: 'Board 9',
     isFavourite: true,
     totalImgs: 64,
@@ -109,6 +135,7 @@ export const mockBoards = [
   },
   {
     id: 10,
+    userId: 1,
     title: 'Board 10',
     isFavourite: true,
     totalImgs: 3,
@@ -121,16 +148,19 @@ export const mockBoards = [
   },
 ]
 
-export const mockImages = [
+const mockNotes =
+  ' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo impedit, voluptates consectetur excepturi accusantium maxime assumenda autem quod id, cumque dolor animi. Quia quod ullam quam. Commodi suscipit delectus maiores. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat voluptates amet, eaque laborum obcaecati odit error voluptatibus officiis veniam autem magnam ab nam omnis quo maxime quidem porro? Laborum id!'
+
+export const mockImages: ApiImage[] = [
   {
     id: 1,
-    boardId: 1,
+    boardId: [1],
     tags: [0, 1],
     url: '/src/assets/images/image1.jpg',
     isFavourite: true,
     title: 'Anatomy Sketch',
     description: 'A sketch of the human hand.',
-    note: 'Study the proportions of the hand.',
+    note: 'Study the proportions of the hand.' + mockNotes,
     lastViewed: '2025-01-01T12:30:00Z',
     lastPracticed: '2025-01-01T12:30:00Z',
     createdAt: '2024-12-15T08:45:00Z',
@@ -138,13 +168,13 @@ export const mockImages = [
   },
   {
     id: 2,
-    boardId: 1,
+    boardId: [1],
     tags: [0, 1],
     url: '/src/assets/images/image2.jpg',
     isFavourite: false,
     title: 'Anatomy Sketch',
     description: 'A sketch of the human foot.',
-    note: 'Study the proportions of the foot.',
+    note: 'Study the proportions of the foot.' + mockNotes,
     lastViewed: '2025-01-01T12:30:00Z',
     lastPracticed: '2025-01-01T12:30:00Z',
     createdAt: '2024-12-15T08:45:00Z',
@@ -152,16 +182,158 @@ export const mockImages = [
   },
   {
     id: 3,
-    boardId: 1,
+    boardId: [1, 9],
     tags: [0, 1],
     url: '/src/assets/images/image3.jpg',
     isFavourite: true,
     title: 'Anatomy Sketch',
     description: 'A sketch of the human face.',
-    note: 'Study the proportions of the face.',
+    note: 'Study the proportions of the face.' + mockNotes,
+    lastViewed: '2025-01-01T12:30:00Z',
+    lastPracticed: '2025-01-01T12:30:00Z',
+    createdAt: '2024-12-15T08:45:00Z',
+    modifiedAt: '2025-01-10T10:20:00Z',
+  },
+  {
+    id: 4,
+    boardId: [7],
+    tags: [0, 1],
+    url: '/src/assets/images/image1.jpg',
+    isFavourite: true,
+    title: 'Anatomy Sketch',
+    description: 'A sketch of the human hand.',
+    note: 'Study the proportions of the hand.' + mockNotes,
+    lastViewed: '2025-01-01T12:30:00Z',
+    lastPracticed: '2025-01-01T12:30:00Z',
+    createdAt: '2024-12-15T08:45:00Z',
+    modifiedAt: '2025-01-10T10:20:00Z',
+  },
+  {
+    id: 5,
+    boardId: [1],
+    tags: [0, 1],
+    url: '/src/assets/images/image2.jpg',
+    isFavourite: false,
+    title: 'Anatomy Sketch',
+    description: 'A sketch of the human foot.',
+    note: 'Study the proportions of the foot.' + mockNotes,
+    lastViewed: '2025-01-01T12:30:00Z',
+    lastPracticed: '2025-01-01T12:30:00Z',
+    createdAt: '2024-12-15T08:45:00Z',
+    modifiedAt: '2025-01-10T10:20:00Z',
+  },
+  {
+    id: 6,
+    boardId: [6],
+    tags: [0, 1],
+    url: '/src/assets/images/image3.jpg',
+    isFavourite: true,
+    title: 'Anatomy Sketch',
+    description: 'A sketch of the human face.',
+    note: 'Study the proportions of the face.' + mockNotes,
+    lastViewed: '2025-01-01T12:30:00Z',
+    lastPracticed: '2025-01-01T12:30:00Z',
+    createdAt: '2024-12-15T08:45:00Z',
+    modifiedAt: '2025-01-10T10:20:00Z',
+  },
+  {
+    id: 7,
+    boardId: [1, 5],
+    tags: [0, 1],
+    url: '/src/assets/images/image1.jpg',
+    isFavourite: true,
+    title: 'Anatomy Sketch',
+    description: 'A sketch of the human hand.',
+    note: 'Study the proportions of the hand.' + mockNotes,
+    lastViewed: '2025-01-01T12:30:00Z',
+    lastPracticed: '2025-01-01T12:30:00Z',
+    createdAt: '2024-12-15T08:45:00Z',
+    modifiedAt: '2025-01-10T10:20:00Z',
+  },
+  {
+    id: 8,
+    boardId: [2],
+    tags: [0, 1],
+    url: '/src/assets/images/image2.jpg',
+    isFavourite: false,
+    title: 'Anatomy Sketch',
+    description: 'A sketch of the human foot.',
+    note: 'Study the proportions of the foot.' + mockNotes,
+    lastViewed: '2025-01-01T12:30:00Z',
+    lastPracticed: '2025-01-01T12:30:00Z',
+    createdAt: '2024-12-15T08:45:00Z',
+    modifiedAt: '2025-01-10T10:20:00Z',
+  },
+  {
+    id: 9,
+    boardId: [3],
+    tags: [0, 1],
+    url: '/src/assets/images/image3.jpg',
+    isFavourite: true,
+    title: 'Anatomy Sketch',
+    description: 'A sketch of the human face.',
+    note: 'Study the proportions of the face.' + mockNotes,
+    lastViewed: '2025-01-01T12:30:00Z',
+    lastPracticed: '2025-01-01T12:30:00Z',
+    createdAt: '2024-12-15T08:45:00Z',
+    modifiedAt: '2025-01-10T10:20:00Z',
+  },
+  {
+    id: 10,
+    boardId: [1, 2],
+    tags: [0, 1],
+    url: '/src/assets/images/image1.jpg',
+    isFavourite: true,
+    title: 'Anatomy Sketch',
+    description: 'A sketch of the human hand.',
+    note: 'Study the proportions of the hand.' + mockNotes,
+    lastViewed: '2025-01-01T12:30:00Z',
+    lastPracticed: '2025-01-01T12:30:00Z',
+    createdAt: '2024-12-15T08:45:00Z',
+    modifiedAt: '2025-01-10T10:20:00Z',
+  },
+  {
+    id: 11,
+    boardId: [1],
+    tags: [0, 1],
+    url: '/src/assets/images/image2.jpg',
+    isFavourite: false,
+    title: 'Anatomy Sketch',
+    description: 'A sketch of the human foot.',
+    note: 'Study the proportions of the foot.' + mockNotes,
+    lastViewed: '2025-01-01T12:30:00Z',
+    lastPracticed: '2025-01-01T12:30:00Z',
+    createdAt: '2024-12-15T08:45:00Z',
+    modifiedAt: '2025-01-10T10:20:00Z',
+  },
+  {
+    id: 12,
+    boardId: [1],
+    tags: [0, 1],
+    url: '/src/assets/images/image3.jpg',
+    isFavourite: true,
+    title: 'Anatomy Sketch',
+    description: 'A sketch of the human face.',
+    note: 'Study the proportions of the face.' + mockNotes,
     lastViewed: '2025-01-01T12:30:00Z',
     lastPracticed: '2025-01-01T12:30:00Z',
     createdAt: '2024-12-15T08:45:00Z',
     modifiedAt: '2025-01-10T10:20:00Z',
   },
 ]
+
+export const mockTags: ApiUserTag[] = [
+  { id: 0, name: 'Anatomy' },
+  { id: 1, name: 'Sketch' },
+  { id: 2, name: 'Landscape' },
+  { id: 3, name: 'Botanical' },
+  { id: 4, name: 'Abstract' },
+  { id: 5, name: 'Urban' },
+  { id: 6, name: 'Still Life' },
+  { id: 7, name: 'Human Figure' },
+]
+
+export const mockTagsMap: TagsMap = mockTags.reduce((acc, tag: ApiUserTag) => {
+  acc[tag.id] = tag.name
+  return acc
+}, {} as TagsMap)

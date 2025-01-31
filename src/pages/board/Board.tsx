@@ -1,8 +1,8 @@
-import { Breadcrumb, Divider, Skeleton } from 'antd'
+import { Breadcrumb, Divider } from 'antd'
 import useLoad from 'features/board/hooks/useLoad'
 import SearchDelete from 'features/image/controllers/search-delete'
-import { t } from 'i18next'
-import { useParams } from 'react-router'
+import { useTranslation } from 'react-i18next'
+import { useNavigate, useParams } from 'react-router'
 import { HomeIcon } from 'shared/icons'
 import IconWrapper from 'shared/ui/icon-wrapper'
 
@@ -11,30 +11,27 @@ import Seo from 'shared/ui/seo'
 function Board() {
   const id = parseInt(useParams().id!)
   const { isPending, data: board } = useLoad(id)
+  const { t } = useTranslation()
+  const navigate = useNavigate()
+  const title = isPending ? t('general.loading') : board?.title
 
   const breadCrumb = [
     {
       title: (
-        <IconWrapper gap="medium">
+        <IconWrapper gap="medium" cursor="pointer" onClick={() => navigate('/dashboard')}>
           <HomeIcon />
           {t('dashboard.dashboard')}
         </IconWrapper>
       ),
     },
-    { title: board?.title },
+    { title: title },
   ]
   return (
-    <Seo pageLabel="image" pageTitle="board title">
+    <Seo pageLabel="image" pageTitle={title}>
       <div className="page">
-        {isPending ? (
-          <Skeleton active />
-        ) : (
-          <>
-            <Breadcrumb items={breadCrumb} />
-            <Divider className="pt-10" />
-            <SearchDelete />
-          </>
-        )}
+        <Breadcrumb items={breadCrumb} />
+        <Divider className="pt-10" />
+        <SearchDelete />
       </div>
     </Seo>
   )

@@ -1,4 +1,3 @@
-import { ColorPicker } from 'antd'
 import type { ThemeConfig } from 'antd/es/config-provider'
 
 const colors = {
@@ -118,6 +117,13 @@ export const commonTheme: ThemeConfig = {
     },
     Badge: {
       colorBorderBg: 'transparent',
+    },
+    Notification: {
+      colorError: colors.contrast,
+    },
+    Alert: {
+      colorWarning: colors.contrast,
+      colorWarningBg: 'rgba(255, 213, 128, 0.2)',
     },
   },
 }

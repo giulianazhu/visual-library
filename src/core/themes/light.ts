@@ -5,14 +5,14 @@ import { commonThemeColors } from './common'
 const colors = {
   text: '#4E4E50',
   infoText: '#000000d9',
-  // linkHover: '#4a80f5',
-  // linkHover: '#f4b538',
-  linkHover: '#5f5f5f',
+  linkHover: '#f4b538',
+  // linkHover: '#5f5f5f',
   border: '#ced4da',
   inputBorder: 'rgba(0,0,0, 0.12)',
   bgPrimary: '#FFFFFF',
   // bgSecondary: '#D9EAFD',
-  bgSecondary: '#f2f8ff',
+  // bgSecondary: '#f2f8ff',
+  bgSecondary: '#f5f5f5',
   bgTertiary: '#f5f5f5',
 }
 export const lightThemeColors = colors

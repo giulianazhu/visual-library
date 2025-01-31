@@ -5,9 +5,10 @@ export const imageSchema = yup.object().shape({
   boardId: yup
     .array()
     .of(yup.number().required(() => requiredText()))
+    .min(1, () => requiredText())
     .required(() => requiredText()),
-  title: yup.string().required(() => requiredText()),
+  title: yup.string(),
   description: yup.string(),
   tags: yup.array().of(yup.number().required(() => requiredText())),
-  notes: yup.string(),
+  note: yup.string(),
 })

@@ -1,11 +1,10 @@
 import style from './styles.module.scss'
 import { Checkbox, Flex, Typography } from 'antd'
-import { StarEmptyIcon } from 'shared/icons'
 import { NavLink, useParams } from 'react-router'
 import routes from 'core/configs/routes'
 import { RoutePath } from 'types/enums'
-import classNames from 'classnames'
 import { ApiImage } from 'types/api/image'
+import StarButton from 'shared/ui/star-button'
 
 interface ImageListItemProps {
   image: ApiImage
@@ -17,9 +16,7 @@ function ImageListItem({ image, onStar }: ImageListItemProps) {
   return (
     <Flex vertical gap="small" className={style['image-list-item']}>
       <Flex gap="small" className="image-actions">
-        <span>
-          <StarEmptyIcon className={classNames('star-icon', { active: image.isFavourite })} onClick={() => onStar()} />
-        </span>
+        <StarButton active={image.isFavourite} onClick={onStar} />
       </Flex>
       <NavLink
         to={routes.image.url.replace(RoutePath.SubDetail, image.id.toString()).replace(RoutePath.Detail, boardId)}

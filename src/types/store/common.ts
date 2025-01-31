@@ -23,3 +23,8 @@ export interface SearchParametersSetters {
 export interface InfiniteSearch extends SearchParametersSetters {
   pars: SearchParameters
 }
+
+export interface SelectOptions {
+  label: string
+  value: number
+}

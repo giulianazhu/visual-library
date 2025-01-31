@@ -1,13 +1,14 @@
 import { useTranslation } from 'react-i18next'
 import style from './styles.module.scss'
 import { Button, Flex, Image, Space, Tag, Typography } from 'antd'
-import TextArea from 'antd/es/input/TextArea'
 import { useThemeContext } from 'core/providers/theme'
 import { useState } from 'react'
-import { EditNoteIcon, StarEmptyIcon, StarFullIcon } from 'shared/icons'
+import { StarEmptyIcon, StarFullIcon } from 'shared/icons'
 import FormDrawer from 'shared/ui/form-drawer'
 import EditDetail from 'features/image/controllers/edit-detail'
 import { ApiImage } from 'types/api/image'
+import EditNote from 'features/image/controllers/edit-note'
+import { mockTagsMap } from 'shared/utils/mockData'
 
 interface DetailProps {
   image: ApiImage
@@ -16,7 +17,7 @@ interface DetailProps {
 
 function Detail({ image, onStar }: DetailProps) {
   const [isEdit, setIsEdit] = useState(false)
-  const [isEditNote, setIsEditNote] = useState(false)
+
   const { t } = useTranslation()
   const { theme } = useThemeContext()
 
@@ -25,7 +26,7 @@ function Detail({ image, onStar }: DetailProps) {
       <div className={style['detail']}>
         <div className="detail-content">
           <div className="image-container">
-            <Image src={image.url} key={theme} height="100%" />
+            <Image src={image.url} key={theme} className="image" />
             {/* force re-render based on key ==> theme value to sync with theme switch else cannot open preview */}
           </div>
           <div className="text-container">
@@ -47,40 +48,9 @@ function Detail({ image, onStar }: DetailProps) {
                 </Flex>
               </Flex>
               <Typography.Text className="fontsize-13">{image.description}</Typography.Text>
-              <Space>
-                {image.tags.map((tag: number) => (
-                  <Tag key={tag}>{tag}</Tag>
-                ))}
-              </Space>
+              <Space>{image?.tags?.map((tagId: number) => <Tag key={tagId}>{mockTagsMap[tagId]}</Tag>)}</Space>
             </Space>
-            <Flex vertical className="notes">
-              <Flex align="center" justify="space-between">
-                <label className="notes-label">{t('image.notes')}</label>
-                <Flex>
-                  {isEditNote ? (
-                    <Flex gap="small">
-                      <Button type="link" className="px-0" onClick={() => setIsEditNote(false)}>
-                        {t('action.cancel')}
-                      </Button>
-                      <Button type="link" className="text-underline font-500 px-0">
-                        {t('action.save')}
-                      </Button>
-                    </Flex>
-                  ) : (
-                    <Button type="link" onClick={() => setIsEditNote(true)}>
-                      <EditNoteIcon />
-                    </Button>
-                  )}
-                </Flex>
-              </Flex>
-              <Flex vertical className="notes-container">
-                {isEditNote ? (
-                  <TextArea value={image.note} className="notes-form" autoSize={true} />
-                ) : (
-                  <div className="notes-content subtitle">{image.note}</div>
-                )}
-              </Flex>
-            </Flex>
+            <EditNote note={image.note || ''} />
           </div>
         </div>
       </div>

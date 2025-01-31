@@ -1,4 +1,4 @@
-import { useMutation, UseMutationResult, useQueryClient } from '@tanstack/react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { fakeFetcher } from 'shared/utils/utils'
 
 export function useDelete<ParamType>() {

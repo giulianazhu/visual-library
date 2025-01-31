@@ -14,7 +14,6 @@
       display: flex;
       gap: 1em;
       height: calc(100vh - 180px);
-
       @include mixins.breakpoint('size-md-down') {
         flex-direction: column;
         height: auto;
@@ -25,14 +24,23 @@
       justify-content: center;
       align-items: center;
       flex: 0 1 50%;
+
       @include mixins.breakpoint('size-md-down') {
         flex: auto;
       }
+      :global(.ant-image) {
+        max-height: 100%;
+        & img.ant-image-img {
+          max-height: calc(100vh - 180px) !important;
+          object-fit: contain !important;
+        }
+      }
+
       :global(.dark) & {
-        background-color: #21252995;
+        background-color: #16191b4a;
       }
       :global(.light) & {
-        background-color: white;
+        background-color: #e7e7e746;
       }
     }
     .text-container {

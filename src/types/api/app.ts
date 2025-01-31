@@ -1,4 +1,4 @@
-export interface ApiTag {
-  id: number
-  name: string
+export interface ApiLogin {
+  username: string
+  password: string
 }

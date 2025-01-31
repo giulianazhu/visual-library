@@ -10,7 +10,8 @@ export function useStar(id: number) {
       return fakeFetcher(id)
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['boards', 'board', id] })
+      queryClient.invalidateQueries({ queryKey: ['boards'] })
+      queryClient.invalidateQueries({ queryKey: ['board', id] })
     },
     onError: (error) => {
       console.error('error', error)

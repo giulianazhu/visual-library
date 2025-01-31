@@ -38,41 +38,6 @@
       right: 10px;
       padding: 5px 10px;
       z-index: 20;
-      > span {
-        width: 30px;
-        height: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        :global(.dark) & {
-          background-color: transparent;
-        }
-        :global(.light) & {
-          background-color: rgba(255, 255, 255, 0.5);
-        }
-        box-shadow: variables.$box-shadow-x2-md;
-        & svg.react-icon {
-          :global(.light) & {
-            color: variables.$color-font-light;
-          }
-        }
-        & svg.react-icon.star-icon {
-          &.active {
-            color: variables.$color-contrast;
-          }
-        }
-        &:hover {
-          & svg.react-icon {
-            &.star-icon {
-              color: variables.$color-primary;
-            }
-            &.edit-icon {
-              color: variables.$color-primary;
-            }
-          }
-        }
-      }
     }
   }
 

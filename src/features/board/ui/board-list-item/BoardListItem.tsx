@@ -1,15 +1,15 @@
 import { useTranslation } from 'react-i18next'
 import style from './styles.module.scss'
 import { Checkbox, Flex, Typography } from 'antd'
-import { EditPenIcon, StarEmptyIcon } from 'shared/icons'
 import { NavLink } from 'react-router'
 import routes from 'core/configs/routes'
 import { RoutePath } from 'types/enums'
 import FormDrawer from 'shared/ui/form-drawer'
 import BoardForm from '../board-form'
 import { UseFormReturn } from 'react-hook-form'
-import classNames from 'classnames'
 import { ApiBoard } from 'types/api/board'
+import StarButton from 'shared/ui/star-button'
+import EditButton from 'shared/ui/edit-button'
 
 interface BoardListItemProps {
   board: ApiBoard
@@ -38,18 +38,12 @@ function BoardListItem({
   return (
     <Flex vertical gap="small" className={style['board-list-item']}>
       <Flex gap="small" className="board-actions">
-        <span>
-          <StarEmptyIcon className={classNames('star-icon', { active: board.isFavourite })} onClick={() => onStar()} />
-        </span>
+        <StarButton active={board.isFavourite} onClick={onStar} />
         <FormDrawer
           title={t('board.edit')}
           open={isEdit}
           setOpen={setIsEdit}
-          customDrawerButton={
-            <span data-testid="edit-button">
-              <EditPenIcon className="edit-icon" onClick={() => setIsEdit(true)} />
-            </span>
-          }
+          customDrawerButton={<EditButton onClick={() => setIsEdit(true)} />}
         >
           <BoardForm
             board={board}

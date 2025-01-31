@@ -17,7 +17,7 @@ function ImagesList({ images }: ImagesListProps) {
   return (
     <div className={style['images-list']}>
       <FormDrawer
-        title={t('board.create')}
+        title={t('image.add')}
         open={isCreate}
         setOpen={setIsCreate}
         customDrawerButton={
@@ -26,7 +26,7 @@ function ImagesList({ images }: ImagesListProps) {
           </div>
         }
       >
-        <Create />
+        <Create setIsCreate={setIsCreate} />
       </FormDrawer>
       {images?.map((image, i) => <EditItem image={image} key={i} />)}
     </div>

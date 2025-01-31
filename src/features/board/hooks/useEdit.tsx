@@ -1,22 +1,15 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { fakeFetcher } from 'shared/utils/utils'
 
-export function useEdit(id: number) {
+export function useEdit<DataType>(id: number) {
   const queryClient = useQueryClient()
 
   const mutation = useMutation({
-    mutationFn: async (data) => {
-      // include id in the api url to edit the item
-      return {
-        ok: true,
-        status: 200,
-        json: async () => ({
-          message: 'Fake fetch successful',
-          data: { id: 1, name: 'Test Item' },
-        }),
-        error: false,
-      }
+    mutationFn: async (data: DataType) => {
+      return fakeFetcher(data)
     },
     onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['boards'] })
       queryClient.invalidateQueries({ queryKey: ['board', id] })
     },
     onError: (error) => {

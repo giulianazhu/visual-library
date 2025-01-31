@@ -1,4 +1,3 @@
-import { useDelete } from 'features/image/hooks/useDelete'
 import { useStar } from 'features/image/hooks/useStar'
 import ImageListItem from 'features/image/ui/image-list-item'
 import useToast from 'shared/hooks/useToast'

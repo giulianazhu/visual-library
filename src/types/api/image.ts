@@ -1,7 +1,7 @@
 export interface ApiImage {
   id: number
-  boardId: number
-  tags: number[]
+  boardId: number[]
+  tags?: number[]
   url: string
   isFavourite: boolean
   title?: string
@@ -13,4 +13,7 @@ export interface ApiImage {
   modifiedAt?: string
 }
 
-export type ApiCreateImage = Omit<ApiImage, 'id' | 'createdAt' | 'modifiedAt'>
+export type ApiCreateImage = Omit<
+  ApiImage,
+  'id' | 'createdAt' | 'modifiedAt' | 'url' | 'isFavourite' | 'lastViewed' | 'lastPracticed'
+>

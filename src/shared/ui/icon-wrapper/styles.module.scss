@@ -13,4 +13,7 @@
   &:global(.large) {
     gap: 1em;
   }
+  &:global(.pointer) {
+    cursor: pointer;
+  }
 }

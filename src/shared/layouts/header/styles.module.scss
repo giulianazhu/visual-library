@@ -3,7 +3,7 @@
 
 .header {
   padding-inline: 30px;
-  box-shadow: variables.$box-shadow-x2-sm;
+  box-shadow: variables.$box-shadow-x2-md;
   @include mixins.breakpoint('size-md-down') {
     padding-inline: 10px 15px;
   }
