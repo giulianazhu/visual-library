@@ -12,8 +12,8 @@ import SkeletonList from 'shared/ui/skeleton-list'
 
 function SearchDelete() {
   const [deleteImages, setDeleteImages] = useState<number[]>([])
-
-  const { isPending: isSearching, data: images } = useSearch()
+  const { query, filters } = useSearchImage()
+  const { isPending: isSearching, data: images } = useSearch(query, filters)
   const { isPending: isDeleting, mutateAsync: mutateDelete } = useDelete()
   const { showSuccess, showError, contextHolder } = useToast()
 
