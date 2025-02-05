@@ -22,13 +22,13 @@
 }
 
 :global(.dark) .login-page {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/src/assets/login-bg.jpg');
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/login-bg.jpg');
   background-size: cover;
   background-position: center;
 }
 
 :global(.light) .login-page {
-  background: linear-gradient(rgba(255, 255, 255, 0.859), rgba(255, 255, 255, 0.5)), url('/src/assets/login-bg.jpg');
+  background: linear-gradient(rgba(255, 255, 255, 0.859), rgba(255, 255, 255, 0.5)), url('/assets/login-bg.jpg');
   background-size: cover;
   background-position: center;
 }

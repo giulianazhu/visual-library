@@ -38,7 +38,7 @@ function App() {
       <HelmetProvider>
         <Seo pageLabel="app.title">
           <IconContext.Provider value={{ className: 'react-icon' }}>
-            <ThemeProvider initialTheme={Theme.Light}>
+            <ThemeProvider initialTheme={Theme.Dark}>
               <ErrorBoundary FallbackComponent={Error}>
                 <AuthProvider>
                   <QueryClientProvider client={queryClient}>
