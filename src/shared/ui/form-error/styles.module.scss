@@ -1,0 +1,12 @@
+@use '/src/core/styles/variables';
+@use '/src/core/styles/mixins';
+
+.form-error {
+  font-size: 12px;
+  :global(.dark) & {
+    color: variables.$color-warning-dark;
+  }
+  :global(.light) & {
+    color: variables.$color-warning-light;
+  }
+}

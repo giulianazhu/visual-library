@@ -21,8 +21,6 @@ export default tseslint.config(
       ecmaVersion: 2020,
       globals: globals.browser,
       parserOptions: {
-        // points to the tsconfig.json files for specific typescript configurations
-        // project: ['./tsconfig.node.json', './tsconfig.app.json'],
         project: ['./tsconfig.app.json'],
         tsconfigRootDir: import.meta.dirname,
       },
@@ -65,7 +63,7 @@ export default tseslint.config(
       'check-file/filename-naming-convention': [
         'error',
         {
-          'src/**/*.{jsx, tsx}': 'PASCAL_CASE',
+          'src/**/*.{jsx, tsx}': ['PASCAL_CASE', 'CAMEL_CASE'],
           'src/**/*.{ts, js}': 'CAMEL_CASE',
           'src/**/*.{scss, module.scss}': 'KEBAB_CASE',
         },

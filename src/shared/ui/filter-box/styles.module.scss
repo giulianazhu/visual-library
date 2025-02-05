@@ -1,0 +1,21 @@
+@use '/src/core/styles/variables';
+@use '/src/core/styles/mixins';
+
+.filter-box {
+  font-size: 13px;
+  :global {
+    .ant-card,
+    .ant-card .ant-card-head-title {
+      font-size: 13px;
+    }
+    .ant-tag.reset {
+      border: none;
+      background-color: transparent;
+      color: grey;
+      cursor: pointer;
+    }
+    .reset-all span {
+      text-decoration: underline;
+    }
+  }
+}

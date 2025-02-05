@@ -1,48 +1,55 @@
 import { theme } from 'antd'
 import type { ThemeConfig } from 'antd/es/config-provider'
+import { commonThemeColors } from './common'
 
-const textColor = {
-  primary: '#F5F7F9',
+const colors = {
+  text: '#F5F7F9',
+  linkHover: '#ffd480',
+  bgPrimary: '#212529',
+  bgSecondary: '#2b303a',
+  bgTertiary: '#262a327d',
+  inputBorder: 'rgba(255,255,255, 0.12)',
 }
-
-const bgColor = {
-  primary: '#070F2B',
-  secondary: '#1B1A55',
-}
+export const darkThemeColors = colors
 
 export const darkTheme: ThemeConfig = {
   algorithm: theme.darkAlgorithm,
   token: {
-    colorTextHeading: textColor.primary,
-    colorText: textColor.primary,
-    colorTextBase: textColor.primary,
-    colorIcon: textColor.primary,
-    colorLink: textColor.primary,
-    colorBorder: textColor.primary,
+    colorTextHeading: colors.text,
+    colorText: colors.text,
+    colorTextBase: colors.text,
+    colorIcon: colors.text,
+    colorLink: colors.text,
+    colorBorder: colors.text,
   },
   components: {
     Layout: {
-      headerBg: bgColor.secondary,
+      headerBg: colors.bgSecondary,
       bodyBg: '#212529',
-      siderBg: bgColor.secondary,
+      siderBg: colors.bgSecondary,
       footerBg: '#212529',
     },
     Button: {
-      colorText: textColor.primary,
-      colorBorderSecondary: textColor.primary,
-      colorBorder: textColor.primary,
+      colorText: colors.text,
+      colorBorderSecondary: colors.text,
+      colorBorder: colors.text,
       colorBgContainer: '#212529',
       colorTextLightSolid: '#212529',
+      colorLinkHover: colors.linkHover,
     },
     Input: {
       colorBorder: 'rgba(255,255,255, 0.12)',
       colorBgContainer: '#212529',
       colorTextPlaceholder: 'rgba(255,255,255, 0.4)',
+      hoverBorderColor: commonThemeColors.primary,
+      activeBorderColor: commonThemeColors.primary,
     },
     InputNumber: {
       colorBorder: 'rgba(255,255,255, 0.12)',
       colorBgContainer: '#212529',
       colorTextPlaceholder: 'rgba(255,255,255, 0.4)',
+      hoverBorderColor: commonThemeColors.primary,
+      activeBorderColor: commonThemeColors.primary,
     },
     Select: {
       colorBorder: 'rgba(255,255,255, 0.12)',
@@ -50,6 +57,8 @@ export const darkTheme: ThemeConfig = {
       colorBgElevated: 'rgb(20, 18, 18)',
       controlItemBgActive: '#69491E',
       colorTextPlaceholder: 'rgba(255,255,255, 0.4)',
+      hoverBorderColor: commonThemeColors.primary,
+      activeBorderColor: commonThemeColors.primary,
     },
     Popover: {
       colorBgElevated: 'rgb(20, 18, 18)',
@@ -62,8 +71,7 @@ export const darkTheme: ThemeConfig = {
       colorSplit: 'rgba(25, 22, 22, 0.7)',
     },
     Card: {
-      // colorBgContainer: '#191616',
-      colorBgContainer: bgColor.secondary,
+      colorBgContainer: colors.bgTertiary,
     },
     Radio: {
       colorPrimary: '#F5A32C',
@@ -86,36 +94,7 @@ export const darkTheme: ThemeConfig = {
       colorFillAlter: '#343a40',
     },
     Pagination: {
-      colorBgContainer: bgColor.primary,
-    },
-    Tag: {
-      defaultColor: bgColor.primary,
-      colorBorder: bgColor.primary,
-    },
-    Switch: {
-      colorPrimary: bgColor.secondary,
-    },
-    Drawer: {
-      // colorBgContainer: bgColor.secondary,
-      // colorBgBase: bgColor.secondary,
-      // colorPrimary: bgColor.secondary,
-      // colorBgLayout: bgColor.secondary,
-      // color,
-      // colorBorderSecondary: bgColor.secondary,
-      // colorFillAlter: '#343a40',
-      // colorBgBase: '#343a40',
-      // colorBgContainer: '#343a40',
-      // colorFillContent: '#343a40',
-      // colorBgLayout: '#343a40',
-      // colorBorderBg: '#343a40',
-      // colorBgBlur: '#343a40',
-      // colorBorder: '#343a40',
-      // colorBgSolid: '#343a40',
-      // colorBorderSecondary: '#343a40',
-      // colorBgSpotlight: '#343a40',
-      // colorInfoBg: '#343a40',
-      // colorPrimaryBg: '#343a40',
-      // colorPrimary: '#343a40',
+      colorBgContainer: colors.bgPrimary,
     },
   },
 }

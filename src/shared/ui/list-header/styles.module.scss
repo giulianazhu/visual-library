@@ -1,0 +1,36 @@
+@use '/src/core/styles/variables';
+@use '/src/core/styles/mixins';
+
+.delete-checker {
+  :global {
+    .list-header {
+      // margin-block: 2em;
+      // margin-block: 1em;
+      padding: 1em;
+      justify-content: space-between;
+      align-items: center;
+      // border-block-start: 1px solid rgba(0, 0, 0, 0.186);
+    }
+    .placeholder-button {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .actions {
+      border-inline-start: 1px solid variables.$color-grey;
+      padding-inline: 8px;
+      cursor: pointer;
+      & .delete-btn {
+        color: variables.$color-contrast;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      & .cancel-btn {
+        color: variables.$color-grey;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

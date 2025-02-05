@@ -27,17 +27,29 @@ export const routes = {
     private: true,
     menu: () => i18next.t('board.board'),
   },
-  vision: {
-    key: 'vision',
-    url: `/board/${RoutePath.Detail}/vision/${RoutePath.SubDetail}`,
+  image: {
+    key: 'image',
+    url: `/board/${RoutePath.Detail}/image/${RoutePath.SubDetail}`,
     private: true,
-    menu: () => i18next.t('vision.vision'),
+    menu: () => i18next.t('image.image'),
   },
-  newVision: {
-    key: 'vision-new',
-    url: `/vision/${RoutePath.New}`,
+  practice: {
+    key: 'practice',
+    url: `/practice`,
     private: true,
-    menu: () => i18next.t('vision.new'),
+    menu: () => i18next.t('practice.practice'),
+  },
+  practiceStatus: {
+    key: 'practiceStatus',
+    url: `/practice/${RoutePath.Status}`,
+    private: true,
+    menu: () => i18next.t('practice.practice'),
+  },
+  user: {
+    key: 'user',
+    url: `/user/${RoutePath.Tab}`,
+    private: true,
+    menu: () => i18next.t('user.profile'),
   },
   settings: {
     key: 'settings',

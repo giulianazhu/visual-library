@@ -1,71 +1,51 @@
-// VARIABLES
-//////////////////////////////////////////////////////////////////////////
+// FONT
 $primary-font-family: 'Montserrat', 'sans-serif';
 
 // COLORS
-$primary-color: #eb832e;
-$primary-hover-color: #ff9c4bd9;
-$secondary-color: #040d26;
+$color-primary: #9290c3;
+// $color-primary: #90a0c3;
 
-$black-color: #000000;
-$white-color: #ffffff;
+// $color-hover-light: #3d42a4;
+$color-font-light: #4e4e50;
+$color-font-dark: #f5f7f9;
+$color-contrast: #ffd480;
+$color-bg-hover: #ffd480;
+$color-hover-light: #ffd480;
+$color-hover-dark: #ffd480;
+$color-input-border-light: rgba(0, 0, 0, 0.12);
+$color-input-border-dark: rgba(255, 255, 255, 0.12);
+$color-label-dark: #878a99;
+$color-label-light: #00000073;
+$color-warning-dark: #ffd480;
+$color-warning-light: #dd7214;
 
-$text-light-color: #ffffff;
-$text-dark-color: #212529;
+$color-black: #000000;
+$color-white: #ffffff;
+$color-grey: #868686;
+$color-grey-light: #868686;
+$color-grey-dark: #f5f7f9a8;
+$color-darker-grey: #8686863c;
+$color-lighter-grey: #d2d2d2;
 
-$grey-light-color: #6b87af;
-$grey-dark-color: #abbcc3;
-$darker-grey-color: #8686863c;
-$grey-color: #868686;
-$text-grey-color: #4e4e50;
-
-$emphasis-high-light-color: rgba($black-color, 0.88);
-$emphasis-medium-light-color: rgba($black-color, 0.64);
-$emphasis-small-light-color: rgba($black-color, 0.4);
-
-$emphasis-high-dark-color: rgba($white-color, 0.88);
-$emphasis-medium-dark-color: rgba($white-color, 0.64);
-$emphasis-small-dark-color: rgba($white-color, 0.4);
+// $text-light-color: #ffffff;
+// $text-dark-color: #212529;
 
 $theme-switch-day: #ffffff;
 $theme-switch-night: #212529;
 
-$bg-dark-primary: #212529;
-$bg-dark-secondary: #343a40;
-$bg-dark-tertiary: #262b2f;
-$bg-light-primary: #ffffff;
-$bg-light-secondary: #f5f7f9;
+$bg-primary-dark: #212529;
+$bg-secondary-dark: #2b303a;
+$bg-tertiary-dark: #262a327d;
+// $bg-primary-light: #ffffff;
+$bg-primary-light: #ffffff;
+// $bg-secondary-light: #d9eafd;
+$bg-secondary-light: #f2f8ff;
+$bg-tertiary-light: #f5f5f5;
 
-$info-text-light: #000000d9;
+// $border-color-light: rgba($color-black, 0.12);
+// $border-color-dark: rgba($color-white, 0.12);
 
-$bg-light-color: #ffffff;
-$bg-dark-color: #212529;
-
-$bg-darker-grey-color: #343a40;
-$bg-lighter-grey-color: #f5f7f9;
-
-$border-light-color: rgba($black-color, 0.12);
-$border-dark-color: rgba($white-color, 0.12);
-
-$red-light-color: #b01f24;
-$red-dark-color: #d1252b;
-
-$secondary-light-border-color: #ced4da;
-$secondary-dark-border-color: #f5f7f9;
-
-$input-border-color: #9d9d9d48;
-$placeholder-color: #868686;
-
-$card-border-color-light: rgba(245, 247, 249, 1);
-$card-bg-color-light: rgba(250, 251, 252, 1);
-
-$layout-shadow-light: 0px 4px 17px 0px rgba(0, 0, 0, 0.1);
-$layout-shadow-dark: 0px 4px 17px 0px rgba(0, 0, 0, 0.2);
-$layout-border-light: 1px solid #e9ebec;
-
-$label-light-color: #00000073;
-$label-dark-color: #878a99;
-
+// SPACING
 // BREAKPOINTS
 $size-xs: 480px;
 $size-sm: 576px;
@@ -75,8 +55,7 @@ $size-xl: 1200px;
 $size-xxl: 1600px;
 
 // HEADER HEIGHT
-$header-lg: 96px;
-$header-sm: 80px;
+$header-height: 80px;
 
 // BOX SHADOWS
 $box-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);

@@ -2,58 +2,26 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
+body {
+  &.light {
+    color: variables.$color-font-light;
+  }
+  &.dark {
+    color: variables.$color-font-dark;
+  }
+}
+
 body,
 #root {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
-
-  .ant-layout {
-    height: 100%;
-  }
-
-  .app-layout {
-    min-height: 100vh;
-  }
-
-  .app-layout .app-content {
-    position: relative;
-    height: calc(100vh - variables.$header-lg);
-    overflow: auto;
-    &::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-      background-color: #0c0a0b;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background: linear-gradient(14.93deg, #868686 -42.27%, #eb832e 95.89%);
-      height: 500px;
-      border-radius: 4px;
-    }
-  }
-
-  .app-content-flex {
-    min-height: 100svh;
-    height: 100%;
-  }
-
-  .page-content {
-    padding: 1rem 1.5em;
-  }
+  height: 100vh;
 
   .ant-layout-footer {
     padding-block-start: 5em;
     padding-block-end: 1em;
     font-size: 0.8rem;
-  }
-
-  .app-container {
-    width: 100%;
-    padding: 16px;
-    max-width: 1200px;
-    margin: 0 auto;
   }
 
   .rounded-style {
@@ -78,25 +46,55 @@ body {
     border-bottom: 0;
   }
 
-  &.light {
+  .ant-table-body {
+    //required for overriding default ant table body scrollbar
+    scrollbar-width: auto;
+    scrollbar-color: auto;
+  }
+
+  .app-layout .app-content,
+  .ant-drawer-body,
+  .ant-table-body,
+  textarea,
+  * {
+    &::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: linear-gradient(14.93deg, #868686 -42.27%, variables.$color-primary 95.89%);
+      border-radius: 4px;
+    }
+  }
+
+  .app-layout .app-content {
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+  }
+
+  &.light,
+  &.light .app-layout .app-content,
+  &.light .ant-table-body,
+  &.light textarea,
+  &.light * {
     &::-webkit-scrollbar-track {
       background: variables.$theme-switch-day;
     }
 
     &::-webkit-scrollbar-thumb {
-      background-color: variables.$theme-switch-night;
-      border-color: variables.$theme-switch-day;
+      background: linear-gradient(14.93deg, white -42.27%, variables.$color-primary 95.89%);
     }
   }
 
-  &.dark {
+  &.dark,
+  &.dark .app-layout .app-content,
+  &.dark .ant-table-body,
+  &.dark textarea,
+  &.dark * {
     &::-webkit-scrollbar-track {
       background: variables.$theme-switch-night;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background-color: variables.$theme-switch-day;
-      border-color: variables.$theme-switch-night;
     }
   }
 }

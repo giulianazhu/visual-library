@@ -1,5 +1,6 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import {{pascalCase name}} from './{{pascalCase name}}'
 
 
 describe.skip('Controller API Integration', () => {
@@ -16,17 +17,17 @@ describe.skip('Controller API Integration', () => {
     mockFn.mockRestore()
   })
 
-  //it('handles user interaction and trigger state changes', async () => {
-  //  const user = userEvent.setup();
-  //  render(<{{pascalCase name}} />);
-  //
-  //  const input = screen.getByPlaceholderText(/enter value/i); // Replace placeholder with actual text
-  //  await user.type(input, 'New Value');
-  //  expect(input).toHaveValue('New Value');
+  it('handles user interaction and trigger state changes', async () => {
+    const user = userEvent.setup();
+    render(<{{pascalCase name}} />);
 
-   // const button = screen.getByRole('button', { name: /submit/i }); // Replace with actual button name
-   // await user.click(button);
+    const input = screen.getByPlaceholderText(/enter value/i); // Replace placeholder with actual text
+    await user.type(input, 'New Value');
+    expect(input).toHaveValue('New Value');
 
-  //  expect(screen.getByText(/success/i)).toBeInTheDocument(); // Replace with actual success message
-  //});
+    const button = screen.getByRole('button', { name: /submit/i }); // Replace with actual button name
+    await user.click(button);
+
+    expect(screen.getByText(/success/i)).toBeInTheDocument(); // Replace with actual success message
+  });
 });

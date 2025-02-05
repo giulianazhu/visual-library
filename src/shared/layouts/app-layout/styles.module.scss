@@ -1,0 +1,18 @@
+@use '/src/core/styles/variables';
+@use '/src/core/styles/mixins';
+
+.app-layout {
+  min-height: 100vh;
+  max-height: 100vh;
+  width: 100vw;
+  :global {
+    .outlet-container {
+      height: 100vh;
+      position: relative;
+      overflow-y: auto;
+      @include mixins.breakpoint('size-md-down') {
+        padding: 30px;
+      }
+    }
+  }
+}

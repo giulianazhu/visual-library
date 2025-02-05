@@ -1,11 +1,6 @@
-import i18next from 'i18next'
+import { getLocalStorageUser } from 'features/user/helpers'
 
-export function getUserLanguage(): string {
-  const lng = i18next.language || import.meta.env.VITE_LOCALE
-  return lng
-}
-
-export function setUserLanguage(lng: string): string {
-  i18next.changeLanguage(lng)
+export function getLanguage(): string {
+  const lng = getLocalStorageUser()?.preferredLanguage || import.meta.env.VITE_LOCALE
   return lng
 }

@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import '@styles/index.scss'
+import 'core/styles/index.scss'
 import App from './App.tsx'
 import initLanguage from 'core/locale/i18n.js'
 // initializing i18n

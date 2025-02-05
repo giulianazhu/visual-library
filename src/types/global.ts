@@ -44,8 +44,3 @@ export interface JsonObject {
 export interface KeyValue {
   [key: string]: string | number | boolean
 }
-
-// export type AuthenticationTokens = {
-//   refreshToken: string
-//   token: string
-// }

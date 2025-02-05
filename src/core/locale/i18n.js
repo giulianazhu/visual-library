@@ -2,17 +2,18 @@ import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
 import Backend from 'i18next-http-backend'
 import LanguageDetector from 'i18next-browser-languagedetector'
-import api from '@configs/api'
-import { getUserLanguage } from '@helpers/localizationHelper'
+import api from 'core/configs/api'
+import { getLanguage } from 'core/helpers/localizationHelper'
+import { getLocalStorageUser } from 'features/user/helpers'
 
 const backendOptionsLocal = {
   //develop branch code
-  // loadPath: apis.getLocalLabels(getUserLanguage), //for now using local labels.json
-  loadPath: api.getLocalLabels('en'),
+  loadPath: api.getLocalLabels('{{lng}}'), //'{{lng}}' allow dynamic language loading
   allowMultiLoading: false,
   crossDomain: false,
   withCredentials: false,
   overrideMimeType: false,
+
   requestOptions: {
     // used for fetch, can also be a function (payload) => ({ method: 'GET' })
     mode: 'cors',
@@ -37,9 +38,9 @@ async function initLanguage() {
     // init i18next
     // for all options read: https://www.i18next.com/overview/configuration-options
     .init({
-      fallbackLng: 'en',
+      fallbackLng: getLocalStorageUser()?.language || 'en',
       debug: true,
-      supportedLngs: ['en', 'cn', 'jp'],
+      supportedLngs: ['en', 'it', 'cn', 'jp'],
       backend: backendOptionsLocal,
       interpolation: {
         escapeValue: false, // not needed for react as it escapes by default

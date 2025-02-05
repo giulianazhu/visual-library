@@ -1,0 +1,17 @@
+@use '/src/core/styles/variables';
+@use '/src/core/styles/mixins';
+
+.switcher {
+  &:global(.ant-switch) {
+    background-color: variables.$color-primary;
+    &:hover {
+      background-color: #4a4966;
+    }
+    &:global(.ant-switch-checked) {
+      background-color: variables.$color-primary;
+      &:hover {
+        background-color: variables.$color-contrast;
+      }
+    }
+  }
+}

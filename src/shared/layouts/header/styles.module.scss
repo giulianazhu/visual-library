@@ -1,0 +1,17 @@
+@use '/src/core/styles/variables';
+@use '/src/core/styles/mixins';
+
+.header {
+  padding-inline: 30px;
+  box-shadow: variables.$box-shadow-x2-md;
+  @include mixins.breakpoint('size-md-down') {
+    padding-inline: 10px 15px;
+  }
+  :global {
+    .app-title {
+      @include mixins.breakpoint('size-md-down') {
+        display: none;
+      }
+    }
+  }
+}
