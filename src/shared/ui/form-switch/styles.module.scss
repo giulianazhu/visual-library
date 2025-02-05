@@ -1,0 +1,17 @@
+@use '/src/core/styles/variables';
+@use '/src/core/styles/mixins';
+
+@use '~/app/styles/_variables';
+@use '~/app/styles/_mixins';
+
+:global {
+  .ant-switch.ant-switch-checked {
+    background-color: variables.$primary-color;
+  }
+
+  .ant-switch .ant-switch-inner span.ant-switch-inner-checked,
+  .ant-switch .ant-switch-inner span.ant-switch-inner-unchecked {
+    display: flex;
+    align-items: center;
+  }
+}

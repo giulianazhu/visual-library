@@ -3,20 +3,22 @@ import userEvent from '@testing-library/user-event'
 import {{pascalCase name}} from './{{pascalCase name}}'
 
 
-describe('{{pascalCase name}} Component', () => {
+describe.skip('{{pascalCase name}} Component', () => {
 
   it('renders correctly', () => {
     render(<{{pascalCase name}} prop="string" />)
     const el = screen.getByText('')
-    expect(el).toBeInTheDocument()
+     expect(el).toBeInTheDocument()
   })
 
-  // it('handles user interaction', async () => {
+   it('handles user interaction', async () => {
+    const handleEvent = vi.fn()
+    render(<{{pascalCase name}} prop="string" />)
 
   // const handleEvent = vi.fn()
   // render(<{{pascalCase name}} prop="string" />)
 
    // await userEvent.click(screen.getByText('Click Me'))
    // expect(handleEvent).toHaveBeenCalledTimes(1)
-  //})
+  })
 })

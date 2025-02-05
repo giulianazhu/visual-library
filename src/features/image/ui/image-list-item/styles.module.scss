@@ -1,0 +1,50 @@
+@use '/src/core/styles/variables';
+@use '/src/core/styles/mixins';
+
+.image-list-item {
+  flex: 1 0 200px;
+  padding: 10px;
+  position: relative;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: variables.$box-shadow-x2-lg;
+
+  :global {
+    .image-container {
+      height: 200px;
+      width: 100%;
+      overflow: hidden;
+      opacity: 1;
+      transition: all 0.2s ease-out;
+      &:hover {
+        scale: 1.02;
+        transition: all 0.3s ease-out;
+        opacity: 0.5;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 8px;
+        &:nth-child(1) {
+          grid-column: span 2;
+        }
+      }
+    }
+
+    .image-actions {
+      position: absolute;
+      right: 10px;
+      padding: 5px 10px;
+      z-index: 20;
+    }
+  }
+
+  :global(.dark) & {
+    background-color: variables.$bg-tertiary-dark;
+  }
+  :global(.light) & {
+    background-color: variables.$bg-tertiary-light;
+  }
+}

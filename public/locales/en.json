@@ -1,5 +1,124 @@
 {
-  "translation": {
-    "welcome": "Welcome back"
+  "general": {
+    "title": "Title",
+    "description": "Description",
+    "tags": "Tags",
+    "pageUnderConstruction": "Page under construction",
+    "featureUnderConstruction": "Feature under construction",
+    "mockUnavailable": "Mock feature unavailable",
+    "loading": "Loading...",
+    "sortBy": {
+      "random": "Random",
+      "activeFirst": "Most active first",
+      "activeLast": "Least active first"
+    }
+  },
+  "app": {
+    "title": "Visual Library",
+    "welcome": "Welcome to the Visual Library",
+    "desc": "Platform for managing Visual Resources for Artists and Photographers"
+  },
+  "auth": {
+    "login": "Login",
+    "signup": "Sign up",
+    "logout": "Logout",
+    "username": "Username",
+    "password": "Password",
+    "forgotPassword": "Forgot password?",
+    "resetPassword": "Reset password",
+    "newPassword": "New password"
+  },
+  "user": {
+    "account": "Account",
+    "avatar": "Avatar",
+    "email": "Email",
+    "nickname": "Nickname",
+    "phone": "Phone",
+    "profile": "Profile",
+    "username": "Username"
+  },
+  "dashboard": {
+    "dashboard": "Dashboard"
+  },
+  "board": {
+    "board": "Board",
+    "boards": "Boards",
+    "create": "Create new board",
+    "edit": "Edit board",
+    "delete": "Delete board",
+    "items": "Items"
+  },
+  "image": {
+    "image": "Image",
+    "add": "Add new image",
+    "edit": "Edit image",
+    "delete": "Delete image",
+    "notes": "Notes"
+  },
+  "practice": {
+    "practice": "Practice",
+    "number": "Number",
+    "duration": "Duration",
+    "pause": "Pause",
+    "isTimed": "Timed"
+  },
+  "settings": {
+    "settings": "Settings"
+  },
+  "placeholder": {
+    "search": "Search...",
+    "searchBoard": "Search board by title or description...",
+    "searchImage": "Search image by title or description...",
+    "select": "Select"
+  },
+  "warning": {
+    "required": "Required field",
+    "invalid": "Invalid field",
+    "requiredOrInvalid": "Required or invalid field",
+    "formMsg": "Please fill out the required or invalid fields correctly."
+  },
+  "action": {
+    "add": "Add",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "create": "Create",
+    "delete": "Delete",
+    "deleteAll": "Delete all",
+    "edit": "Edit",
+    "hide": "Hide",
+    "next": "Next",
+    "prev": "Prev",
+    "save": "Save",
+    "selectAll": "Select all",
+    "showMore": "Show more",
+    "start": "Start"
+  },
+  "search": {
+    "search": "Search",
+    "advancedFilters": "Advanced filters",
+    "filterByTags": "Filter by tags",
+    "sortBy": "Sort by",
+    "sortByRecency": "Sort by recency",
+    "sortByActivity": "Sort by activity",
+    "applyFilters": "Apply filters",
+    "reset": "Reset",
+    "resetAll": "Reset all",
+    "results": "Results",
+    "showResults": "Show {{desc}} results"
+  },
+  "help": {
+    "help": "Help"
+  },
+  "toast": {
+    "success": {
+      "msg": "Operation successful"
+    },
+    "error": {
+      "msg": "Operation failed"
+    }
+  },
+  "error": {
+    "title": "Error",
+    "desc": "Something went wrong. Please try again later."
   }
 }

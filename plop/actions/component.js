@@ -25,11 +25,11 @@ const actions = ({ isShared }) => {
       templateFile: `${templatePath}/component.tsx.hbs`,
       path: `${outputPath}/{{pascalCase name}}.tsx`,
     },
-    {
-      type: 'add',
-      templateFile: `${templatePath}/component.test.tsx.hbs`,
-      path: `${outputPath}/{{pascalCase name}}.test.tsx`,
-    },
+    // {
+    //   type: 'add',
+    //   templateFile: `${templatePath}/component.test.tsx.hbs`,
+    //   path: `${outputPath}/{{pascalCase name}}.test.tsx`,
+    // },
   ].filter(Boolean)
   return actions
 }

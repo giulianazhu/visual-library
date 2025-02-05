@@ -1,33 +1,37 @@
 import { theme } from 'antd'
 import type { ThemeConfig } from 'antd/es/config-provider'
+import { commonThemeColors } from './common'
 
-// 9AA6B2,BCCCDC
-const borderColor = '#ced4da'
-
-const bgColor = {
-  primary: '#F8FAFC',
-  secondary: '#D9EAFD',
+const colors = {
+  text: '#4E4E50',
+  infoText: '#000000d9',
+  linkHover: '#f4b538',
+  // linkHover: '#5f5f5f',
+  border: '#ced4da',
+  inputBorder: 'rgba(0,0,0, 0.12)',
+  bgPrimary: '#FFFFFF',
+  // bgSecondary: '#D9EAFD',
+  // bgSecondary: '#f2f8ff',
+  bgSecondary: '#f5f5f5',
+  bgTertiary: '#f5f5f5',
 }
-
-const textColor = {
-  info: '#000000d9;',
-}
+export const lightThemeColors = colors
 
 export const lightTheme: ThemeConfig = {
   algorithm: theme.defaultAlgorithm,
   token: {
-    colorTextHeading: '#4E4E50',
-    colorText: '#4E4E50',
-    colorTextBase: '#4E4E50',
-    colorIcon: '#4E4E50',
-    colorLink: '#4E4E50',
+    colorTextHeading: colors.text,
+    colorText: colors.text,
+    colorTextBase: colors.text,
+    colorIcon: colors.text,
+    colorLink: colors.text,
   },
   components: {
     Layout: {
-      headerBg: bgColor.secondary,
-      bodyBg: bgColor.primary,
-      siderBg: bgColor.secondary,
-      footerBg: bgColor.primary,
+      headerBg: colors.bgSecondary,
+      bodyBg: colors.bgPrimary,
+      siderBg: colors.bgSecondary,
+      footerBg: colors.bgPrimary,
     },
     Tabs: {
       colorPrimary: '#F5A32C',
@@ -37,41 +41,51 @@ export const lightTheme: ThemeConfig = {
       colorText: '#343A40',
       colorBgContainer: '#ffffff',
       colorTextLightSolid: '#ffffff',
-      defaultBorderColor: borderColor,
+      defaultBorderColor: colors.border,
+      colorLinkHover: colors.linkHover,
+      colorBgSolidHover: 'red',
     },
     Radio: {
       colorBgContainer: 'rgba(0, 0, 0, 0.08)',
-      colorText: textColor.info,
+      colorText: colors.infoText,
     },
     Input: {
       colorBorder: 'rgba(0,0,0, 0.12)',
       colorBgContainer: '#ffffff',
       colorTextPlaceholder: 'rgba(0,0,0, 0.4)',
-      colorText: textColor.info,
+      colorText: colors.infoText,
+      hoverBorderColor: commonThemeColors.primary,
+      activeBorderColor: commonThemeColors.primary,
     },
     InputNumber: {
       colorBorder: 'rgba(0,0,0, 0.12)',
       colorBgContainer: '#ffffff',
       colorTextPlaceholder: 'rgba(0,0,0, 0.4)',
-      colorText: textColor.info,
+      colorText: colors.infoText,
+      hoverBorderColor: commonThemeColors.primary,
+      activeBorderColor: commonThemeColors.primary,
     },
     Select: {
       colorBorder: 'rgba(0,0,0, 0.12)',
       colorBgContainer: '#ffffff',
       controlItemBgActive: '#FCDEB3',
       colorTextPlaceholder: 'rgba(0,0,0, 0.4)',
-      colorText: textColor.info,
+      colorText: colors.infoText,
+      hoverBorderColor: commonThemeColors.primary,
+      activeBorderColor: commonThemeColors.primary,
     },
     DatePicker: {
       colorBorder: 'rgba(0,0,0, 0.12)',
       colorBgContainer: '#ffffff',
       colorTextPlaceholder: 'rgba(0,0,0, 0.4)',
-      colorText: textColor.info,
+      colorText: colors.infoText,
+      hoverBorderColor: commonThemeColors.primary,
+      activeBorderColor: commonThemeColors.primary,
     },
     Checkbox: {
       colorBorder: 'rgba(0,0,0, 0.12)',
       colorBgContainer: '#ffffff',
-      colorText: textColor.info,
+      colorText: colors.infoText,
     },
     Table: {
       colorBorderSecondary: 'rgba(0,0,0, 0.08)',
@@ -79,14 +93,13 @@ export const lightTheme: ThemeConfig = {
       colorFillAlter: 'rgb(242,242,242)',
     },
     Pagination: {
-      colorBgContainer: bgColor.primary,
-    },
-    Tag: {
-      defaultColor: bgColor.primary,
-      colorBorder: bgColor.primary,
+      colorBgContainer: colors.bgPrimary,
     },
     Switch: {
-      colorPrimary: 'grey',
+      colorPrimary: commonThemeColors.primary,
+    },
+    Card: {
+      colorBgContainer: colors.bgTertiary,
     },
   },
 }

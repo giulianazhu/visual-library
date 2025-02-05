@@ -17,4 +17,22 @@ export enum RoutePath {
   SubDetail = ':subId',
   New = 'new',
   Tab = ':tab/:action?',
+  Status = ':status',
+}
+
+export enum PracticeStatus {
+  Settings = 'settings',
+  Start = 'start',
+}
+
+export enum UserTab {
+  Account = 'account',
+  Profile = 'profile',
+  Settings = 'settings',
+}
+
+export enum SortBy {
+  Random = 'random',
+  ActiveFirst = 'active',
+  ActiveLast = 'inactive',
 }

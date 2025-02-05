@@ -1,0 +1,124 @@
+{
+  "general": {
+    "title": "Titolo",
+    "description": "Descrizione",
+    "tags": "Tag",
+    "pageUnderConstruction": "Pagina in costruzione",
+    "featureUnderConstruction": "Funzionalità in costruzione",
+    "mockUnavailable": "Funzionalità mock non disponibile",
+    "loading": "Caricamento...",
+    "sortBy": {
+      "random": "Casuale",
+      "activeFirst": "Più attivi",
+      "activeLast": "Meno attivi"
+    }
+  },
+  "app": {
+    "title": "Visual Library",
+    "welcome": "Benvenuto nella Visual Library",
+    "desc": "Piattaforma per la gestione delle risorse visive per artisti e fotografi"
+  },
+  "auth": {
+    "login": "Accedi",
+    "signup": "Registrati",
+    "logout": "Esci",
+    "username": "Nome utente",
+    "password": "Password",
+    "forgotPassword": "Password dimenticata?",
+    "resetPassword": "Reimposta password",
+    "newPassword": "Nuova password"
+  },
+  "user": {
+    "account": "Account",
+    "avatar": "Avatar",
+    "email": "Email",
+    "nickname": "Soprannome",
+    "phone": "Telefono",
+    "profile": "Profilo",
+    "username": "Nome utente"
+  },
+  "dashboard": {
+    "dashboard": "Dashboard"
+  },
+  "board": {
+    "board": "Bacheca",
+    "boards": "Bacheche",
+    "create": "Crea nuova bacheca",
+    "edit": "Modifica bacheca",
+    "delete": "Elimina bacheca",
+    "items": "Elementi"
+  },
+  "image": {
+    "image": "Immagine",
+    "add": "Aggiungi nuova immagine",
+    "edit": "Modifica immagine",
+    "delete": "Elimina immagine",
+    "notes": "Note"
+  },
+  "practice": {
+    "practice": "Esercizio",
+    "number": "Numero",
+    "duration": "Durata",
+    "pause": "Pausa",
+    "isTimed": "A tempo"
+  },
+  "settings": {
+    "settings": "Impostazioni"
+  },
+  "placeholder": {
+    "search": "Cerca...",
+    "searchBoard": "Cerca bacheca per titolo o descrizione...",
+    "searchImage": "Cerca immagine per titolo o descrizione...",
+    "select": "Seleziona"
+  },
+  "warning": {
+    "required": "Campo obbligatorio",
+    "invalid": "Campo non valido",
+    "requiredOrInvalid": "Campo obbligatorio o non valido",
+    "formMsg": "Compila correttamente i campi obbligatori o non validi."
+  },
+  "action": {
+    "add": "Aggiungi",
+    "cancel": "Annulla",
+    "confirm": "Conferma",
+    "create": "Crea",
+    "delete": "Elimina",
+    "deleteAll": "Elimina tutto",
+    "edit": "Modifica",
+    "hide": "Nascondi",
+    "next": "Avanti",
+    "prev": "Indietro",
+    "save": "Salva",
+    "selectAll": "Seleziona tutto",
+    "showMore": "Mostra di più",
+    "start": "Avvia"
+  },
+  "search": {
+    "search": "Cerca",
+    "advancedFilters": "Filtri avanzati",
+    "filterByTags": "Filtra per tag",
+    "sortBy": "Ordina per",
+    "sortByRecency": "Ordina per data",
+    "sortByActivity": "Ordina per attività",
+    "applyFilters": "Applica filtri",
+    "reset": "Reimposta",
+    "resetAll": "Reimposta tutto",
+    "results": "Risultati",
+    "showResults": "Mostra {{desc}} risultati"
+  },
+  "help": {
+    "help": "Aiuto"
+  },
+  "toast": {
+    "success": {
+      "msg": "Operazione riuscita"
+    },
+    "error": {
+      "msg": "Operazione fallita"
+    }
+  },
+  "error": {
+    "title": "Errore",
+    "desc": "Qualcosa è andato storto. Riprova più tardi."
+  }
+}

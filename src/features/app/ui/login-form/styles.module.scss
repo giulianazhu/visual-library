@@ -1,0 +1,19 @@
+@use '/src/core/styles/variables';
+@use '/src/core/styles/mixins';
+
+.login-form {
+  height: 350px;
+  width: 300px;
+  padding: 2em;
+  border-radius: 8px;
+}
+
+:global(.dark) .login-form {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.299);
+}
+
+:global(.light) .login-form {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.634);
+}
