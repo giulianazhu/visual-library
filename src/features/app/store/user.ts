@@ -15,7 +15,7 @@ const initialStore: UserStore = {
     nickname: '',
     tags: getLocalStorageUser()?.tags || [],
     boards: getLocalStorageUser()?.boards || [],
-    preferredLanguage: 'en',
+    preferredLanguage: getLocalStorageUser()?.preferredLanguage || 'en',
     preferredTheme: '',
   },
   setUser: () => {},

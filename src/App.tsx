@@ -11,6 +11,8 @@ import Seo from 'shared/ui/seo'
 import { HelmetProvider } from 'react-helmet-async'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import Error from 'pages/error'
+import AuthProvider from 'core/providers/auth'
 
 const Login = lazy(() => import('pages/login'))
 
@@ -37,27 +39,27 @@ function App() {
         <Seo pageLabel="app.title">
           <IconContext.Provider value={{ className: 'react-icon' }}>
             <ThemeProvider initialTheme={Theme.Light}>
-              <ErrorBoundary fallback={<div>Error</div>}>
-                {/* <AuthProvider> */}
-                <QueryClientProvider client={queryClient}>
-                  <ReactQueryDevtools initialIsOpen={false} />
-                  <Routes>
-                    {/* <ProtectedRoutes> */}
-                    <Route path="/" element={<AppLayout />}>
-                      <Route index element={<Navigate replace to="dashboard" />} />
-                      <Route path={routes.dashboard.url} element={<Dashboard />} />
-                      <Route path={routes.board.url} element={<Board />} />
-                      {/* <Route path={routes.boardNew.url} element={<Create />} /> */}
-                      <Route path={routes.image.url} element={<Image />} />
-                      <Route path={routes.practiceStatus.url} element={<Practice />} />
-                      <Route path={routes.user.url} element={<User />} />
-                      <Route path={routes.help.url} element={<Help />} />
-                    </Route>
-                    <Route path={routes.login.url} element={<Login />} />
-                  </Routes>
-                </QueryClientProvider>
-                {/* </ProtectedRoutes> */}
-                {/* </AuthProvider> */}
+              <ErrorBoundary FallbackComponent={Error}>
+                <AuthProvider>
+                  <QueryClientProvider client={queryClient}>
+                    <ReactQueryDevtools initialIsOpen={false} />
+                    <Routes>
+                      {/* <ProtectedRoutes> */}
+                      <Route path="/" element={<AppLayout />}>
+                        <Route index element={<Navigate replace to="dashboard" />} />
+                        <Route path={routes.dashboard.url} element={<Dashboard />} />
+                        <Route path={routes.board.url} element={<Board />} />
+                        {/* <Route path={routes.boardNew.url} element={<Create />} /> */}
+                        <Route path={routes.image.url} element={<Image />} />
+                        <Route path={routes.practiceStatus.url} element={<Practice />} />
+                        <Route path={routes.user.url} element={<User />} />
+                        <Route path={routes.help.url} element={<Help />} />
+                      </Route>
+                      <Route path={routes.login.url} element={<Login />} />
+                    </Routes>
+                  </QueryClientProvider>
+                  {/* </ProtectedRoutes> */}
+                </AuthProvider>
               </ErrorBoundary>
             </ThemeProvider>
           </IconContext.Provider>

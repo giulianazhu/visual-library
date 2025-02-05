@@ -12,12 +12,9 @@ function Login() {
         <div className="switcher">
           <ThemeSwitcher />
         </div>
-        <Flex vertical className="h-100" align="center">
-          <Typography.Title level={2} className="py-20">
-            {t('app.welcome')}
-          </Typography.Title>
+        <Flex vertical align="center" justify="center" className="h-100 py-20">
+          <Typography.Title level={2}>{t('app.welcome')}</Typography.Title>
           <Typography.Text className="pb-40">{t('app.desc')}</Typography.Text>
-
           <LoginUser />
         </Flex>
       </Layout.Content>

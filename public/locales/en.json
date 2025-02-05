@@ -116,5 +116,9 @@
     "error": {
       "msg": "Operation failed"
     }
+  },
+  "error": {
+    "title": "Error",
+    "desc": "Something went wrong. Please try again later."
   }
 }

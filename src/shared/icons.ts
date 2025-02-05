@@ -32,7 +32,14 @@ import { SlSettings } from 'react-icons/sl'
 import { HiOutlinePlus, HiOutlineDocumentReport } from 'react-icons/hi'
 import { TbFileExport, TbFilterSearch, TbListDetails, TbWorld } from 'react-icons/tb'
 import { PiNotePencil } from 'react-icons/pi'
-import { MdLockOutline, MdModeEdit, MdOutlineConstruction, MdOutlineEmail, MdOutlinePhone } from 'react-icons/md'
+import {
+  MdLockOutline,
+  MdLogout,
+  MdModeEdit,
+  MdOutlineConstruction,
+  MdOutlineEmail,
+  MdOutlinePhone,
+} from 'react-icons/md'
 import { AiOutlineCopyright, AiOutlineHistory, AiOutlineShop } from 'react-icons/ai'
 import { LuCircleHelp, LuClock } from 'react-icons/lu'
 import { BiExport } from 'react-icons/bi'
@@ -54,6 +61,7 @@ const icons = {
   CopyIcon: FaRegCopy,
   FileExportIcon: TbFileExport,
   SettingIcon: SlSettings,
+  LogoutIcon: MdLogout,
 
   //   direction
   ArrowCircleIcon: IoIosArrowDropleftCircle,
@@ -175,4 +183,5 @@ export const {
   DoubleArrowIcon,
   HelpIcon,
   HomeIcon,
+  LogoutIcon,
 } = icons

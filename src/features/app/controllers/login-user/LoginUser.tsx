@@ -1,8 +1,10 @@
 import { yupResolver } from '@hookform/resolvers/yup'
+import { saveTokens } from 'core/helpers/authHelper'
 import useLogin from 'features/app/hooks/useLogin'
 import useUserStore from 'features/app/store/user'
 import LoginForm from 'features/app/ui/login-form'
 import { getLocalStorageUser, setLocalStorageUser } from 'features/user/helpers'
+import { mapToUserTokens } from 'mappers/user'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router'
@@ -18,7 +20,13 @@ function LoginUser() {
   const { isPending: isAuthenticating, mutateAsync: mutatePost } = useLogin()
   const { showError, contextHolder } = useToast()
   const { setUser } = useUserStore((state) => state)
-  const form = useForm({ resolver: yupResolver(loginSchema) })
+  const form = useForm({
+    resolver: yupResolver(loginSchema),
+    defaultValues: {
+      username: 'guest@gmail.com',
+      password: 'guestpassword',
+    },
+  })
   const navigate = useNavigate()
 
   const loadUser = async (userId: number) => {
@@ -46,6 +54,7 @@ function LoginUser() {
     setIsBootstrapping(true)
     await bootstrap(res.data.id)
     setIsBootstrapping(false)
+    saveTokens(mapToUserTokens(res.data))
     navigate('/dashboard')
   }
 

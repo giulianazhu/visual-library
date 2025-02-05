@@ -1,15 +1,17 @@
 import { Avatar, Button, Dropdown, Flex, Layout, MenuProps, Space, Typography } from 'antd'
-import { NavLink } from 'react-router'
+import { NavLink, useNavigate } from 'react-router'
 import style from './styles.module.scss'
 import { useTranslation } from 'react-i18next'
 import routes from 'core/configs/routes'
 import ThemeSwitcher from 'shared/ui/theme-switcher'
-import { HelpIcon, SettingIcon, UserIcon } from 'shared/icons'
+import { HelpIcon, LogoutIcon, SettingIcon, UserIcon } from 'shared/icons'
 import { PracticeStatus, RoutePath, UserTab } from 'types/enums'
 import LanguageSwitcher from 'features/app/ui/language-switcher'
+import { clearUser } from 'core/helpers/authHelper'
 
 function Header() {
   const { t } = useTranslation()
+  const navigate = useNavigate()
 
   const accountItems: MenuProps['items'] = [
     {
@@ -38,6 +40,15 @@ function Header() {
           <HelpIcon size={20} />
         </NavLink>
       ),
+    },
+    {
+      key: '4',
+      label: t('auth.logout'),
+      icon: <LogoutIcon size={20} />,
+      onClick: () => {
+        clearUser()
+        navigate(routes.login.url)
+      },
     },
   ]
 

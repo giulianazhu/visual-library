@@ -16,7 +16,6 @@ export type FormInputProps<
   disabled?: boolean
   placeholder?: string
   type?: string
-  value?: string | number
 }
 
 function FormInput<TFieldValues extends FieldValues, TName extends FieldPath<TFieldValues>>({
@@ -25,7 +24,6 @@ function FormInput<TFieldValues extends FieldValues, TName extends FieldPath<TFi
   disabled = false,
   placeholder = '',
   type = 'text',
-  value = '',
 }: FormInputProps<TFieldValues, TName>) {
   const {
     field,
@@ -42,6 +40,11 @@ function FormInput<TFieldValues extends FieldValues, TName extends FieldPath<TFi
     }
   }
 
+  const handleNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const parsedValue = parseInt(e.target.value)
+    field.onChange(isNaN(parsedValue) || !parsedValue ? 0 : parsedValue)
+  }
+
   return (
     <>
       {type === 'text' && (
@@ -51,6 +54,16 @@ function FormInput<TFieldValues extends FieldValues, TName extends FieldPath<TFi
           disabled={disabled}
           placeholder={placeholder}
           value={field.value}
+          ref={field.ref}
+        />
+      )}
+      {type === 'number' && (
+        <Input
+          onChange={handleNumberChange}
+          id={name}
+          disabled={disabled}
+          placeholder={placeholder}
+          value={field.value ? field.value + '' : '0'}
           ref={field.ref}
         />
       )}

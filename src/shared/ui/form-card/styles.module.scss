@@ -19,7 +19,9 @@
     .sub-card {
       border-radius: 8px;
       padding: 16px;
-      box-shadow: variables.$box-shadow-x2-sm;
+      margin-block-start: 24px;
+      box-shadow: variables.$box-shadow-sm;
+      // background-color: black;
     }
   }
   :global(.dark) & {

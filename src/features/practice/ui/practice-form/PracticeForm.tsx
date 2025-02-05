@@ -63,8 +63,8 @@ function PracticeForm({ onSubmit, form, isSubmitting }: PracticeFormProps) {
             />
           </FormRow>
           <FormRow>
-            <Col span={6}>
-              <FormLabel htmlFor="isTimed">{t('practice.isTimed')}</FormLabel>
+            <FormLabel htmlFor="isTimed">{t('practice.isTimed')}</FormLabel>
+            <Col span={3}>
               <Switch value={settings.timed} onChange={(val) => setSettings({ timed: val })} />
             </Col>
           </FormRow>

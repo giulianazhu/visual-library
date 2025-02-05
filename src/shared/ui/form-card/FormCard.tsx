@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next'
 import style from './styles.module.scss'
 
 function FormCard({ children }: React.PropsWithChildren) {

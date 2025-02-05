@@ -116,5 +116,9 @@
     "error": {
       "msg": "Operazione fallita"
     }
+  },
+  "error": {
+    "title": "Errore",
+    "desc": "Qualcosa è andato storto. Riprova più tardi."
   }
 }

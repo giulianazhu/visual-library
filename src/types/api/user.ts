@@ -20,3 +20,14 @@ export interface ApiUserBoard {
   id: number
   name: string
 }
+
+export interface ApiUserTokens {
+  id: number
+  jwt: AuthenticationTokens
+}
+
+export interface AuthenticationTokens {
+  refreshToken: string
+  token: string
+  expiresIn: number
+}
