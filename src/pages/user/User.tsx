@@ -1,8 +1,6 @@
 import { useEffect } from 'react'
-import { useParams } from 'react-router'
-import { useState } from 'react'
-import type { RadioChangeEvent, TabsProps } from 'antd'
-import { Radio, Space, Tabs } from 'antd'
+import type { TabsProps } from 'antd'
+import { Tabs } from 'antd'
 import { UserTab } from 'types/enums'
 import IconWrapper from 'shared/ui/icon-wrapper'
 import { SettingIcon, UserIcon } from 'shared/icons'
@@ -13,7 +11,6 @@ import Seo from 'shared/ui/seo'
 
 function User() {
   const { t } = useTranslation()
-  const activeTab = useParams().tab
   const loadUser = async () => {
     //load user
     return

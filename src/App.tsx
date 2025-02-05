@@ -10,7 +10,7 @@ import AppLayout from 'shared/layouts/app-layout/AppLayout'
 import Seo from 'shared/ui/seo'
 import { HelmetProvider } from 'react-helmet-async'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+
 import Error from 'pages/error'
 import AuthProvider from 'core/providers/auth'
 
@@ -42,7 +42,6 @@ function App() {
               <ErrorBoundary FallbackComponent={Error}>
                 <AuthProvider>
                   <QueryClientProvider client={queryClient}>
-                    <ReactQueryDevtools initialIsOpen={false} />
                     <Routes>
                       {/* <ProtectedRoutes> */}
                       <Route path="/" element={<AppLayout />}>
