@@ -36,3 +36,15 @@ export enum SortBy {
   ActiveFirst = 'active',
   ActiveLast = 'inactive',
 }
+
+export enum TestId {
+  InfoIcon = 'info-icon',
+  AddIcon = 'add-icon',
+  EditPenIcon = 'edit-pen-icon',
+  EditNoteIcon = 'edit-note-icon',
+  DeleteIcon = 'delete-icon',
+  LoadIcon = 'load-icon',
+  ExportIcon = 'export-icon',
+  CloseIcon = 'close-icon',
+  LogoutIcon = 'logout-icon',
+}

@@ -48,20 +48,31 @@ import { BsBell } from 'react-icons/bs'
 import { RxDoubleArrowUp, RxHamburgerMenu } from 'react-icons/rx'
 import LoadSpinIcon from './ui/load-spin-icon'
 import { CiPause1, CiPlay1 } from 'react-icons/ci'
+import {
+  CustomAddIcon,
+  CustomDeleteIcon,
+  CustomEditNoteIcon,
+  CustomEditPenIcon,
+  CustomExportIcon,
+  CustomEyeIcon,
+  CustomLogoutIcon,
+  CustomLoaderIcon,
+} from 'shared/ui/custom-icons/CustomIcons'
 
 const icons = {
-  LoadIcon: LoadSpinIcon,
-  AddIcon: HiOutlinePlus,
-  EyeIcon: IoEyeOutline,
+  // actions
+  LoadIcon: CustomLoaderIcon,
+  AddIcon: CustomAddIcon,
+  EyeIcon: CustomEyeIcon,
   SearchIcon: IoIosSearch,
-  EditPenIcon: MdModeEdit,
-  EditNoteIcon: PiNotePencil,
-  ExportIcon: BiExport,
-  DeleteIcon: RiDeleteBin7Fill,
+  EditPenIcon: CustomEditPenIcon,
+  EditNoteIcon: CustomEditNoteIcon,
+  ExportIcon: CustomExportIcon,
+  DeleteIcon: CustomDeleteIcon,
   CopyIcon: FaRegCopy,
   FileExportIcon: TbFileExport,
   SettingIcon: SlSettings,
-  LogoutIcon: MdLogout,
+  LogoutIcon: CustomLogoutIcon,
 
   //   direction
   ArrowCircleIcon: IoIosArrowDropleftCircle,
