@@ -7,7 +7,7 @@ import { StoreApi, UseBoundStore } from 'zustand'
 import FormDrawer from '../form-drawer'
 import { SearchStore } from 'types/store/common'
 
-interface SearcherProps<T extends SearchStore> {
+export interface SearcherProps<T extends SearchStore> {
   placeholderLabel?: string
   useSearchContext: UseBoundStore<StoreApi<T>>
 }

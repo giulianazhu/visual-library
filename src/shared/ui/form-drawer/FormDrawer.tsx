@@ -55,6 +55,7 @@ function FormDrawer({ open, setOpen, title, customDrawerButton, children }: Form
         width={500}
         placement={placement}
         height="100%"
+        data-testid="form-drawer"
       >
         {children}
       </Drawer>

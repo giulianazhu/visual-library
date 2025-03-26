@@ -32,6 +32,7 @@
 
     /* Paths */
     "paths": {
+      "public/*": ["./public/*"],
       "core/*": ["./src/core/*"],
       "shared/*": ["./src/shared/*"],
       "pages/*": ["./src/pages/*"],
