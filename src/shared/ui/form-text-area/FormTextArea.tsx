@@ -30,7 +30,7 @@ function FormTextArea<TFieldValues extends FieldValues, TName extends FieldPath<
   } = useController({
     name,
     control,
-    rules: { required: true },
+    defaultValue: '' as FieldPathValue<TFieldValues, TName>,
   })
 
   return (
