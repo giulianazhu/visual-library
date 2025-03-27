@@ -3,12 +3,12 @@ import style from './styles.module.scss'
 import { Button, Card, Flex, Radio, Slider, Tag } from 'antd'
 import { CloseIcon } from 'shared/icons'
 import { StoreApi, UseBoundStore } from 'zustand'
-import { SortBy } from 'types/enums'
+import { SortBy, TestId } from 'types/enums'
 import useUserStore from 'features/app/store/user'
 import { useState } from 'react'
 import { SearchStore } from 'types/store/common'
 
-interface FilterBoxProps<T extends SearchStore> {
+export interface FilterBoxProps<T extends SearchStore> {
   setOpen: (open: boolean) => void
   useSearchContext: UseBoundStore<StoreApi<T>>
 }
