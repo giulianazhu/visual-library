@@ -18,6 +18,11 @@ function FilterBox<T extends SearchStore>({ setOpen, useSearchContext }: FilterB
   const { tags: userTags } = useUserStore((state) => state.user)
   const { filters, setFilters, setResetFilters } = useSearchContext()
 
+  const options = [
+    { label: t('general.sortBy.activeFirst'), value: SortBy.ActiveFirst },
+    { label: t('general.sortBy.activeLast'), value: SortBy.ActiveLast },
+  ]
+
   const [tags, setTags] = useState<number[]>(filters.tags)
   const [sortBy, setSortBy] = useState(filters.sortBy)
   const [limit, setLimit] = useState(filters.limit)
@@ -35,10 +40,11 @@ function FilterBox<T extends SearchStore>({ setOpen, useSearchContext }: FilterB
     setOpen(false)
   }
 
-  const options = [
-    { label: t('general.sortBy.activeFirst'), value: SortBy.ActiveFirst },
-    { label: t('general.sortBy.activeLast'), value: SortBy.ActiveLast },
-  ]
+  const handleResetFilters = () => {
+    setTags([])
+    setSortBy(SortBy.ActiveFirst)
+    setLimit(20)
+  }
 
   return (
     <Flex vertical gap="large" className={style['filter-box']}>
@@ -80,7 +86,7 @@ function FilterBox<T extends SearchStore>({ setOpen, useSearchContext }: FilterB
       </Card>
       <Flex vertical gap="small">
         <Button onClick={handleApplyFilters}>{t('search.applyFilters')}</Button>
-        <Button className="reset-all" type="link" onClick={setResetFilters}>
+        <Button className="reset-all" type="link" onClick={handleResetFilters}>
           {t('search.resetAll')}
         </Button>
       </Flex>

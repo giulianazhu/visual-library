@@ -71,13 +71,18 @@ describe('FilterBox', () => {
     //check sortbylast
     const sortByLast = screen.getByText('general.sortBy.activeLast')
     await userEvent.click(sortByLast)
-    expect(sortByLast).toHaveClass('ant-radio-button-checked')
+
+    //coz of ant design reasons, the asserting method is a lil bit peculiar
+    const sortByLastLabel = document.querySelector('label.ant-radio-button-wrapper-checked')
+    const checkedButton = document.querySelector('.ant-radio-button-checked')
+    expect(sortByLastLabel).toContain(sortByLast)
+    expect(sortByLastLabel).toContain(checkedButton)
 
     //reset all filters
     const resetAllfilters = screen.getByText('search.resetAll')
     await userEvent.click(resetAllfilters)
     expect(tag1).not.toHaveClass('ant-tag-checkable-checked')
-    expect(sortByLast).not.toHaveClass('ant-radio-button-checked')
+    expect(sortByLast).not.toHaveClass('ant-radio-button-wrapper-checked')
   })
 
   it('close the filterbox after applying filters', async () => {
