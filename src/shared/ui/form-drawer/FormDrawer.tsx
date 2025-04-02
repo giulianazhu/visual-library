@@ -5,7 +5,7 @@ import { AddIcon } from 'shared/icons'
 import { useEffect, useState } from 'react'
 import style from './styles.module.scss'
 
-interface FormDrawerProps extends React.PropsWithChildren {
+export interface FormDrawerProps extends React.PropsWithChildren {
   open: boolean
   setOpen: (open: boolean) => void
   title?: string
