@@ -39,6 +39,7 @@ function FilterBox<T extends SearchStore>({ setOpen, useSearchContext }: FilterB
     { label: t('general.sortBy.activeFirst'), value: SortBy.ActiveFirst },
     { label: t('general.sortBy.activeLast'), value: SortBy.ActiveLast },
   ]
+
   return (
     <Flex vertical gap="large" className={style['filter-box']}>
       <Card title={t('search.filterByTags')}>
